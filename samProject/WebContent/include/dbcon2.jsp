@@ -10,7 +10,7 @@
      <%@page import="java.util.Date"%>
 
  <!--  db 서버 연결을 위한 인클루드용 파일 -->
- 2
+ 
  <% 
 	String id = "scott";
 	String pass = "1234";  //1521  오라클 전용 포트번호 / orcl - apple 아님

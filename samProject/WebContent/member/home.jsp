@@ -9,32 +9,32 @@
 <style>
 /* #5483b1 */
 #hbutton {
-   border-top-right-radius:5px; 
-   border-bottom-right-radius:5px; 
-   margin-left:-3px;
+	border-top-right-radius:5px; 
+	border-bottom-right-radius:5px; 
+	margin-left:-3px;
 
 }
 
 #hdiv button {
-   border:1px solid #5483b1;
-   background-color: rgba(0,0,0,0);
-   color:#5483b1;
-   padding:5px;
-   border-radius: 12px;
-   width:120px;
-   height:50px;
-   float:right;
-   margin-left:10px;
-   
+	border:1px solid #5483b1;
+	background-color: rgba(0,0,0,0);
+	color:#5483b1;
+	padding:5px;
+	border-radius: 12px;
+	width:120px;
+	height:50px;
+	float:right;
+	margin-left:10px;
+	
 }
 
 #hdiv button:hover{
-   color:white; 
-   background-color:#5483b1; 
+	color:white; 
+	background-color:#5483b1; 
 }
 
 .hdiv1 {
-   
+	
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -94,7 +94,7 @@ ul, ol {
 
 
 <body> 
-<header style="background-color:#2d3246;height:100px;">
+<header style="background-color:#2d3246;height:100px;width:1898px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
