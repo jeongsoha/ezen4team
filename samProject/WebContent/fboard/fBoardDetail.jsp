@@ -1,5 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ include file = "../include/dbcon2.jsp" %>    
+
+<%
+String bunq = request.getParameter("bunq");
+
+String sql = " UPDATE pboard SET hit = hit+1 "  // 조회수 증가 
+		+ " WHERE bunq = '"+bunq+"' ";
+
+	stmt.executeUpdate(sql);
+
+ sql = " SELECT userid,title,content,sdate,hit "   //디테일 출력 
+		   + " FROM pboard "
+		   + " WHERE bunq='"+bunq+"' ";
+ResultSet rs = stmt.executeQuery(sql);
+rs.next();
+
+String userid = rs.getString("userid");
+String title = rs.getString("title");
+String content = rs.getString("content");
+String sdate = rs.getString("sdate");
+String hit = rs.getString("hit");
+
+
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +61,7 @@
 }
 
 .hdiv1 {
-	
+
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -86,6 +113,19 @@ ul, ol {
     visibility: hidden;
     transition: .22s ease;
 }
+
+   .table1 {
+      	width:600px;
+      	border:1px solid #555555;
+      	border-collapse:collapse;
+      }
+      
+      .td1{
+      	border:1px solid #555555;
+      	padding:5px;
+      }
+      
+      
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -95,49 +135,91 @@ ul, ol {
 
 <body> 
 <header style="background-color:#2d3246;height:100px;width:1898px;">
-   <div style="float:left;margin-left:100px;">
-      <img style="width:250px;height:90px;" src="../images/logo.JPG">
-   </div>
-   <br>
-   <br>
-   <div id="hdiv" style="margin-right:100px;">
-      <button id="hbutton">회원가입</button> 
-      <button id="hbutton">로그인</button> 
-      <button id="hbutton">회사소개</button> 
-      <button id="hbutton">커뮤니티</button> 
-      <button id="hbutton">제품소개</button> 
-      <button id="hbutton">홈</button> 
-   </div>
+	<div style="float:left;margin-left:100px;">
+		<img style="width:250px;height:90px;" src="../images/logo.JPG">
+	</div>
+	<br>
+	<br>
+	<div id="hdiv" style="margin-right:100px;">
+		<button id="hbutton">회원가입</button> 
+		<button id="hbutton">로그인</button> 
+		<button id="hbutton">회사소개</button> 
+		<button id="hbutton">커뮤니티</button> 
+		<button id="hbutton">제품소개</button> 
+		<button id="hbutton">홈</button> 
+	</div>
 </header>
 
 <section>
+<br>
+<br>
+<h1 style="text-align:center;">자유게시판</h1>
+<br>
+<br>
+<br>
+<form name="frm" method="post" action="fBoardSave.jsp">
+	<div align="center">
+<table style="margin-left:0px;">
+         <tr align="left">
+               <td>글쓴이</td>
+               <td width="150px" class="td1"><%=userid %></td>
+               <td>작성일</td>
+               <td width="200px" class="td1"><%=sdate %></td>
+               <td>조회수</td>
+               <td width="100px" class="td1"><%=hit %></td>
+            </tr>
+</table>
+
+
+<table style="border-collapse: separate; border-spacing: 0 10px;">
+   <tr>
+      <td>제목</td>
+   </tr>
+   
+   <tr>
+   	  <td><%=title %></td>
+   </tr>
+   
+   <tr>
+      <td>내용</td>
+   </tr>
+   <tr>
+      <td><textarea name="content" style="width:600px;height:300px;"><%=content %></textarea></td>
+   </tr>
+
+
+</table>
 
 
 
+	<table>
+	<tr>
+		<td><input type="submit" value="등록" style="width:100px;"></td>
+		<td><input type="reset" value="취소" style="width:100px;color:#fdfde9;"></td>
+	</tr>
+	</table>
+	</div>
+</form>
 
+
+
+<br>
+<br>
+<br>
+<br>
 
 </section>
-<br>
-<br>
-<br>
-<br>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<footer class="section footer-classic context-dark bg-image" style="background: #aabacc;">
+
+<footer class="section footer-classic context-dark bg-image" style="background: #aabacc;width:1898px;">
         <div class="container">
           <div class="row row-30">
             <div class="col-md-4 col-xl-5">
               <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
                 <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
                 <!-- Rights-->
-                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
               </div>
             </div>
             <div class="col-md-4">
@@ -175,6 +257,6 @@ ul, ol {
           <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
         </div>
       </footer>
-   
+	
 </body>
 </html>
