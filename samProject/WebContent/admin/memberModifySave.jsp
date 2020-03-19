@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
       
-      
+     
      <%@ include file="..\\include\\dbcon2.jsp" %>
+    
+    
+    
+    
+    
+    <!-- 
+    <------! 파일명만 만들었음 !--> -->
+    
+    
     
     <%    
     
@@ -23,7 +32,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리</title>
+<title>회원정보 수정</title>
 </head>
 
    <link rel="stylesheet" type="text/css" href="../css/adminlayout.css">
@@ -64,8 +73,8 @@
 					<th>흥미</th>
 					<th>가입일시</th>
 					<th>회원상태</th>
-					<th>회원정보</th>
-					
+					<th>수정</th>
+					<th>삭제</th>
 				</tr> 
 
 				<%
@@ -100,8 +109,8 @@
 					<td><%=inter %></td>
 					<td><%=flog %></td>
 					<td><%=state %></td>
-					<td><a href="memberModify.jsp?memno=<%=memno%>">수정</a></td>  <!-- 수정화면 전환 -->
-				
+					<td><a href="<%=request.getRequestURL()%>membermodify.jsp?memno=<%=memno%>">수정</a></td>  <!-- 자기자신 -->
+					<td><a href="cateSave.jsp?code=<%=memno%>&gubun=D">삭제</td>
 				</tr>
 	<%	
 	number++;
