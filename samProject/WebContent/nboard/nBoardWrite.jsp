@@ -1,5 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ include file = "../include/dbcon2.jsp" %>
+
+<%
+String userid1 = (String) session.getAttribute("SessionUserId");
+if(userid1 == null || "".equals("userid1")) {
+%>   
+	<script>
+	alert("로그인을 해주세요");
+	location = "../main/main.jsp";
+	</script>
+<%
+}
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,6 +103,26 @@ ul, ol {
     transition: .22s ease;
 }
 
+function fn_WriteInsert(){
+      /* 데이터 유효성  체크 */
+      var f = document.frm;
+      
+      if( f.title.value=="" ){
+         alert("제목를 입력해주세요.");
+         f.title.focus();
+         return false;  // 자바스크립트 중단!
+      }
+      
+      
+      if( f.content.value=="" ){
+         alert("내용을 입력해주세요.");
+         f.content.focus();
+         return false;  // 자바스크립트 중단!
+      }
+   
+      f.submit();
+   }
+
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -154,7 +190,7 @@ ul, ol {
                    <option value="2">비공개</option>
                 </select> &nbsp;&nbsp;
                 
-             <input type="button" value="등록" onClick="location='nBoardWriteSave.jsp'"style="width:100px;">
+             <input type="button" value="등록" onClick="fn_writelocation='nBoardWriteSave.jsp'"style="width:100px;">
              <input type="button" value="취소" onClick="location='nBoardList.jsp'" style="width:100px; ">
           </th>
        </tr>
