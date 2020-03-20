@@ -5,7 +5,10 @@
     
 <%
 
-String userid1 = (String) session.getAttribute("SessionUserId"); 
+String userid1 = (String) session.getAttribute("sessionUserid"); 
+
+
+
 
 String sql = " SELECT "
 	       + 	" bunq , "
@@ -47,11 +50,13 @@ function fn_Write(){
 	
 	var f = document.frm;
 	
-	if( <%=userid1%> != null ) {
-		location="fBoardWrite.jsp";
+	var user = "<%=userid1%>";
+	//alert(user);
+	if( user != "null" && user != null && user != "") {
+		location = "../fboard/fBoardWrite.jsp";
 	}else{
 		alert("로그인을 해주세요");
-		location="fBaordWrite.jsp";
+		location ="../main/home.jsp";
 	}
 		f.submit();
 }
@@ -59,7 +64,7 @@ function fn_Write(){
 </script>
 
 <body> 
-
+<%out.print(userid1); %>
 <%@ include file = "../include/header.jsp" %>
 
 <section>
@@ -75,7 +80,7 @@ function fn_Write(){
 <table align="center" style="margin-right:899px;border-collapse: separate;border-spacing:0 10px;">
 
 	<tr>
-		<td><input type="button" value="공지사항" OnClick="location='nBoardList.jsp'" style="width:100px;"></td>
+		<td><input type="button" value="공지사항" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
 		<td><input type="button" value="자유게시판" OnClick="location='fBoardList.jsp'" style="width:100px;"></td>
 	</tr>
 	

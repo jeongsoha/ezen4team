@@ -4,7 +4,7 @@
 <%@ include file = "../include/dbcon2.jsp" %>
 
 <%
-String userid1 = (String) session.getAttribute("SessionUserId"); 
+String userid1 = (String) session.getAttribute("sessionUserid"); 
 
 if( userid1 == null && "".equals(userid1) ) {
 %>
