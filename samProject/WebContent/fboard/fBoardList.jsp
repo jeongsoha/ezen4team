@@ -4,6 +4,9 @@
 <%@ include file = "../include/dbcon2.jsp" %>    
     
 <%
+
+String userid1 = (String) session.getAttribute("SessionUserId"); 
+
 String sql = " SELECT "
 	       + 	" bunq , "
 		   + 	" title , "
@@ -37,6 +40,23 @@ ResultSet rs = stmt.executeQuery(sql);
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="../css/menu_footer.css">
+
+<script>
+
+function fn_Write(){
+	
+	var f = document.frm;
+	
+	if( <%=userid1%> != null ) {
+		location="fBoardWrite.jsp";
+	}else{
+		alert("로그인을 해주세요");
+		location="fBaordWrite.jsp";
+	}
+		f.submit();
+}
+
+</script>
 
 <body> 
 
@@ -94,7 +114,7 @@ ResultSet rs = stmt.executeQuery(sql);
       		
     <table align="center" style="margin-left:1003px; border-collapse:separate; border-spacing:0 10px;">
 	<tr>
-		<td><input type="button" value="글쓰기" onClick="location='fBoardWrite.jsp'" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
+		<td><input type="button" value="글쓰기" onClick="fn_Write(); return false;" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
 	</tr>
 	</table>
 <br>

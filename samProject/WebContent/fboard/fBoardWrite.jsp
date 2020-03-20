@@ -15,6 +15,8 @@
 
 <script>
 
+function fn_Write();
+
 </script>
 
 <body> 
@@ -50,8 +52,8 @@
 	
 	<table style="margin-left:400px;">
 	<tr>
-		<td><input type="submit" value="등록" style="width:100px;"></td>
-		<td><input type="reset" value="취소" style="width:100px;color:#fdfde9;"></td>
+		<td><input type="submit" value="등록" onClick="fn_(); return false;" style="width:100px;"></td>
+		<td><input type="button" value="취소" onClick="location='fBoardList.jsp'" style="width:100px;color:#fdfde9;"></td>
 	</tr>
 	</table>
 </form>

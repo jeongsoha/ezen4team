@@ -5,12 +5,14 @@
 
 <%
 
+String userid1 = (String) session.getAttribute("SessionUserId");
+
 String title = request.getParameter("title");
 String content = request.getParameter("content");
 
 String sql = " INSERT INTO pboard(bunq,userid,title,content,sdate) "
 		   + " VALUES ( bunq_seq.NEXTVAL , "
-		   + " 'userid' , "
+		   + " '"+userid1+"' , "
 		   + " '"+title+"' , "
 		   + " '"+content+"' , "
 		   + " sysdate ) ";
