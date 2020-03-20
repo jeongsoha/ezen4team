@@ -1,40 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 홈</title>
+<title>회원가입</title>
 </head>
 <style>
 /* #5483b1 */
 #hbutton {
-	border-top-right-radius:5px; 
-	border-bottom-right-radius:5px; 
-	margin-left:-3px;
+   border-top-right-radius:5px; 
+   border-bottom-right-radius:5px; 
+   margin-left:-3px;
 
 }
 
 #hdiv button {
-	border:1px solid #5483b1;
-	background-color: rgba(0,0,0,0);
-	color:#5483b1;
-	padding:5px;
-	border-radius: 12px;
-	width:120px;
-	height:50px;
-	float:right;
-	margin-left:10px;
-	
+   border:1px solid #5483b1;
+   background-color: rgba(0,0,0,0);
+   color:#5483b1;
+   padding:5px;
+   border-radius: 7px; //
+   width:70px;  //
+   height:50px;
+   float:right;
+   margin-left:10px;
+   
 }
 
 #hdiv button:hover{
-	color:white; 
-	background-color:#5483b1; 
+   color:white; 
+   background-color:#5483b1; 
 }
 
 .hdiv1 {
-	
+   
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -86,6 +88,17 @@ ul, ol {
     visibility: hidden;
     transition: .22s ease;
 }
+
+.mtd {
+height:30px;
+}
+
+.textBox1 {
+height:40px;
+width:100%;
+}
+
+
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -94,7 +107,7 @@ ul, ol {
 
 
 <body> 
-<header style="background-color:#2d3246;height:100px;width:1898px;">
+<header style="background-color:#2d3246;height:100px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
@@ -113,9 +126,29 @@ ul, ol {
 <section>
 
 
-
-
-
+  <div class="container">
+  
+        
+   <form name="frm" method="post" action="loginsub.jsp">
+   
+   <div >
+   <input type="text" name="userid" placeholder="아이디를 입력하세요.">
+   
+      </div>
+   <div >
+   <input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
+   
+      </div>
+   <tr>
+      <th  >
+         <input type="submit"  value="로그인" 
+               onclick="fn_memberSubmit(); return false;">
+         <input type="reset"value="취소" onclick="home.jsp">
+      </th>
+   </tr>
+</form>
+      </div>
+      
 </section>
 <br>
 <br>
