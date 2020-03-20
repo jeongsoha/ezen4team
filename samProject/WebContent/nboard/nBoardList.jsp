@@ -5,7 +5,7 @@
     
 <%
 
-String userid1 = (String) session.getAttribute("SessionUserId");
+String userid1 = (String) session.getAttribute("sessionUserId");
 
 String sql = " SELECT "
           +    " bunq , "
@@ -25,7 +25,7 @@ ResultSet rs = stmt.executeQuery(sql);
 function fn_write() {
 	var f = document.frm;
 	
-	if(<%=userid1%> == null ){
+	if(<%=userid1%> == null || "".equals("userid1")){
 		alert("로그인을 해주세요.");
 	} else{
 		location='nBoardWrite.jsp';
@@ -163,8 +163,8 @@ ul, ol {
 <table align="center" style="margin-right:700px; border-collapse: separate;border-spacing:0 10px;">
 
    <tr>
-      <td><input type="button" value="공지사항" OnClick="location='nBoardList.jsp'" style="width:100px;"></td>
-      <td><input type="button" value="자유게시판" OnClick="location='fBoardList.jsp'" style="width:100px;"></td>
+      <td><input type="button" value="공지사항" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
+      <td><input type="button" value="자유게시판" OnClick="location='../fboard/fBoardList.jsp'" style="width:100px;"></td>
    </tr>
    
    </table>

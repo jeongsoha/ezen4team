@@ -4,17 +4,22 @@
 <%@ include file = "../include/dbcon2.jsp" %>
 
 <%
-String userid1 = (String) session.getAttribute("SessionUserId");
-if(userid1 == null || "".equals("userid1")) {
+String userid1 = (String) session.getAttribute("sessionUserId");
 %>   
-	<script>
-	alert("로그인을 해주세요");
-	location = "../main/main.jsp";
-	</script>
-<%
-}
-%>
 
+<script>
+function fn_write() {
+	var f = document.frm;
+	
+	if(<%=userid1%> == null ){
+		alert("로그인을 해주세요.");
+		location="../main/home.jsp";
+	} else{
+		location='nBoardWriteSave.jsp';
+	}
+	f.submit();
+}
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -190,7 +195,7 @@ function fn_WriteInsert(){
                    <option value="2">비공개</option>
                 </select> &nbsp;&nbsp;
                 
-             <input type="button" value="등록" onClick="fn_writelocation='nBoardWriteSave.jsp'"style="width:100px;">
+             <input type="button" value="등록" onClick="fn_write();" style="width:100px;">
              <input type="button" value="취소" onClick="location='nBoardList.jsp'" style="width:100px; ">
           </th>
        </tr>
