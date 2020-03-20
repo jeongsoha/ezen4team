@@ -17,16 +17,24 @@
 
 <script>
 
-function movein() {
+function moveIn() {
 	location = "../member/login.jsp";
 }
 
-function moveout() {
+function moveOut() {
 	location = "../member/logoutsub.jsp";
 }
 
-function moveboard() {
+function movefBoard() {
 	location = "../fboard/fBoardList.jsp";
+}
+
+function moveHome() {
+	location = "../main/home.jsp";
+}
+
+function moveUp() {
+	location = "../member/memberWrite.jsp";
 }
 
 </script>
@@ -35,7 +43,7 @@ function moveboard() {
 <body>
 
 
-<header style="background-color:#2d3246;height:100px;width:1898px;">
+<header style="background-color:#2d3246;height:100px;width:1298px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
@@ -46,22 +54,22 @@ function moveboard() {
       <% if( sessionUserid == null){
     	  %> 
   
-      <button id="hbutton">회원가입</button> 
-      <button id="hbutton" onclick="movein()">로그인</button> 
+      <button id="hbutton" onclick="moveUp()">회원가입</button> 
+      <button id="hbutton" onclick="moveIn()">로그인</button> 
       
       <%
        } else {
       %>
             
       <button id="hbutton">회원정보수정</button> 
-      <button id="hbutton" onclick="moveout()">로그아웃</button> 
+      <button id="hbutton" onclick="moveOut()">로그아웃</button> 
       
        <% } %>
    
       <button id="hbutton">회사소개</button> 
-      <button id="hbutton" onclick="moveboard()">커뮤니티</button> 
+      <button id="hbutton" onclick="movefBoard()">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
-      <button id="hbutton">홈</button> 
+      <button id="hbutton" onclick="moveHome()">홈</button> 
    </div>
 </header>
 
