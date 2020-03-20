@@ -48,6 +48,6 @@ session.setMaxInactiveInterval(60*60); // 지속시간설정 초*분 = 1시간 �
 <script>
 // jsp 변수는 쌍따옴표 안에 써야해
 alert("<%=userid%> 님 로그인 되었습니다.");
-location = "home.jsp";
+location = "../main/home.jsp";
 </script>
 

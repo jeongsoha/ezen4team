@@ -114,14 +114,20 @@ clear : both;
 
 function movein() {
 	
-	location = "login.jsp";
+	location = "../member/login.jsp";
 	
 }
 
 
 function moveout() {
 
-	location = "logoutsub.jsp";
+	location = "../member/logoutsub.jsp";
+	
+}
+
+function moveboard() {
+
+	location = "../fboard/fBoardList.jsp";
 	
 }
 
@@ -153,7 +159,7 @@ function moveout() {
        <% } %>
    
       <button id="hbutton">회사소개</button> 
-      <button id="hbutton">커뮤니티</button> 
+      <button id="hbutton" onclick="moveboard()">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
       <button id="hbutton">홈</button> 
    </div>
