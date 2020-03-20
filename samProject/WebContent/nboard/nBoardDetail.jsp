@@ -6,13 +6,13 @@
 <%
 String bunq = request.getParameter("bunq");
 
-String sql = " UPDATE nboard SET hit = hit+1 "  // 조회수 증가 
+String sql = " UPDATE pboard SET hit = hit+1 "  
 		+ " WHERE bunq = '"+bunq+"' ";
 
 	stmt.executeUpdate(sql);
 
  sql = " SELECT userid,title,content,to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') sdate,hit "  
-		   + " FROM nboard "
+		   + " FROM pboard "
 		   + " WHERE bunq='"+bunq+"' ";
 ResultSet rs = stmt.executeQuery(sql);
 rs.next();
@@ -61,7 +61,7 @@ String hit = rs.getString("hit");
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">자유게시판</h1>
+<h1 style="text-align:center;">공지사항</h1>
 <br>
 <br>
 <br>
@@ -104,7 +104,7 @@ String hit = rs.getString("hit");
 
 	<table>
 	<tr>
-		<td><input type="submit" value="수정" style="width:100px;"></td>
+		<td><input type="submit" value="수정" onClick="location='nBoardList.jsp'" style="width:100px;"></td>
 		<td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='fBoardDelete.jsp?bunq=<%=bunq%>'"></td>
 	</tr>
 	</table>

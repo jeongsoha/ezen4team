@@ -83,9 +83,9 @@ function fn_Write(){
 	
 	<table class="table1" align="center">
       		<tr align="center">
-      			<th width="8%" class="td1">번호</th>
+      			<th width="8%" class="td1"></th>
       			<th width="60%" class="td1">제목</th>
-      			<th width="15%" class="td1">글쓴이</th>
+      			<th width="15%" class="td1">작성자</th>
       			<th width="10%" class="td1">작성일</th>
       			<th width="5%" class="td1">조회수</th>
       		</tr>

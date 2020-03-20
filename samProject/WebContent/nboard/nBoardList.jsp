@@ -25,15 +25,15 @@ ResultSet rs = stmt.executeQuery(sql);
 function fn_write() {
 	var f = document.frm;
 	
-	if(<%=userid1%> == null || "".equals("userid1")){
+	if(<%=userid1 %> == null || "".equals("userid1")){
 		alert("로그인을 해주세요.");
 	} else{
 		location='nBoardWrite.jsp';
 	}
 	f.submit();
 }
-
 </script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,7 +155,7 @@ ul, ol {
       <td><input type="button" value="자유게시판" OnClick="location='../fboard/fBoardList.jsp'" style="width:100px;"></td>
    </tr>
    
-   </table>
+</table>
    
    <table class="table1" align="center" style="width:900px;" bgcolor="#ffffff">
             <tr align="center">
