@@ -97,6 +97,56 @@ height:30px;
 height:40px;
 width:100%;
 }
+ .container{
+  
+     width:500px;
+     height:400px;
+     text-align:center;
+     margin:0 auto;
+     margin-top:130px;
+  
+  }
+  input[type="text"],input[type="pwd"]{
+  
+     height:30px;
+     width:250px;
+     font-size:18px;
+     margin-bottom:20px;
+     background-color:#ffffff;
+     padding-left:20px;
+  }
+  
+  
+  .logbutton{
+     
+     border-radius:20px
+     border:none;
+     border-bottom:4px solid #23ae60;
+     margin-top:30px;
+  }
+
+ <script>
+     $( function() {
+       $( "#birthday" ).datepicker( {
+         changeMonth: true,
+         changeYear: true
+       } );
+     } );
+ 
+  function fn_memberSubmit() {
+     /* 데이터 유효성 체크    */
+     var f = document.frm;
+     if(f.userid.value == "") {
+        alert("아이디를 입력해주세요.");
+        return false;
+     }
+     if(f.pwd.value == "") {
+        alert("패스워드를 입력해주세요.");
+        return false;
+     }
+     f.submit();
+  }
+  </script>
 
 
 </style>
@@ -114,43 +164,42 @@ width:100%;
    <br>
    <br>
    <div id="hdiv" style="margin-right:100px;">
-      <button id="hbutton">회원가입</button> 
-      <button id="hbutton">로그인</button> 
-      <button id="hbutton">회사소개</button> 
+      <button id="hbutton" onclick="location='memberWrite.jsp'">회원가입</button> 
+      <button id="hbutton"onclick="location='login.jsp'" > 로그인</button> 
+      <button id="hbutton"onclick="location='jijum.jsp'">회사소개</button> 
       <button id="hbutton">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
-      <button id="hbutton">홈</button> 
+      <button id="hbutton"onclick="location='../main/home.jsp'">홈</button> 
    </div>
 </header>
 
-<section>
+	<section>
 
 
-  <div class="container">
-  
-        
-   <form name="frm" method="post" action="loginsub.jsp">
-   
-   <div >
-   <input type="text" name="userid" placeholder="아이디를 입력하세요.">
-   
-      </div>
-   <div >
-   <input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
-   
-      </div>
-   <tr>
-      <th  >
-         <input type="submit"  value="로그인" 
-               onclick="fn_memberSubmit(); return false;">
-         <input type="reset"value="취소" onclick="home.jsp">
-      </th>
-   </tr>
-</form>
-      </div>
-      
-</section>
-<br>
+		<div class="container">
+
+
+			<form name="frm" method="post" action="loginsub.jsp">
+
+				<div>
+					<input type="text" name="userid" placeholder="아이디를 입력하세요.">
+				</div>
+				<div>
+					<input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
+
+				</div>
+				<tr>
+					<th><input type="submit" value="로그인"
+						onclick="fn_memberSubmit(); return false;"> <input
+						type="reset" value="취소" onclick="home.jsp"> 
+					 <input type="button" value="회원가입"
+						onclick="location='memberWrite.jsp'""></th>
+				</tr>
+			</form>
+		</div>
+
+	</section>
+	<br>
 <br>
 <br>
 <br>

@@ -1,42 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
+    pageEncoding="UTF-8"%>
+    
+     <%
+    String sessionUserid = (String) session.getAttribute("sessionUserid");
+    String adminConfirm = (String) session.getAttribute("adminConfirm");
+       //set
+    %>
+    
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>메인 홈</title>
 </head>
 <style>
 /* #5483b1 */
 #hbutton {
-   border-top-right-radius:5px; 
-   border-bottom-right-radius:5px; 
-   margin-left:-3px;
+	border-top-right-radius:5px; 
+	border-bottom-right-radius:5px; 
+	margin-left:-3px;
 
 }
 
 #hdiv button {
-   border:1px solid #5483b1;
-   background-color: rgba(0,0,0,0);
-   color:#5483b1;
-   padding:5px;
-   border-radius: 7px; //
-   width:70px;  //
-   height:50px;
-   float:right;
-   margin-left:10px;
-   
+	border:1px solid #5483b1;
+	background-color: rgba(0,0,0,0);
+	color:#5483b1;
+	padding:5px;
+	border-radius: 12px;
+	width:120px;
+	height:50px;
+	float:right;
+	margin-left:10px;
+	
 }
 
 #hdiv button:hover{
-   color:white; 
-   background-color:#5483b1; 
+	color:white; 
+	background-color:#5483b1; 
 }
 
 .hdiv1 {
-   
+	
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -89,16 +95,15 @@ ul, ol {
     transition: .22s ease;
 }
 
-.mtd {
-height:30px;
+.table100 {
+clear : both;
+ 	width : 1000px;
+ 	height : 300px;
+	text-align:center;
+	border:3px solid #ccc;
+
+
 }
-
-.textBox1 {
-height:40px;
-width:100%;
-}
-
-
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -106,48 +111,64 @@ width:100%;
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
+
 <body> 
-<header style="background-color:#2d3246;height:100px;">
+<header style="background-color:#2d3246;height:100px;width:1898px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
    <br>
    <br>
    <div id="hdiv" style="margin-right:100px;">
+   
+      <% if( sessionUserid == null){
+    	  %> 
+  
       <button id="hbutton">회원가입</button> 
-      <button id="hbutton">로그인</button> 
+      <button id="hbutton" onclick="movein()">로그인</button> 
+      
+      <%
+       } else {
+      %>
+            
+      <button id="hbutton">회원정보수정</button> 
+      <button id="hbutton" onclick="moveout()">로그아웃</button> 
+      
+       <% } %>
+   
       <button id="hbutton">회사소개</button> 
-      <button id="hbutton">커뮤니티</button> 
+      <button id="hbutton" onclick="moveboard()">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
       <button id="hbutton">홈</button> 
    </div>
 </header>
 
 <section>
+<table >
+<form >
+
+<input type="checkbox" name="ck_1"  id="ck_1">
+<label for="ck_1">프리미엄</label>
+
+<input type="checkbox" name="ck_2"  id="ck_2">
+<label for="ck_2">전기자전거 서비스 지정점</label><br>
+<tr>
+<input type="checkbox" name="ck_3"  id="ck_3">
+<label for="ck_3">서비스 지정점</label>
+
+<input type="checkbox" name="ck_4"  id="ck_4">
+<label for="ck_4">전기자전거 취급점</label><br>
+
+</tr>
 
 
-  <div class="container">
-  
-        
-   <form name="frm" method="post" action="loginSub.jsp">
-   <div class="inputForm">
-   <input type="text" name="userid" placeholder="아이디를 입력하세요.">
-   
-      </div>
-   <div class="inpuutForm">
-   <input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
-   
-      </div>
-   <tr>
-      <th class="logbutton">
-         <input type="submit"  value="로그인" 
-               onclick="fn_memberSubmit(); return false;">
-         <input type="reset"value="취소" onclick="home.jsp">
-      </th>
-   </tr>
 </form>
-      </div>
-      
+</table>
+
+
+
+
+
 </section>
 <br>
 <br>
