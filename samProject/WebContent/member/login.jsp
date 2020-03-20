@@ -129,17 +129,18 @@ width:100%;
   <div class="container">
   
         
-   <form name="frm" method="post" action="loginSub.jsp">
-   <div class="inputForm">
+   <form name="frm" method="post" action="loginsub.jsp">
+   
+   <div >
    <input type="text" name="userid" placeholder="아이디를 입력하세요.">
    
       </div>
-   <div class="inpuutForm">
+   <div >
    <input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
    
       </div>
    <tr>
-      <th class="logbutton">
+      <th  >
          <input type="submit"  value="로그인" 
                onclick="fn_memberSubmit(); return false;">
          <input type="reset"value="취소" onclick="home.jsp">

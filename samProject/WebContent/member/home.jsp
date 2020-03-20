@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+     <%
+    String sessionUserid = (String) session.getAttribute("sessionUserid");
+    String adminConfirm = (String) session.getAttribute("adminConfirm");
+       //set
+    %>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,11 +94,38 @@ ul, ol {
     visibility: hidden;
     transition: .22s ease;
 }
+
+.table100 {
+clear : both;
+ 	width : 1000px;
+ 	height : 300px;
+	text-align:center;
+	border:3px solid #ccc;
+
+
+}
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+function movein() {
+	
+	location = "login.jsp";
+	
+}
+
+
+function moveout() {
+
+	location = "logoutsub.jsp";
+	
+}
+
+</script>
 
 
 <body> 
@@ -101,8 +136,22 @@ ul, ol {
    <br>
    <br>
    <div id="hdiv" style="margin-right:100px;">
+   
+      <% if( sessionUserid == null){
+    	  %> 
+  
       <button id="hbutton">회원가입</button> 
-      <button id="hbutton">로그인</button> 
+      <button id="hbutton" onclick="movein()">로그인</button> 
+      
+      <%
+       } else {
+      %>
+            
+      <button id="hbutton">회원정보수정</button> 
+      <button id="hbutton" onclick="moveout()">로그아웃</button> 
+      
+       <% } %>
+   
       <button id="hbutton">회사소개</button> 
       <button id="hbutton">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
@@ -112,8 +161,16 @@ ul, ol {
 
 <section>
 
+<div class="table100" >
+
+배너 도는 공간 
+</div>
 
 
+<div class="table100" >
+
+내용 도는 공간
+</div>
 
 
 </section>
