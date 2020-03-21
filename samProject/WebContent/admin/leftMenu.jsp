@@ -33,7 +33,7 @@ font-size:12px;
 		<p class="text-center">회원/상품/게시판관리가 가능한 메뉴가 존재합니다.</p>
 		
 		<ul>
-		<li><a class="btn btn-primary btn-sm" href="cateList.jsp" role="button"> 카테고리 관리</a></li>
+		<li><a class="btn btn-outline-danger" href="cateList.jsp" role="button"> 카테고리 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="goodsWrite.jsp" role="button"> 게시판 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="goodsList.jsp" role="button"> 상품목록 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="cateList.jsp" role="button"> 회원 관리</a></li>
