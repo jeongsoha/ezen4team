@@ -13,6 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 홈</title>
+
 </head>
 <style>
 /* #5483b1 */
@@ -104,6 +105,45 @@ clear : both;
 
 
 }
+.body{
+
+width:1500px;
+height:1500px;
+
+}
+.sea{
+width:300px;
+height:40px;
+float:right;
+margin-top:10px;
+border:1px solid;
+
+}
+.div1{
+width:500px;
+height:30px;
+float:right;
+border:1px ;
+font-weight:bold;
+margin-top:10px;
+font-size:20px;
+
+}
+.div2{
+width:500px;
+height:30px;
+float:right;
+border:1px ;
+margin-top:10px;
+font-weight:bold;
+font-size:20px
+}
+.conten{
+font-size:15px;
+
+}
+
+
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -113,6 +153,9 @@ clear : both;
 
 
 <body> 
+
+
+
 <header style="background-color:#2d3246;height:100px;width:1898px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
@@ -143,33 +186,52 @@ clear : both;
    </div>
 </header>
 
-<section>
-<table >
-<form >
 
-<input type="checkbox" name="ck_1"  id="ck_1">
-<label for="ck_1">프리미엄</label>
+<div class="body">
 
-<input type="checkbox" name="ck_2"  id="ck_2">
-<label for="ck_2">전기자전거 서비스 지정점</label><br>
-<tr>
+
+<input class="sea" type="text"  placeholder="검색어입력." >
+
+ <div class="div1"> 
+
+<input type="checkbox" name="ck_1"  id="ck_1" >
+<label for="ck_1">프리미엄 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+<input type="checkbox" name="ck_2"  id="ck_2" onclick="location='<request.getrequesturl()%'"> 
+<label for="ck_2">전기자전거 서비스 지정점</label>
+</div><br><p>
+<div class="div2" > 
+
 <input type="checkbox" name="ck_3"  id="ck_3">
-<label for="ck_3">서비스 지정점</label>
+<label for="ck_3">서비스 지정점 &nbsp;</label>
 
-<input type="checkbox" name="ck_4"  id="ck_4">
-<label for="ck_4">전기자전거 취급점</label><br>
+<input type="checkbox" name="ck_4"  id="ck_4" >
+<label for="ck_4">전기자전거 취급점</label>
 
-</tr>
+</div>
 
-
-</form>
-</table>
+</div>
 
 
+<div class="conten">
+
+<p>
 
 
 
-</section>
+
+</p>
+
+
+
+
+</div>
+
+
+
+
+
+
 <br>
 <br>
 <br>
