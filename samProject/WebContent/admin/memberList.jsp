@@ -23,12 +23,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width", initial-scale="1">
 <title>회원 관리</title>
 </head>
 
-   <link rel="stylesheet" type="text/css" href="../css/adminlayout.css">
+   <link rel="stylesheet" type="text/css" href="../css/adminlayout.css"> <!-- // 아직없다 -->
+   <link rel="stylesheet" href="../css/bootstrap.min.css">
    
 <style>
+
+
+.mainbody {
+	width: 1500px;
+	height: 1000px;
+	border: 1px solid #ccc;
+
+}
+
+.adminLeft {
+	width: 210px;
+	border: 1px solid #ccc;
+	float: none;
+}
+
+.adminRight {
+	width: 1010px;
+	border: 1px solid #ccc;
+	float: left;
+}
+
+
 
 	.memberlist {
 	width:1000px; 
@@ -36,17 +60,28 @@
 	border-collapse: collapse;
 	text-align: center;
 	}
+	
+	#test div {
+		clear : both;
+	border: 1px solid #cccccc; 
+	
+	text-align: center;
+	}
+	
 </style>
 
 <body>
-	<div class="container">
-		<div class="adminLeft">
+
+<div class="mainbody">
+
+		<div style="float:left; width:200px" class="adminLeft">
 		
 		<%@ include file="leftMenu.jsp" %>
 			
 		</div>
-		
-		<a></a>
+	
+
+	
 
 		<div class="adminRight">
 			<!-- 카테목록 -->
@@ -108,8 +143,68 @@
 	}
 	%>
 			</table>
+			
+			</div>
+<p></p>
+<p></p>
 
-		
+		<div class="container show-grid" id="test">
+
+	<div class="row">
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	  <div class="col-md-1">.col-md-1</div>
+
+	</div>
+
+	<div class="row">
+
+	  <div class="col-md-8">.col-md-8</div>
+
+	  <div class="col-md-4">.col-md-4</div>
+
+	</div>
+
+	<div class="row">
+
+	  <div class="col-md-4">.col-md-4</div>
+
+	  <div class="col-md-4">.col-md-4</div>
+
+	  <div class="col-md-4">.col-md-4</div>
+
+	</div>
+
+	<div class="row">
+
+	  <div class="col-md-6">.col-md-6</div>
+
+	  <div class="col-md-6">.col-md-6</div>
+
+	</div>
+
+</div>
 			
 	<form name="frm" method="post" action="cateSave.jsp">
 			
