@@ -33,6 +33,25 @@ String content = rs.getString("content");
 
 <script>
 
+function fn_WriteInsert(){
+		/* 데이터 유효성  체크 */
+		var f = document.frm;
+		
+		if( f.title.value=="" ){
+			alert("제목를 입력해주세요.");
+			f.title.focus();
+			return false;  // 자바스크립트 중단!
+		}
+		
+		if( f.content.value=="" ){
+			alert("내용을 입력해주세요.");
+			f.content.focus();
+			return false;  // 자바스크립트 중단!
+		}
+	
+		f.submit();
+	}
+
 </script>
 
 <body> 
@@ -52,6 +71,7 @@ String content = rs.getString("content");
 <input type="hidden" name="bunq" value="<%=bunq %>" >  <!-- 유니크값 같이 보내기 -->
 
 	<div align="center">
+	
 	<table style="margin-left:0px;border-collapse: separate;border-spacing:0 10px;">
 		<tr>
         	<th>제목</th>
@@ -71,7 +91,7 @@ String content = rs.getString("content");
 	
 	<table style="margin-left:400px;">
 	<tr>
-		<td><input type="submit" value="수정완료" style="width:100px;"></td>
+		<td><input type="submit" value="수정완료" style="width:100px;" onClick="fn_WriteInsert(); return false;"></td>
 		<td><input type="reset" value="취소" style="width:100px;color:#fdfde9;"></td>
 	</tr>
 	</table>

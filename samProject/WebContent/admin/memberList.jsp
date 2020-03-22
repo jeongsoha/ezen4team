@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-      
-      
-     <%@ include file="..\\include\\dbcon2.jsp" %>
-    
-    <%    
+	pageEncoding="UTF-8"%>
+
+
+<%@ include file="..\\include\\dbcon2.jsp"%>
+
+<%    
     
     String sql = " SELECT memno, username,userid, tel, mail, "
   				+ " to_char(birth,'yyyy-mm-dd') birth, "
@@ -18,39 +18,94 @@
     ResultSet rs = stmt.executeQuery(sql);
     
 %>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width" , initial-scale="1">
 <title>회원 관리</title>
 </head>
 
-   <link rel="stylesheet" type="text/css" href="../css/adminlayout.css">
-   
-<style>
+<link rel="stylesheet" type="text/css" href="../css/adminlayout.css">
+<!-- // 아직없다 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
-	.memberlist {
-	width:1000px; 
-	border: 1px solid #cccccc; 
+<style>
+.mainbody {
+	width: 1500px;
+	height: 1000px;
+	border: 1px solid #ccc;
+}
+
+.adminLeft {
+	width: 210px;
+	border: 1px solid #ccc;
+	float: none;
+}
+
+.adminRight {
+	width: 1010px;
+	border: 1px solid #ccc;
+	float: left;
+}
+
+.dashboard {
+	width: 1010px;
+	height: 150px;
+	border: 1px solid #ccc;
+	float: left;
+}
+
+.memberlist {
+	width: 1000px;
+	border: 1px solid #cccccc;
 	border-collapse: collapse;
 	text-align: center;
-	}
+}
+
+#test div {
+	clear: both;
+	border: 1px solid #cccccc;
+	text-align: center;
+}
+
+.admintop {
+	clear: both;
+	width: 1500px;
+	height: 100px;
+	text-align: center;
+	border: 3px solid #ccc;
+}
 </style>
 
 <body>
-	<div class="container">
-		<div class="adminLeft">
-		
-		<%@ include file="leftMenu.jsp" %>
-			
+
+	<section>
+
+		<div class="admintop">어드민 최상단</div>
+
+	</section>
+
+
+	<div class="mainbody">
+
+		<div style="float: left; width: 300px; height: 800px"
+			class="adminLeft">
+
+			<%@ include file="leftMenu.jsp"%>
+
 		</div>
-		
-		<a></a>
+
+
+
 
 		<div class="adminRight">
 			<!-- 카테목록 -->
-			<table class="memberlist" >
+
+			<div class="dashboard">대시보드 상단 (검색기능)</div>
+
+			<table class="memberlist">
 				<tr>
 					<th>회원번호</th>
 					<th>유저이름</th>
@@ -65,8 +120,8 @@
 					<th>가입일시</th>
 					<th>회원상태</th>
 					<th>회원정보</th>
-					
-				</tr> 
+
+				</tr>
 
 				<%
 				int number=1;
@@ -100,25 +155,30 @@
 					<td><%=inter %></td>
 					<td><%=flog %></td>
 					<td><%=state %></td>
-					<td><a href="memberModify.jsp?memno=<%=memno%>">수정</a></td>  <!-- 수정화면 전환 -->
-				
+					<td><a href="memberModify.jsp?memno=<%=memno%>">수정</a></td>
+					<!-- 수정화면 전환 -->
+
 				</tr>
-	<%	
+				<%	
 	number++;
 	}
 	%>
 			</table>
 
-		
-			
-	<form name="frm" method="post" action="cateSave.jsp">
-			
-			<button type="submit">버튼</button>
-			
-			</form>
-			
 		</div>
-		
+		<p></p>
+		<p></p>
+
+
+
+		<form name="frm" method="post" action="cateSave.jsp">
+
+			<button type="submit">버튼</button>
+
+		</form>
+
+	</div>
+
 	</div>
 </body>
 </html>

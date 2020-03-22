@@ -43,7 +43,7 @@ function moveUp() {
 <body>
 
 
-<header style="background-color:#2d3246;height:100px;width:1298px;">
+<header style="background-color:#2d3246;height:100px;width:1920px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
