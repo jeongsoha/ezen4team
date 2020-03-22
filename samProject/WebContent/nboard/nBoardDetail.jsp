@@ -6,6 +6,7 @@
 <%
 String admin = (String) session.getAttribute("adminConfirm");
 
+String state = request.getParameter("state");
 String bunq = request.getParameter("bunq");
 
 String sql = " UPDATE pboard SET hit = hit+1 "  
@@ -105,7 +106,7 @@ String hit = rs.getString("hit");
 </table>
 
 <%
-if("Y".equals(admin)){
+if("Y".equals(admin) && "2".equals(state)){
 %>
 	<table>
 	<tr>
