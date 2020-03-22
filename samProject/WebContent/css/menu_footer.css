@@ -1,4 +1,4 @@
-/* #5483b1 */
+/* topMenu */
 #hbutton {
 	border-top-right-radius:5px; 
 	border-bottom-right-radius:5px; 
@@ -28,6 +28,7 @@
 
 }
 
+/* footer */
 .context-dark, .bg-gray-dark, .bg-primary {
     color: rgba(255, 255, 255, 0.8);
 }

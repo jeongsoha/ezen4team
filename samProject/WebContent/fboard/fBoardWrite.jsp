@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ include file = "../include/dbcon2.jsp" %>
+
+<%
+String userid1 = (String) session.getAttribute("sessionUserid"); 
+
+if( userid1 == null && "".equals(userid1) ) {
+%>
+	<script>
+	alert("잘못된 경로입니다");
+	location = "../main/main.jsp";
+	</script>
+<% 	
+
+}
+%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +32,24 @@
 
 <script>
 
-function fn_Write();
+function fn_WriteInsert(){
+		/* 데이터 유효성  체크 */
+		var f = document.frm;
+		
+		if( f.title.value=="" ){
+			alert("제목를 입력해주세요.");
+			f.title.focus();
+			return false;  // 자바스크립트 중단!
+		}
+		
+		if( f.content.value=="" ){
+			alert("내용을 입력해주세요.");
+			f.content.focus();
+			return false;  // 자바스크립트 중단!
+		}
+	
+		f.submit();
+	}
 
 </script>
 
@@ -31,7 +65,7 @@ function fn_Write();
 <br>
 <br>
 
-<form name="frm" method="post" action="fBoardSave.jsp">
+<form name="frm" method="post" action="fBoardWriteSave.jsp">
 	<div align="center">
 	<table style="margin-left:0px;border-collapse: separate;border-spacing:0 10px;">
 		<tr>
@@ -47,12 +81,12 @@ function fn_Write();
 	     <tr>
 	      <td><textarea name="content" style="width:600px;height:300px;"></textarea></td>
 	     </tr>
-	     </div>
+	     
 	</table>
-	
+	</div>
 	<table style="margin-left:400px;">
 	<tr>
-		<td><input type="submit" value="등록" onClick="fn_(); return false;" style="width:100px;"></td>
+		<td><input type="submit" value="등록" onClick="fn_WriteInsert(); return false;" style="width:100px;"></td>
 		<td><input type="button" value="취소" onClick="location='fBoardList.jsp'" style="width:100px;color:#fdfde9;"></td>
 	</tr>
 	</table>
