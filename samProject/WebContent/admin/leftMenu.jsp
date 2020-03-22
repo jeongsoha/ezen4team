@@ -29,10 +29,12 @@ font-size:12px;
      	
 	<div class="container">
 	<div class="jumbortron">
-		<h3 class="text-center">관리자 화면</h3><br>
-		<p class="text-center">회원/상품/게시판관리가 가능한 메뉴가 존재합니다.</p>
 		
-		<ul>
+		<h3 class="text-center">[관리자 <br> 사진]</h3><br>
+		<h4 class="text-center">관리자 이름</h4>
+		<p class="text-center">admindodo@example.com</p>
+		
+		<ul><p>[네비게이션 바]</p>
 		<li><a class="btn btn-outline-danger" href="cateList.jsp" role="button"> 카테고리 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="goodsWrite.jsp" role="button"> 게시판 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="goodsList.jsp" role="button"> 상품목록 관리</a></li>
