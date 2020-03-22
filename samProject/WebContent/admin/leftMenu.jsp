@@ -35,10 +35,10 @@ font-size:12px;
 		<p class="text-center">admindodo@example.com</p>
 		
 		<ul><p>[네비게이션 바]</p>
-		<li><a class="btn btn-outline-danger" href="cateList.jsp" role="button"> 카테고리 관리</a></li>
-		<li><a class="btn btn-primary btn-sm" href="goodsWrite.jsp" role="button"> 게시판 관리</a></li>
+		<li><a class="btn btn-outline-danger" href="#" role="button"> admin 홈</a></li>
+		<li><a class="btn btn-primary btn-sm" href="jijimList.jsp" role="button"> 대리점 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="goodsList.jsp" role="button"> 상품목록 관리</a></li>
-		<li><a class="btn btn-primary btn-sm" href="cateList.jsp" role="button"> 회원 관리</a></li>
+		<li><a class="btn btn-primary btn-sm" href="memberList.jsp" role="button"> 회원 관리</a></li>
 
 		</ul>
 	</div>
