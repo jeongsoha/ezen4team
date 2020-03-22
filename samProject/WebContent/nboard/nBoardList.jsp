@@ -4,14 +4,15 @@
 <%@ include file = "../include/dbcon2.jsp" %>    
     
 <%
+String admin = (String) session.getAttribute("adminConfirm");
 
-String userid1 = (String) session.getAttribute("SessionUserId");
+
 
 String sql = " SELECT "
           +    " bunq , "
          +    " title , "
          +    " userid , "
-         +   " to_char(sysdate,'YYYY-MM-DD') sdate , "
+         +    " to_char(sysdate,'YYYY-MM-DD') sdate , "
          +    " hit "
          + " FROM pboard "
          + " ORDER BY "
@@ -21,19 +22,6 @@ ResultSet rs = stmt.executeQuery(sql);
                
 %>
 
-<script>
-function fn_write() {
-	var f = document.frm;
-	
-	if(<%=userid1%> == null ){
-		alert("로그인을 해주세요.");
-	} else{
-		location='nBoardWrite.jsp';
-	}
-	f.submit();
-}
-
-</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,16 +134,14 @@ ul, ol {
 <br>
 <br>
 
-
-
 <table align="center" style="margin-right:700px; border-collapse: separate;border-spacing:0 10px;">
 
    <tr>
-      <td><input type="button" value="공지사항" OnClick="location='nBoardList.jsp'" style="width:100px;"></td>
-      <td><input type="button" value="자유게시판" OnClick="location='fBoardList.jsp'" style="width:100px;"></td>
+      <td><input type="button" value="공지사항" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
+      <td><input type="button" value="자유게시판" OnClick="location='../fboard/fBoardList.jsp'" style="width:100px;"></td>
    </tr>
    
-   </table>
+</table>
    
    <table class="table1" align="center" style="width:900px;" bgcolor="#ffffff">
             <tr align="center">
@@ -173,26 +159,34 @@ ul, ol {
               String title = rs.getString("title");
               String sdate = rs.getString("sdate");
               String hit = rs.getString("hit");
-              
+
            %>
            <tr align="center">
               <td><%=bunq %></td>
               <td  style="text-align:left;"><a href="nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
-              <td>soha</td>
+              <td>관리자</td>
               <td><%=sdate %></td>
               <td><%=hit %></td>
-           </tr>   
-           <%      
+           </tr> 
+
+           <%   
               number++;
            }      
            %>
     </table>       
-            
+    
+      <%
+       if("Y".equals(admin)){
+      %>
     <table align="center" style="margin-left:800px; border-collapse:separate; border-spacing:0 10px;">
    <tr>
       <td><input type="button" value="글쓰기" onClick="fn_write(); return false;" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
    </tr>
    </table>
+      <%
+        }
+      %>
+   
 
 
 

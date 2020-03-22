@@ -11,7 +11,8 @@ String title = request.getParameter("title").trim();
 String content = request.getParameter("content").trim();
 String pub = request.getParameter("pub"); 
 
-
+String sql = "insert into pboard(bunq,title,content,pub,sdate,userid)";
+sql+= "values(bunq_seq.NEXTVAL , '"+title+"','"+content+"','"+pub+"',sysdate,'soha')";
 
 if(  title == null || "".equals(title)) {
 %>
@@ -45,11 +46,8 @@ if( len > 1000 ) {
    return;
 }
 
-
-String sql = "insert into pboard(bunq,title,content,pub,sdate,userid)";
-sql+= "values(bunq_seq.NEXTVAL , '"+title+"','"+content+"','"+pub+"',sysdate,'soha')";
-
 int result = stmt.executeUpdate(sql);
+
  if(result > 0) {
 %>
    <script>
