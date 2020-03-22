@@ -6,19 +6,43 @@
 <%
 String admin = (String) session.getAttribute("adminConfirm");
 
+int unit = 10;
+String viewPage = request.getParameter("viewPage");
+if( viewPage == null ){
+	viewPage = "1";
+}
+String totalSql = "";
+if("Y".equals(admin)) {
+	totalSql = " select count(*) total from pboard ";
+}else{
+	totalSql = " select count(*) total from pboard where pub='1' ";
+}
+ResultSet rs2 = stmt.executeQuery(totalSql);
+rs2.next();
+int total = rs2.getInt("total");
+int totalPage = (int)Math.ceil((double)total/unit);
+// 1(viewPage)->1 2->11 3->21
+int startNo = ( Integer.parseInt(viewPage) - 1 ) * unit +1;
+int endNo = startNo + unit-1;
 
-
-String sql = " SELECT "
-          +    " bunq , "
-         +    " title , "
-         +    " userid , "
-         +    " to_char(sysdate,'YYYY-MM-DD') sdate , "
-         +    " hit "
-         + " FROM pboard "
-         + " ORDER BY "
-         + " bunq desc ";
-
+String sql = "";
+if("Y".equals(admin)) {
+	sql = " select b.* from ( "
+		       + " 	select rownum rn, a.* from( "
+			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
+			   + " from pboard "
+			   + " order by bunq desc ) a ) b "
+	         + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
+}else {
+	sql = " select b.* from ( "
+		       + " 	select rownum rn, a.* from( "
+			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
+			   + " from pboard where pub='1' "
+			   + " order by bunq desc ) a ) b "
+       	  + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
+}
 ResultSet rs = stmt.executeQuery(sql);
+
                
 %>
 
@@ -116,23 +140,40 @@ ul, ol {
       }
 </style>
 
+<section>
+
+function searchCheck(frm){
+	if(frm.keyWord.value=""){
+		alert("검색 단어를 입력하세요.");
+		frm.keyWord.focus();
+		return;
+	}
+	frm.submit();
+}
+
+</section>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
 <body> 
 <%@ include file = "../include/header.jsp" %>
 
-<section>
 
-<section>
 <br>
 <br>
 <h1 style="text-align:center;">공지사항</h1>
 <br>
 <br>
 <br>
+
+<table align="center" style="margin-left:700px; ">
+
+	<tr>
+		<td>
+		</td>
+	</tr>
 
 <table align="center" style="margin-right:700px; border-collapse: separate;border-spacing:0 10px;">
 
@@ -142,14 +183,23 @@ ul, ol {
    </tr>
    
 </table>
+
+
    
    <table class="table1" align="center" style="width:900px;" bgcolor="#ffffff">
             <tr align="center">
                <th width="10%" class="td1"></th>
-               <th width="50%" class="td1">제목</th>
+               <th width="40%" class="td1">제목</th>
                <th width="15%" class="td1">작성자</th>
                <th width="15%" class="td1">작성일</th>
                <th width="10%" class="td1">조회수</th>
+               <%
+               if("Y".equals(admin)) {
+               %>
+               <th width="10%" class="td1">공개여부</th>
+               <%
+               }
+               %>
             </tr>
             
             <%
@@ -159,6 +209,7 @@ ul, ol {
               String title = rs.getString("title");
               String sdate = rs.getString("sdate");
               String hit = rs.getString("hit");
+              String pub = rs.getString("pub");
 
            %>
            <tr align="center">
@@ -167,6 +218,15 @@ ul, ol {
               <td>관리자</td>
               <td><%=sdate %></td>
               <td><%=hit %></td>
+              <%
+              if("Y".equals(admin)) {
+              %>
+              <td><%=pub %></td>
+              <%
+              }
+              %>
+              
+              
            </tr> 
 
            <%   
@@ -176,16 +236,25 @@ ul, ol {
     </table>       
     
       <%
-       if("Y".equals(admin)){
+       if("Y".equals(admin)) {
       %>
     <table align="center" style="margin-left:800px; border-collapse:separate; border-spacing:0 10px;">
    <tr>
-      <td><input type="button" value="글쓰기" onClick="fn_write(); return false;" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
+      <td><input type="button" value="글쓰기" onClick="location='nBoardWrite.jsp'" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
    </tr>
    </table>
       <%
         }
       %>
+      <p align="center">
+        	<%
+        	for(int i=1; i<=totalPage; i++){
+        	%>
+        	    <a href="nBoardList.jsp?viewPage=<%=i %>"><%=i %></a>  <!-- 뷰페이지를 통함..  -->
+        	<% 
+        	}
+        	%>
+        </p>
    
 
 
