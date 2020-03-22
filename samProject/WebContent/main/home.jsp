@@ -106,11 +106,10 @@ clear : both;
 
 <script>
 
-
 </script>
 
 
-<body  style="width:1920px;"> 
+<body style="width:1920px;"> 
 
 <%@ include file = "../include/header.jsp" %>
 
@@ -118,13 +117,11 @@ clear : both;
 <section>
 
 <div class="table100" >
-
 배너 도는 공간 
 </div>
 
 
 <div class="table100" >
-
 내용 도는 공간
 </div>
 
