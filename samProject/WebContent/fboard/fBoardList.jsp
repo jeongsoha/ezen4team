@@ -7,19 +7,28 @@
 
 String userid1 = (String) session.getAttribute("sessionUserid"); 
 
+int unit = 20;
+String viewPage = request.getParameter("viewPage");
+if( viewPage == null ){
+	viewPage = "1";
+}
 
+String totalSql = " select count(*) total from pboard ";
+ResultSet rs2 = stmt.executeQuery(totalSql);
+rs2.next();
+int total = rs2.getInt("total");
+int totalPage = (int)Math.ceil((double)total/unit);
+// 1(viewPage)->1 2->11 3->21
+int startNo = ( Integer.parseInt(viewPage) - 1 ) * unit +1;
+int endNo = startNo + unit-1;
 
-
-String sql = " SELECT "
-	       + 	" bunq , "
-		   + 	" title , "
-		   + 	" userid , "
-		   +	" to_char(sysdate,'YYYY-MM-DD') sdate , "
-		   + 	" hit "
-		   + " FROM pboard "
-		   + " ORDER BY "
-		   + " bunq desc ";
-
+String sql = " select b.* from ( "
+	       + " 	select rownum rn, a.* from( "
+		   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
+		   + " from pboard  "
+		   + " order by bunq desc ) a ) b "
+		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
+		  
 ResultSet rs = stmt.executeQuery(sql);
 				   
 %>
@@ -56,7 +65,7 @@ function fn_Write(){
 		location = "../fboard/fBoardWrite.jsp";
 	}else{
 		alert("로그인을 해주세요");
-		location ="../main/home.jsp";
+		location ="../fboard/fBoardList.jsp";
 	}
 		f.submit();
 }
@@ -64,7 +73,7 @@ function fn_Write(){
 </script>
 
 <body> 
-<%out.print(userid1); %>
+
 <%@ include file = "../include/header.jsp" %>
 
 <section>
@@ -116,12 +125,28 @@ function fn_Write(){
         	}   	
         	%>
     </teble>  		
+   
+    
+        
       		
     <table align="center" style="margin-left:1003px; border-collapse:separate; border-spacing:0 10px;">
+    
 	<tr>
 		<td><input type="button" value="글쓰기" onClick="fn_Write(); return false;" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
 	</tr>
+	
+	<p align="center">
+        	<%
+        	for(int i=1; i<=totalPage; i++){
+        	%>
+        	    <a href="fBoardList.jsp?viewPage=<%=i %>"><%=i %></a>  <!-- 뷰페이지를 통함..  -->
+        	<% 
+        	}
+        	%>
+        </p>
 	</table>
+	
+	
 <br>
 <br>
 <br>

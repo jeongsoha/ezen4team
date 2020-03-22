@@ -65,7 +65,7 @@ function fn_WriteInsert(){
 <br>
 <br>
 
-<form name="frm" method="post" action="fBoardSave.jsp">
+<form name="frm" method="post" action="fBoardWriteSave.jsp">
 	<div align="center">
 	<table style="margin-left:0px;border-collapse: separate;border-spacing:0 10px;">
 		<tr>
@@ -81,9 +81,9 @@ function fn_WriteInsert(){
 	     <tr>
 	      <td><textarea name="content" style="width:600px;height:300px;"></textarea></td>
 	     </tr>
-	     </div>
+	     
 	</table>
-	
+	</div>
 	<table style="margin-left:400px;">
 	<tr>
 		<td><input type="submit" value="등록" onClick="fn_WriteInsert(); return false;" style="width:100px;"></td>
