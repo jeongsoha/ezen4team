@@ -4,6 +4,8 @@
 <%@ include file = "../include/dbcon2.jsp" %>    
 
 <%
+String admin = (String) session.getAttribute("adminConfirm");
+
 String bunq = request.getParameter("bunq");
 
 String sql = " UPDATE pboard SET hit = hit+1 "  
@@ -66,7 +68,7 @@ String hit = rs.getString("hit");
 <br>
 <br>
 
-<form name="frm" method="post" action="fBoardModify.jsp">
+<form name="frm" method="post" action="nBoardModify.jsp">
 
 <input type="hidden" name="bunq" value="<%=bunq %>" > 
 	<div align="center">
@@ -89,7 +91,7 @@ String hit = rs.getString("hit");
    </tr>
    
    <tr>
-   	  <td><%=title %></td>
+   	  <td class="td1"><%=title %></td>
    </tr>
    
    <tr>
@@ -102,12 +104,18 @@ String hit = rs.getString("hit");
 
 </table>
 
+<%
+if("Y".equals(admin)){
+%>
 	<table>
 	<tr>
-		<td><input type="submit" value="수정" onClick="location='nBoardList.jsp'" style="width:100px;"></td>
-		<td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='fBoardDelete.jsp?bunq=<%=bunq%>'"></td>
+		<td><input type="submit" value="수정" onClick="location='nBoardModify.jsp'" style="width:100px;"></td>
+		<td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='nBoardDelete.jsp?bunq=<%=bunq%>'"></td>
 	</tr>
 	</table>
+<%
+}
+%>
 	
 	</div>
 	

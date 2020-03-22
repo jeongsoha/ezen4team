@@ -144,9 +144,8 @@ function fn_WriteInsert(){
 <h1 style="text-align:center;">공지사항</h1>
 <br><br><br>
    <form name="frm" method="post" action="nBoardWriteSave.jsp">
+   
    <div align="center">
-
-
 <table style="border-collapse: separate; border-spacing: 0 10px;" bgcolor="skyblue">
     
    <tr>

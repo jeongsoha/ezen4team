@@ -7,7 +7,7 @@
 String bunq = request.getParameter("bunq"); 
 
 String sql = " SELECT title,content,pub"
-		   + " FROM nboard "
+		   + " FROM pboard "
 		   + " WHERE bunq='"+bunq+"' ";
 
 ResultSet rs = stmt.executeQuery(sql);
@@ -15,6 +15,7 @@ rs.next();
 
 String title = rs.getString("title");
 String content = rs.getString("content");
+String pub = rs.getString("pub");
 
 %>
     
@@ -42,40 +43,57 @@ String content = rs.getString("content");
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">수정화면처리</h1>
+<h1 style="text-align:center;">공지사항</h1>
 <br>
 <br>
 <br>
 
-<form name="frm" method="post" action="nBoardModifySave.jsp">
+  <form name="frm" method="post" action="nBoardModifySave.jsp">
+   <input type="hidden" name="bunq" value="<%=bunq %>">
+   <div align="center">
+<table style="border-collapse: separate; border-spacing: 0 10px;" bgcolor="skyblue">
+    
+   <tr>
+      <th>
+         제목 <br>
+      </th>
+   </tr>
+   <tr>
+      <td>
+         <input type="text" name="title" style="width:600px;" value=<%=title %>> <br>
+      </td>
+   </tr>
+   
+   <tr>
+      <br>
+   </tr>
+   <tr>
+      <th>
+         내용 <br>
+      </th>
+   </tr>
+   <tr>
+      <td>
+         <textarea name="content" style="width:600px;height:300px;"><%=content %></textarea>
+      </td>
+   </tr>
+   <table style="margin-left:260px;">
+       <tr>
+          <th> 
+             <select name="pub">
+                   <option value="1" <%if("1".equals(pub)) out.print("selected"); %>>공개</option>
+				   <option value="2" <%if("2".equals(pub)) out.print("selected"); %>>비공개</option>
+             </select> &nbsp;&nbsp;
+                
+             <input type="submit" value="수정완료" style="width:100px;">
+             <input type="button" value="취소" onClick="location='nBoardList.jsp'" style="width:100px; ">
+          </th>
+       </tr>
+   </table>
+   </table>  
 
-<input type="hidden" name="bunq" value="<%=bunq %>" > 
-
-	<div align="center">
-	<table style="margin-left:0px;border-collapse: separate;border-spacing:0 10px;">
-		<tr>
-        	<th>제목</th>
-        </tr>
-        <tr>
-        	<td><input type="text" name="title"  style="width:600px;" value="<%=title%>"></td>
-        </tr>
-         
-	     <tr>
-	        <th>내용</th>
-	     </tr>
-	     <tr>
-	      <td><textarea name="content" style="width:600px;height:300px;"><%=content%></textarea></td>
-	     </tr>
-	     </div>
-	</table>
-	
-	<table style="margin-left:400px;">
-	<tr>
-		<td><input type="submit" value="수정완료" style="width:100px;"></td>
-		<td><input type="reset" value="취소" style="width:100px;color:#fdfde9;"></td>
-	</tr>
-	</table>
-</form>
+   </div>
+   </form>
 
 
 
