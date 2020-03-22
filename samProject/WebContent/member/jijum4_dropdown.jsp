@@ -142,8 +142,135 @@ font-size:20px
 font-size:15px;
 
 }
+.tabmenu{ 
+  width:1000px; 
+  margin: 0 auto; 
+  position:relative;
+   
+}
+.tabmenu ul li{
+  display:  inline-block;
+  width:25%; 
+  float:left;  
+  text-align:center; 
+  background :#f9f9f9;
+  
+}
+.tabmenu ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+  font-weight:bold;
+}
+.tabCon{
+  display:none; 
+  text-align:left; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+}
+.btnCon:target  {
+  background : #ccc;
+}
+.btnCon:target .tabCon{
+  display: block;
+} 
+.menubar{
+border:none;
+border:0px;
+margin:0px;
+padding:0px;
+font: 67.5% "맑은고딕";
+font-size:14px;
+font-weight:bold;
+}
 
+.menubar ul{
+background: #2d3246;
+height:50px;
+list-style:none;
+margin:0;
+padding:0;
+}
 
+.menubar li{
+float:left;
+padding:0px;
+}
+
+.menubar li a{
+background: #2d3246;
+color:none;
+display:block;
+font-weight:normal;
+line-height:50px;
+margin:0px;
+padding:0px 25px;
+text-align:center;
+text-decoration:none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a{	/* 마우스올렸을떄 색전환 */
+background:#2d3246;
+color:cobaltblue;
+text-decoration:none;
+}
+
+.menubar li ul{
+background: #2d3246;
+display:none; 				/* 평상시에는 드랍메뉴가 안보이게 하기 */
+height:auto;
+padding:0px;
+margin:0px;
+border:0px;
+position:absolute;
+width:200px;
+z-index:200;
+/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul{
+display:block; 			/* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {		/* 마우스 올렸을떄 드랍다운메뉴 */
+background: #ffffff;
+display:block;
+float:none;
+margin:0px;
+padding:0px;
+width:200px;
+}
+
+.menubar li:hover li a{
+background:none;
+}
+
+.menubar li ul a{
+display:block;
+height:50px;
+font-size:12px;
+font-style:normal;
+margin:0px;
+padding:0px 10px 0px 15px;
+text-align:left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a{
+background: #ffffff; /* 드랍다운 메뉴색전환  */		
+border:0px;
+color:red;
+text-decoration:none;
+}
+
+.menubar p{
+clear:left;
+}
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -156,76 +283,61 @@ font-size:15px;
 
 
 
-<header style="background-color:#2d3246;height:100px;width:1898px;">
+<header style="background-color:#2d3246;height:100px;width:1920px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
    <br>
    <br>
    <div id="hdiv" style="margin-right:100px;">
-   
-      <% if( sessionUserid == null){
-    	  %> 
-  
-      <button id="hbutton">회원가입</button> 
-      <button id="hbutton" onclick="movein()">로그인</button> 
+   <div class="menubar">
+   <ul>
+      <li><a href="home.jsp">홈</a></li>
+      <li><a href="#">대리점</a>
+      <ul>
+         
+           <li><a href="#">대리점찾기</a></li>
+           <li><a href="#">온라인구매</a></li>
+           <li><a href="#">대량구매</a></li>
+           
+         </ul>
+      <li><a href="#">커뮤니티</a>
+      <li><a href="#">회사소개</a>
+      <li><a href="login.jsp">로그인</a>
+      <li><a href="memberWrite.jsp">회원가입</a>
       
-      <%
-       } else {
-      %>
-            
-      <button id="hbutton">회원정보수정</button> 
-      <button id="hbutton" onclick="moveout()">로그아웃</button> 
-      
-       <% } %>
-   
-      <button id="hbutton">회사소개</button> 
-      <button id="hbutton" onclick="moveboard()">커뮤니티</button> 
-      <button id="hbutton">제품소개</button> 
-      <button id="hbutton">홈</button> 
-   </div>
+      </li>
+     
+   </ul>
+</div>
+
 </header>
 
+<div class="tabmenu">
+  <ul>
+    <li id="tab1" class="btnCon"><a class="btn first" href="#tab1">프리미엄 스토어</a>
+      <div class="tabCon" >1</div></li>
 
-<div class="body">
 
-
-<input class="sea" type="text"  placeholder="검색어입력." >
-
- <div class="div1"> 
-
-<input type="checkbox" name="ck_1"  id="ck_1" >
-<label for="ck_1">프리미엄 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-
-<input type="checkbox" name="ck_2"  id="ck_2" onclick="location='<request.getrequesturl()%'"> 
-<label for="ck_2">전기자전거 서비스 지정점</label>
-</div><br><p>
-<div class="div2" > 
-
-<input type="checkbox" name="ck_3"  id="ck_3">
-<label for="ck_3">서비스 지정점 &nbsp;</label>
-
-<input type="checkbox" name="ck_4"  id="ck_4" >
-<label for="ck_4">전기자전거 취급점</label>
-
+<li id="tab2" class="btnCon"><a class="btn" href="#tab2">전기자전거 서비스지정점</a>
+      <div class="tabCon" >234</div>
+      
+    </li> 
+    
+    <li id="tab3" class="btnCon"><a class="btn" href="#tab3">서비스지정점</a>
+      <div class="tabCon" >789</div>
+      
+    </li>
+    
+    <li id="tab4" class="btnCon"><a class="btn" href="#tab4">전기자전거취급점</a>
+      <div class="tabCon" >456</div>
+      
+    </li>
+</ul>
+</div>
 </div>
 
-</div>
 
-
-<div class="conten">
-
-<p>
-
-
-
-
-</p>
-
-
-
-
-</div>
 
 
 

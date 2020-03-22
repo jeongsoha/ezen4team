@@ -1,42 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
+    pageEncoding="UTF-8"%>
+    
+     <%
+    String sessionUserid = (String) session.getAttribute("sessionUserid");
+    String adminConfirm = (String) session.getAttribute("adminConfirm");
+       //set
+    %>
+    
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>메인 홈</title>
+
 </head>
 <style>
 /* #5483b1 */
 #hbutton {
-   border-top-right-radius:5px; 
-   border-bottom-right-radius:5px; 
-   margin-left:-3px;
+	border-top-right-radius:5px; 
+	border-bottom-right-radius:5px; 
+	margin-left:-3px;
 
 }
 
 #hdiv button {
-   border:1px solid #5483b1;
-   background-color: rgba(0,0,0,0);
-   color:#5483b1;
-   padding:5px;
-   border-radius: 7px; //
-   width:70px;  //
-   height:50px;
-   float:right;
-   margin-left:10px;
-   
+	border:1px solid #5483b1;
+	background-color: rgba(0,0,0,0);
+	color:#5483b1;
+	padding:5px;
+	border-radius: 12px;
+	width:120px;
+	height:50px;
+	float:right;
+	margin-left:10px;
+	
 }
 
 #hdiv button:hover{
-   color:white; 
-   background-color:#5483b1; 
+	color:white; 
+	background-color:#5483b1; 
 }
 
 .hdiv1 {
-   
+	
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -89,66 +96,89 @@ ul, ol {
     transition: .22s ease;
 }
 
-.mtd {
-height:30px;
-}
+.table100 {
+clear : both;
+ 	width : 1000px;
+ 	height : 300px;
+	text-align:center;
+	border:3px solid #ccc;
 
-.textBox1 {
+
+}
+.body{
+
+width:1500px;
+height:1500px;
+
+}
+.sea{
+width:300px;
 height:40px;
-width:100%;
+float:right;
+margin-top:10px;
+border:1px solid;
+
 }
- .container{
-  
-     width:1200px;
-     height:400px;
-     text-align:center;
-     margin:0 auto;
-     margin-top:130px;
-  
-  }
-  input[type="text"],input[type="pwd"]{
-  
-     height:30px;
-     width:250px;
-     font-size:18px;
-     margin-bottom:20px;
-     background-color:#ffffff;
-     padding-left:20px;
-  }
-  
-  
-  .logbutton{
-     
-     border-radius:20px
-     border:none;
-     border-bottom:4px solid #23ae60;
-     margin-top:30px;
-  }
+.div1{
+width:500px;
+height:30px;
+float:right;
+border:1px ;
+font-weight:bold;
+margin-top:10px;
+font-size:20px;
 
- <script>
-     $( function() {
-       $( "#birthday" ).datepicker( {
-         changeMonth: true,
-         changeYear: true
-       } );
-     } );
- 
-  function fn_memberSubmit() {
-     /* 데이터 유효성 체크    */
-     var f = document.frm;
-     if(f.userid.value == "") {
-        alert("아이디를 입력해주세요.");
-        return false;
-     }
-     if(f.pwd.value == "") {
-        alert("패스워드를 입력해주세요.");
-        return false;
-     }
-     f.submit();
-  }
-  </script>
+}
+.div2{
+width:500px;
+height:30px;
+float:right;
+border:1px ;
+margin-top:10px;
+font-weight:bold;
+font-size:20px
+}
+.conten{
+font-size:15px;
 
-
+}
+.tabmenu{ 
+  width:1000px; 
+  margin: 0 auto; 
+  position:relative;
+   
+}
+.tabmenu ul li{
+  display:  inline-block;
+  width:25%; 
+  float:left;  
+  text-align:center; 
+  background :#f9f9f9;
+  
+}
+.tabmenu ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+  font-weight:bold;
+}
+.tabCon{
+  display:none; 
+  text-align:left; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+}
+.btnCon:target  {
+  background : #ccc;
+}
+.btnCon:target .tabCon{
+  display: block;
+} 
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -156,50 +186,73 @@ width:100%;
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
+
 <body> 
-<header style="background-color:#2d3246;height:100px;">
+
+
+
+<header style="background-color:#2d3246;height:100px;width:1920px;">
    <div style="float:left;margin-left:100px;">
       <img style="width:250px;height:90px;" src="../images/logo.JPG">
    </div>
    <br>
    <br>
    <div id="hdiv" style="margin-right:100px;">
-      <button id="hbutton" onclick="location='memberWrite.jsp'">회원가입</button> 
-      <button id="hbutton"onclick="location='login.jsp'" > 로그인</button> 
-      <button id="hbutton"onclick="location='jijum.jsp'">회사소개</button> 
-      <button id="hbutton">커뮤니티</button> 
+   
+      <% if( sessionUserid == null){
+    	  %> 
+  
+      <button id="hbutton">회원가입</button> 
+      <button id="hbutton" onclick="movein()">로그인</button> 
+      
+      <%
+       } else {
+      %>
+            
+      <button id="hbutton">회원정보수정</button> 
+      <button id="hbutton" onclick="moveout()">로그아웃</button> 
+      
+       <% } %>
+   
+      <button id="hbutton">회사소개</button> 
+      <button id="hbutton" onclick="moveboard()">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
-      <button id="hbutton"onclick="location='../main/home.jsp'">홈</button> 
+      <button id="hbutton">홈</button> 
    </div>
 </header>
 
-	<section>
+<div class="tabmenu">
+  <ul>
+    <li id="tab1" class="btnCon"><a class="btn first" href="#tab1">프리미엄 스토어</a>
+      <div class="tabCon" >1</div></li>
 
 
-		<div class="container">
+<li id="tab2" class="btnCon"><a class="btn" href="#tab2">전기자전거 서비스지정점</a>
+      <div class="tabCon" >234</div>
+      
+    </li> 
+    
+    <li id="tab3" class="btnCon"><a class="btn" href="#tab3">서비스지정점</a>
+      <div class="tabCon" >789</div>
+      
+    </li>
+    
+    <li id="tab4" class="btnCon"><a class="btn" href="#tab4">전기자전거취급점</a>
+      <div class="tabCon" >456</div>
+      
+    </li>
+</ul>
+</div>
+</div>
 
 
-			<form name="frm" method="post" action="loginsub.jsp">
 
-				<div>
-					<input type="text" name="userid" placeholder="아이디를 입력하세요.">
-				</div>
-				<div>
-					<input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
 
-				</div>
-				<tr>
-					<th><input type="submit" value="로그인"
-						onclick="fn_memberSubmit(); return false;"> <input
-						type="reset" value="취소" onclick="home.jsp"> 
-					 <input type="button" value="회원가입"
-						onclick="location='memberWrite.jsp'""></th>
-				</tr>
-			</form>
-		</div>
 
-	</section>
-	<br>
+
+
+
+<br>
 <br>
 <br>
 <br>
