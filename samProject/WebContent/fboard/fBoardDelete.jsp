@@ -26,5 +26,5 @@ int result = stmt.executeUpdate(sql);
 
 <script>
 alert("삭제완료");
-location="../fboard/rBoardList.jsp"; 
+location="../fboard/fBoardList.jsp"; 
 </script>
