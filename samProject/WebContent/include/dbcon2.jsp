@@ -14,7 +14,7 @@
  <% 
 	String id = "scott";
 	String pass = "1234";  //1521  오라클 전용 포트번호 / orcl - apple 아님
-	String url = "jdbc:oracle:thin:@localhost:1521:orcl";    //localhost 에 ip 입력하면 함께활용 됨
+	String url = "jdbc:oracle:thin:@localhost:1522:orcl";    //localhost 에 ip 입력하면 함께활용 됨
  // cmd - ipconfig  :  ipv4 주소가 해당 pc의 ip 이다.  // 리눅스 서버를 하면.. 학습에 도움됨..
 
 
