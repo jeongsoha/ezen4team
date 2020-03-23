@@ -17,26 +17,6 @@
 
 <script>
 
-function moveIn() {
-	location = "../member/login.jsp";
-}
-
-function moveOut() {
-	location = "../member/logoutsub.jsp";
-}
-
-function movefBoard() {
-	location = "../fboard/fBoardList.jsp";
-}
-
-function moveHome() {
-	location = "../main/home.jsp";
-}
-
-function moveUp() {
-	location = "../member/memberWrite.jsp";
-}
-
 </script>
 
 
@@ -56,22 +36,24 @@ function moveUp() {
       <% if( sessionUserid == null){
     	  %> 
   
-      <button id="hbutton" onclick="moveUp()">회원가입</button> 
-      <button id="hbutton" onclick="moveIn()">로그인</button> 
+      <button id="hbutton" onclick="location='../member/memberWrite.jsp'">회원가입</button> 
+      <button id="hbutton" onclick="location='../member/login.jsp'">로그인</button> 
       
       <%
        } else {
       %>
             
       <button id="hbutton">회원정보</button> 
-      <button id="hbutton" onclick="moveOut()">로그아웃</button> 
+      <button id="hbutton" onclick="location='../member/logoutsub.jsp'">로그아웃</button> 
       
        <% } %>
    
-      <button id="hbutton">회사소개</button> 
-      <button id="hbutton" onclick="movefBoard()">커뮤니티</button> 
+      <button id="hbutton" onclick="location='../jijum/jijum3.jsp'">회사소개</button> 
+      <button id="hbutton" onclick="location='../fboard/fBoardList.jsp'">커뮤니티</button> 
       <button id="hbutton">제품소개</button> 
-      <button id="hbutton" onclick="moveHome()">홈</button> 
+      <button id="hbutton" onclick="location='../main/home.jsp'">홈</button> 
+      
+      
    </div>
    </div>
    
