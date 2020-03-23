@@ -105,7 +105,7 @@ String hit = rs.getString("hit");
 </table>
 
 <%
-if("Y".equals(admin)){
+if("Y".equals(admin) ){
 %>
 	<table>
 	<tr>
