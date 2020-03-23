@@ -63,7 +63,7 @@ function moveUp() {
        } else {
       %>
             
-      <button id="hbutton">회원정보수정</button> 
+      <button id="hbutton">회원정보</button> 
       <button id="hbutton" onclick="moveOut()">로그아웃</button> 
       
        <% } %>
