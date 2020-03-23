@@ -8,12 +8,14 @@
 String userid1 = (String) session.getAttribute("sessionUserid");
 String admin = (String) session.getAttribute("adminConfirm");
 
+
 String bunq = request.getParameter("bunq");
 
 String sql = " UPDATE pboard SET hit = hit+1 "  // 조회수 증가 
 		+ " WHERE bunq = '"+bunq+"' ";
 
 	stmt.executeUpdate(sql);
+	
 
  sql = " SELECT userid,title,content,to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') sdate,hit "   //디테일 출력 
 		   + " FROM pboard "
@@ -27,6 +29,18 @@ String title = rs.getString("title");
 String content = rs.getString("content");
 String sdate = rs.getString("sdate");
 String hit = rs.getString("hit");
+
+
+String reSql = " SELECT boardcode FROM reboard "
+			 + " WHERE boardcode = '"+bunq+"' ";  /* 댓글의 절대값을 가져와 삭제... */
+
+       reSql = " SELECT reunq,userid,recontent,sdate,boardcode FROM reboard "  /* 댓글 출력 */
+			 + " WHERE boardcode = '"+bunq+"' "
+			 + " ORDER BY sdate asc ";
+			
+
+ResultSet reRs = stmt.executeQuery(reSql);
+
 
 
 %>
@@ -59,8 +73,33 @@ String hit = rs.getString("hit");
 <link rel="stylesheet" href="../css/menu_footer.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-<body> 
+<script>
 
+function fn_reWrite() {
+	
+	/* 데이터 유효성  체크 */
+	var f = document.frm2;
+	var user = "<%=userid1%>";
+	//alert(user);
+	if( user != "null" && user != null && user != "") {
+		if( f.recontent.value=="" ){
+			alert("내용을 입력해주세요.");
+			f.recontent.focus();
+			return false;  // 자바스크립트 중단!
+		}else{
+			f.submit();
+		}
+	}else{
+		alert("로그인을 해주세요");
+		location ="../fboard/fBoardList.jsp";
+	}
+	
+	
+}
+
+</script>
+
+<body> 
 
 
 <%@ include file = "../include/header.jsp" %>
@@ -137,29 +176,69 @@ if (userid1 == null){
 	
 </form>
 
-<form name="frm2" method="post" action="">
 
 	<table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">아이디</th>
-      <th scope="col">댓글</th>
+      <th scope="col" >아이디</th>
+      <th scope="col" style="width:800px;">댓글</th>
       <th scope="col">작성시간</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
-  <tbody>
   
+  <%
+  int number = 1;
+  while(reRs.next()){
+	  String reuserid = reRs.getString("userid");
+	  String recontent = reRs.getString("recontent");
+	  String resdate = reRs.getString("sdate");
+	  String reunq = reRs.getString("reunq");
+	 
+  %>
+  
+  <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-   
+      <th scope="row"><%=number %></th>
+      <td><%=reuserid %></td>
+      <td><%=recontent %></td>
+      <td><%=resdate %></td>
+      <%
+      if( reuserid.equals(userid1) || "Y".equals(admin) ){
+      %>
+      <td style="width:10px;">
+      <button type="button" class="btn btn-outline-info">수정</button></td>
+      
+      <td>
+      <button type="button" class="btn btn-outline-info" >삭제</button></td>
+      <%
+      number++;
+      }
+      %>
+   </tr>
   </tbody>
+  
+  <%
+  }
+  %>
+  
 </table>
 
+
+<form name="frm2" method="post" action="reBoardSave.jsp">
+<input type="hidden" name="userid" value="<%=userid1%>"> 
+<input type="hidden" name="bunq" value="<%=bunq%>"> 
+
+ <table>
+  	<tr>
+  		<th>댓글</th>
+  		<td><input type="text" name="recontent" style="width:1200px;height:50px;"></td>
+  		<td><button type="submit" class="btn btn-secondary btn-lg" onClick="fn_reWrite(); return false;">등록</button></td>
+  	</tr>
+  </table>
+  
 </form>
 
 <br>
@@ -173,3 +252,4 @@ if (userid1 == null){
 	
 </body>
 </html>
+

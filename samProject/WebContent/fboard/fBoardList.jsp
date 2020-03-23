@@ -13,7 +13,7 @@ if( viewPage == null ){
 	viewPage = "1";
 }
 
-String totalSql = " select count(*) total from pboard ";
+String totalSql = " select count(*) total from pboard";
 ResultSet rs2 = stmt.executeQuery(totalSql);
 rs2.next();
 int total = rs2.getInt("total");
