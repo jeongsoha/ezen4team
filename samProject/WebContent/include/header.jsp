@@ -44,8 +44,10 @@ function moveUp() {
 
 
 <header style="background-color:#2d3246;height:100px;width:1920px;">
-   <div style="float:left;margin-left:100px;">
-      <img style="width:250px;height:90px;" src="../images/logo.JPG">
+
+<div class="container">
+   <div style="float:left;margin-left:10px;">
+      <img style="width:200px;height:90px;" src="../images/logo.JPG">
    </div>
    <br>
    <br>
@@ -71,6 +73,8 @@ function moveUp() {
       <button id="hbutton">제품소개</button> 
       <button id="hbutton" onclick="moveHome()">홈</button> 
    </div>
+   </div>
+   
 </header>
 
 </body>

@@ -110,11 +110,11 @@ clear : both;
 </script>
 
 
-<body> 
-
+<body  style="width:1920px;"> 
 
 <%@ include file = "../include/header.jsp" %>
 
+<div class="container">  
 <section>
 
 <div class="table100" >
@@ -128,8 +128,8 @@ clear : both;
 내용 도는 공간
 </div>
 
-
 </section>
+</div>
 
 <%@ include file = "../include/footer.jsp" %> 
 	
