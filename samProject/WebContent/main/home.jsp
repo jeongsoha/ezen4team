@@ -90,12 +90,12 @@ ul, ol {
 }
 
 .table100 {
-clear : both;
+	clear : both;
  	width : 1000px;
  	height : 300px;
 	text-align:center;
 	border:3px solid #ccc;
-
+	
 
 }
 </style>
