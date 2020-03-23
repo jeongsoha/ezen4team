@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
       
       
-     <%@ include file="..\\include\\dbcon2.jsp" %>
+     <%@ include file="..\include\dbcon2.jsp" %>
     
     <%    
     
