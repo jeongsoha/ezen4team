@@ -19,7 +19,7 @@
 
   <%@include file="../include/header.jsp" %>
 
-</header>
+
 
 <div class="tabmenu">
   <ul>
