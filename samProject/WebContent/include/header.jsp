@@ -23,7 +23,7 @@
 
 <style>
 .header_container{
-	width: 1200px;   /* 헤더 중앙에 위치할 px width 값*/
+	width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
 	margin: 0px auto;  /*중앙정렬*/
   	
 }
@@ -36,7 +36,7 @@
   <div class="header_container"> 
   
   <!-- 배너 좌측에서부터 150px 간격 -->
-   <div style="float:left;margin-left:100px;">   
+   <div style="float:left;">   
       <img style="margin-left:-50px;width:150px;height:90px;" src="../images/logo.JPG" onclick="location='../main/home.jsp'">
    </div>
    <br>
@@ -45,7 +45,7 @@
    <div class="menubar">
    <ul>
       
-      <li><a href="#" onclick="location='../jijum/jijum3.jsp'">대리점</a>
+      <li><a href="#" onclick="location='../jijum/jijum4.jsp'">대리점</a>
       <ul>
          
            <li><a href="#">대리점찾기</a></li>
