@@ -3,7 +3,7 @@
     
     
 <%@ include file="..\\include\\dbcon2.jsp"%>
-<%    	int unit = 10;
+<%    	int unit = 5;
 		String viewPage = request.getParameter("viewPage");
 		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
 			viewPage = "1";
@@ -25,7 +25,7 @@
     			+ " to_char(flog,'yyyy-mm-dd hh:mi') flog, "
     			+ " state FROM pmember "
     			+ " order by memno DESC)a ) b " 
-	       	    + " where rn >="+startNo+" and rn <="+endNo+" ";  	// 페이징처리 구성
+	       	    + " where rn >="+startNo+" and rn <="+endNo+"" ;  	// 페이징처리 구성
     
     
     ResultSet rs = stmt.executeQuery(sql);
@@ -67,6 +67,21 @@
 
 
 </style>
+
+<script>
+
+function fn_popup(num) {
+	
+	var a = num;
+	var url = "memberModify.jsp?memno="+a;
+
+	// window.open('웹주소','별칭','옵션')  // 별칭은 중요도 낮다
+
+	window.open(url,'popup','width=1000,height=600');
+
+}
+
+</script>
 
 
 

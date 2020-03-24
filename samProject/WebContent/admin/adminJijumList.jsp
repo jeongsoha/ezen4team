@@ -4,13 +4,30 @@
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
 <%    
+
+int unit = 5;
+		String viewPage = request.getParameter("viewPage");
+		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
+			viewPage = "1";
+		}
+
+		String totalSql = " select count(*) total from pmember";
+		ResultSet rs2 = stmt.executeQuery(totalSql);
+		rs2.next();
+		int total = rs2.getInt("total");
+
+		int totalPage = (int) Math.ceil((double)total/unit);
+		int startNo = (Integer.parseInt(viewPage)-1) * unit +1;  //  1 -> 1 ,  2 -> 11 , 3 -> 21
+		int endNo = startNo+unit-1;
+		
+		
     
-    String sql = " SELECT jino, jicode, jiname, jiaddr, jitel, "
+    String sql = " select b.* from (select rownum rn, a.* from (SELECT jino, jicode, jiname, jiaddr, jitel, "
   				+ " jiabil1,jiabil2, jiabil3,jirecomend,jistate, "
     			+ " to_char(jisdate,'yyyy-mm-dd') jisdate, "
     			+ " jistar FROM pjijum "
-    			+ " order by jino DESC " ;
-    
+    			+ " order by jino DESC) a ) b " 
+    		  + " where rn >="+startNo+" and rn <="+endNo+" ";  
         
     ResultSet rs = stmt.executeQuery(sql);
     
@@ -124,7 +141,7 @@
 				%>
 				<tr>
 					<td><%=jino %></td>
-					<td><a href="memberModify.jsp?jino=<%=jino%>"><%=jicode %></td>  <!-- 코드누르면 수정창 -->
+					<td><a href=# "memberModify.jsp?jino=<%=jino%>"><%=jicode %></td>  <!-- 코드누르면 수정창 -->
 					<td><%=jiname %></td>
 					<td><%=jiaddr %></td>
 					<td><%=jitel %></td>
@@ -144,6 +161,14 @@
 	}
 	%>
 			</table>
+
+			 <p align = "center">
+     <% for(int i=1 ; i<=totalPage ; i++) {
+    	 %>	 
+     <a href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %></a>
+     <% }%>
+
+     </p>    
 
 		</div>
 
