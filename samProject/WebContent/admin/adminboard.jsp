@@ -65,8 +65,7 @@
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
-	<%@ include file = "../admin/memberList.jsp" %>
-
+  소개할 내용 기재
 
 	</div>
 

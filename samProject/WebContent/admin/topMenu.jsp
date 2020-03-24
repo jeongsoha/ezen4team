@@ -32,10 +32,10 @@ font-size:12px;
 	<div class="jumbortron">
 	
 		<ul>
-		<li><a class="btn btn-outline-danger" href="#" role="button"> admin 홈</a></li>
-		<li><a class="btn btn-primary btn-sm" href="jijimList.jsp" role="button"> 대리점 관리</a></li>
+		<li><a class="btn btn-outline-danger" href="adminboard.jsp" role="button"> admin 홈</a></li>
+		<li><a class="btn btn-primary btn-sm" href="adminJijumList.jsp" role="button"> 대리점 관리</a></li>
 		<li><a class="btn btn-primary btn-sm" href="goodsList.jsp" role="button"> 상품목록 관리</a></li>
-		<li><a class="btn btn-primary btn-sm" href="memberList.jsp" role="button"> 회원 관리</a></li>
+		<li><a class="btn btn-primary btn-sm" href="adminMemberList.jsp" role="button"> 회원 관리</a></li>
 
 		</ul>
 			
