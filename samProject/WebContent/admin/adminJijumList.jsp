@@ -83,6 +83,18 @@ int unit = 5;
 </style>
 
 
+<script>
+
+function fn_popup(num) {
+	
+	var a = num;
+	
+	alert("hi  지점수정 페이지 이동 전" + a);
+}
+
+</script>
+
+
 
 <body style="width:1920px;"> 
 
@@ -141,7 +153,7 @@ int unit = 5;
 				%>
 				<tr>
 					<td><%=jino %></td>
-					<td><a href=# "memberModify.jsp?jino=<%=jino%>"><%=jicode %></td>  <!-- 코드누르면 수정창 -->
+					<td><a href=# onclick="fn_popup(<%=jino %>)"><%=jicode %></td>  <!-- 코드누르면 수정창 -->
 					<td><%=jiname %></td>
 					<td><%=jiaddr %></td>
 					<td><%=jitel %></td>
