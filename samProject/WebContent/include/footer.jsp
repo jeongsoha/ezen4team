@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<footer class="section footer-classic context-dark bg-image" style="background: #aabacc;width:1920px;">
-        <div class="container">
+<footer class="section footer-classic context-dark bg-image" style="background: #aabacc; clear:both;width:1920px;">
+        <div  class="container">
           <div class="row row-30">
             <div class="col-md-4 col-xl-5">
               <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>

@@ -52,54 +52,33 @@
 
 .dashboard {
 	width: 1010px;
-	height: 150px;
+	height: 100px;
 	border: 1px solid #ccc;
 	float: left;
 }
 
-.memberlist {
-	width: 1000px;
-	border: 1px solid #cccccc;
-	border-collapse: collapse;
-	text-align: center;
-}
 
-#test div {
-	clear: both;
-	border: 1px solid #cccccc;
-	text-align: center;
-}
 
-.admintop {
-	clear: both;
-	width: 1500px;
-	height: 100px;
-	text-align: center;
-	border: 3px solid #ccc;
-}
 </style>
+
+<script>
+
+function fn_popup(num) {
+	
+	var a = num;
+	var url = "memberModify.jsp?memno="+a;
+
+	// window.open('웹주소','별칭','옵션')  // 별칭은 중요도 낮다
+
+	window.open(url,'popup','width=1000,height=600');
+
+}
+
+</script>
 
 <body>
 
-	<section>
-
-		<div class="admintop">어드민 최상단</div>
-
-	</section>
-
-
-	<div class="mainbody">
-
-		<div style="float: left; width: 300px; height: 800px"
-			class="adminLeft">
-
-			<%@ include file="leftMenu.jsp"%>
-
-		</div>
-
-
-
-
+	
 		<div class="adminRight">
 			<!-- 카테목록 -->
 
@@ -155,7 +134,7 @@
 					<td><%=inter %></td>
 					<td><%=flog %></td>
 					<td><%=state %></td>
-					<td><a href="memberModify.jsp?memno=<%=memno%>">수정</a></td>
+					<td><button type="button" onclick="fn_popup(<%=memno%>)">수정</a></td>
 					<!-- 수정화면 전환 -->
 
 				</tr>
@@ -164,17 +143,15 @@
 	}
 	%>
 			</table>
+	<button type="submit">버튼</button>
 
 		</div>
-		<p></p>
-		<p></p>
-
+	
 
 
 		<form name="frm" method="post" action="cateSave.jsp">
 
-			<button type="submit">버튼</button>
-
+		
 		</form>
 
 	</div>

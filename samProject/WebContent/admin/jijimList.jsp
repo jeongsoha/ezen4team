@@ -29,6 +29,10 @@
 <!-- // 아직없다 -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 
+
+
+
+
 <style>
 .mainbody {
 	width: 1500px;
@@ -79,11 +83,10 @@
 
 <body>
 
-	<section>
 
-		<div class="admintop">어드민 최상단</div>
+	
+<%@ include file = "../include/header.jsp" %>
 
-	</section>
 
 
 	<div class="mainbody">
@@ -164,7 +167,12 @@
 			</table>
 
 		</div>
-		<p></p>
+		
+		
+	
+
+
+
 		<p></p>
 
 
