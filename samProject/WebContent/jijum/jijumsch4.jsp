@@ -6,13 +6,13 @@
 <%
 
 
-	String sql = " SELECT jiname, jiaddr,"
+	String sql4 = " SELECT jiname, jiaddr,"
 			   + " jitel, jiabil1, jiabil2,jiabil3, " 
 	           + " jirecomend,jistate, "
 			   + " jistar"
 			   + " FROM pjijum Where jirecomend='Y' ";
 
-	ResultSet rs = stmt.executeQuery(sql);
+	ResultSet rs = stmt.executeQuery(sql4);
 
 
 %>

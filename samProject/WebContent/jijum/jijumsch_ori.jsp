@@ -4,17 +4,24 @@
 <%@ include file="../include/dbcon2.jsp"%>
 <!-- pjijum DB 가져오기  -->
 <%
-
+	String jiname = request.getParameter("jiname");
+	String jiaddr = request.getParameter("jiaddr");
+	String jitel = request.getParameter("jitel");
+	String joabil1 = request.getParameter("jiabil1");
+	String joabil2 = request.getParameter("jiabil2");
+	String joabil3 = request.getParameter("jiabil3");
+	String jirecomend = request.getParameter("jirecomend");
+	String jistate = request.getParameter("jistate");
+	String jistar = request.getParameter("jistar");
 
 	String sql = " SELECT jiname, jiaddr,"
 			   + " jitel, jiabil1, jiabil2,jiabil3, " 
 	           + " jirecomend,jistate, "
 			   + " jistar"
-			   + " FROM pjijum Where jirecomend='Y' ";
+			   + " FROM pjijum ";
 
 	ResultSet rs = stmt.executeQuery(sql);
-
-
+	rs.next();
 %>
 
 
@@ -40,7 +47,7 @@
 
 <%
 while(rs.next()){
-	
+
 String name =rs.getString("jiname");
 String addr =rs.getString("jiaddr");
 String tel =rs.getString("jitel");
@@ -51,9 +58,10 @@ String comend =rs.getString("jirecomend");
 String state =rs.getString("jistate");
 String star =rs.getString("jistar");
 
+
 %>
 
-<tr style="border-bottom:1px solid; text-align:center; word-spacing:3px;">
+<tr style="border-bottom:1px solid;">
 
 <td><%=name %></td>
 <td><%=addr %></td>

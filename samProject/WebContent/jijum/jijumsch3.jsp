@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- db연결 -->
-<%@ include file="../include/dbcon2.jsp"%>
+
 <!-- pjijum DB 가져오기  -->
 <%
 
 
-	String sql = " SELECT jiname, jiaddr,"
+	String sql3 = " SELECT jiname, jiaddr,"
 			   + " jitel, jiabil1, jiabil2,jiabil3, " 
 	           + " jirecomend,jistate, "
 			   + " jistar"
 			   + " FROM pjijum Where jirecomend='Y' ";
 
-	ResultSet rs = stmt.executeQuery(sql);
+	ResultSet rs = stmt.executeQuery(sql3);
 
 
 %>
