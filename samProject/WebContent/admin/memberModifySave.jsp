@@ -40,9 +40,13 @@
 	%>
 		<script>
 		alert("정보변경 완료");
-		location='memberList.jsp'     // 추후 저장완료 시 멤버 리스트로 연결되도록 수정필요함 (03.06)
-		</script>
+	
 				
+	opener.document.location.reload();    //자식창 닫고 부모창 새로고침
+
+		self.close();
+			</script>
+		
 <%
 } else {
 %>

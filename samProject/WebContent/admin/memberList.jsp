@@ -143,7 +143,6 @@ function fn_popup(num) {
 	}
 	%>
 			</table>
-	<button type="submit">버튼</button>
 
 		</div>
 	

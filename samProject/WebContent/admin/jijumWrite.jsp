@@ -108,7 +108,7 @@
 		<div style="float: left; width: 300px; height: 800px"
 			class="adminLeft">
 
-			<%@ include file="leftMenu.jsp"%>
+			<%@ include file="topMenu.jsp"%>
 
 		</div>
 
