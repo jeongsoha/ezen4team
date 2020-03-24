@@ -2,12 +2,7 @@
     pageEncoding="UTF-8"%>
     
     
-     <%
-    String sessionUserid = (String) session.getAttribute("sessionUserid");
-    String adminConfirm = (String) session.getAttribute("adminConfirm");
- 
-    %>
-    
+   
     
 <!DOCTYPE html>
 <html>
@@ -26,24 +21,21 @@
 
 <div class="tabmenu">
   <ul>
-    <li id="tab1" class="btnCon"><a class="btn " href="#tab1" >프리미엄 스토어</a>
-      <div class="tabCon"  ><%@include file="jijumsch.jsp" %></div>
-      
-      
-
-
-<li id="tab2" class="btnCon"><a class="btn" href="#tab2">전기자전거 서비스지정점</a>
-      <div class="tabCon" ><%@include file="jijumsch3.jsp" %></div>
+    <li id="tab1" class="btnCon"><a class="btn " href="#?aa=Y" >프리미엄 스토어</a>
+      <div class="tabCon"  >asd</div>
+ 
+<li id="tab2" class="btnCon"><a class="btn" href="#?aa=a">전기자전거 서비스지정점</a>
+      <div class="tabCon" >srg</div>
       
     </li> 
     
-    <li id="tab3" class="btnCon"><a class="btn" href="#tab3">서비스지정점</a>
-      <div class="tabCon" ><%@include file="jijumsch4.jsp" %></div>
+    <li id="tab3" class="btnCon"><a class="btn" href="#?aa=b">서비스지정점</a>
+      <div class="tabCon" >hre</div>
       
     </li>
     
-    <li id="tab4" class="btnCon"><a class="btn" href="#tab4">전기자전거취급점</a>
-      <div class="tabCon" ><%@include file="jijumsch5.jsp" %>*7s</div>
+    <li id="tab4" class="btnCon"><a class="btn" href="#?aa=c">전기자전거취급점</a>
+      <div class="tabCon" >bhreg*7s</div>
       
     </li>
 </ul>
