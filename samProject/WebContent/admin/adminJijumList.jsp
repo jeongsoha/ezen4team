@@ -98,10 +98,12 @@ function fn_popup(num) {
 
 <body style="width:1920px;"> 
 
+<div style=clear:both>
 <%@ include file = "../include/header.jsp" %>
 
+</div>
 
-	<div class="container">  
+	<div class="container" style=clear:both>  
 
 		<div style="float: left; width: 1000px; height: 150px"
 			class="adminLeft">
@@ -112,7 +114,7 @@ function fn_popup(num) {
 		<div class="adminRight">
 			<!-- 카테목록 -->
 
-			<div class="dashboard">대시보드 상단 (검색기능)</div>
+			<div class="dashboard" style=clear:both>대시보드 상단 (검색기능)</div>
 
 			<table class="memberlist">
 				<tr>

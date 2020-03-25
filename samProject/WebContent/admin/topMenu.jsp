@@ -29,7 +29,7 @@ font-size:12px;
 <body>
      	
 	<div class="container">
-	<div class="jumbortron">
+	<div class="jumbortron" >
 	
 		<ul>
 		<li><a class="btn btn-outline-danger" href="adminboard.jsp" role="button"> admin 홈</a></li>
@@ -39,9 +39,9 @@ font-size:12px;
 
 		</ul>
 			
-		<h3 class="text-center">[관리자 사진]</h3>
-		<h4 class="text-center">관리자 이름</h4>
-		<h6  class="text-center">admindodo@example.com</h6>
+		<div>[관리자 사진]</div>
+		<div>[관리자 이름]</div>
+		<div>admindodo@example.com</div>
 		
 		
 	</div>
