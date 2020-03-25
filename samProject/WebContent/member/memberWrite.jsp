@@ -206,7 +206,7 @@ width:100%;
 
                <tr>
                   <th class="mtd" >
-                  <input style="width:100%;height:40px;" type="submit" value="가입하기" onclick=""> 
+                  <input style="width:100%;height:40px;" type="submit" value="가입하기" onclick="memberSave.jsp"> 
                   
                   
                   </th>

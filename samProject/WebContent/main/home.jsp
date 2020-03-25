@@ -150,6 +150,14 @@ ul, ol {
   }
 
 
+.table100 {
+	clear : both;
+ 	width : 1000px;
+ 	height : 300px;
+	text-align:center;
+	border:3px solid #ccc;
+	
+
 
 </style>
 
@@ -159,19 +167,21 @@ ul, ol {
 
 <script>
 
-
 </script>
 
 
-<body> 
-
+<body style="width:1920px;"> 
 
 <%@ include file = "../include/header.jsp" %>
 
+<div class="container">  
 <section>
 <div class="detail">
 
+
+
 <!-- -------------------111 -->
+
 
 	<div class="d d1" >
 	<img src = "../images/11.JPG" width="332" height="330"><img src = "../images/12.JPG" width="332" height="330"><img src = "../images/13.JPG" width="332" height="330">
@@ -223,6 +233,9 @@ ul, ol {
 	
 	</div>
 
+
+
+
 <!-- -------------------333 -->
 
 	<div class="d d3" >
@@ -241,7 +254,9 @@ ul, ol {
 <!-- -------------------- -->
 
 </div>
+
 </section>
+</div>
 
 <%@ include file = "../include/footer.jsp" %> 
 	

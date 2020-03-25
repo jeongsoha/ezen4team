@@ -97,6 +97,56 @@ height:30px;
 height:40px;
 width:100%;
 }
+ .container{
+  
+     width:1200px;
+     height:400px;
+     text-align:center;
+     margin:0 auto;
+     margin-top:130px;
+  
+  }
+  input[type="text"],input[type="pwd"]{
+  
+     height:30px;
+     width:250px;
+     font-size:18px;
+     margin-bottom:20px;
+     background-color:#ffffff;
+     padding-left:20px;
+  }
+  
+  
+  .logbutton{
+     
+     border-radius:20px
+     border:none;
+     border-bottom:4px solid #23ae60;
+     margin-top:30px;
+  }
+
+ <script>
+     $( function() {
+       $( "#birthday" ).datepicker( {
+         changeMonth: true,
+         changeYear: true
+       } );
+     } );
+ 
+  function fn_memberSubmit() {
+     /* 데이터 유효성 체크    */
+     var f = document.frm;
+     if(f.userid.value == "") {
+        alert("아이디를 입력해주세요.");
+        return false;
+     }
+     if(f.pwd.value == "") {
+        alert("패스워드를 입력해주세요.");
+        return false;
+     }
+     f.submit();
+  }
+  </script>
 
 
 </style>
@@ -107,37 +157,106 @@ width:100%;
 
 
 <body> 
-<%@ include file = "../include/header.jsp" %>
+<header style="background-color:#2d3246;height:100px;">
+   <div style="float:left;margin-left:100px;">
+      <img style="width:250px;height:90px;" src="../images/logo.JPG">
+   </div>
+   <br>
+   <br>
+   <div id="hdiv" style="margin-right:100px;">
+      <button id="hbutton" onclick="location='memberWrite.jsp'">회원가입</button> 
+      <button id="hbutton"onclick="location='login.jsp'" > 로그인</button> 
+      <button id="hbutton"onclick="location='jijum.jsp'">회사소개</button> 
+      <button id="hbutton">커뮤니티</button> 
+      <button id="hbutton">제품소개</button> 
+      <button id="hbutton"onclick="location='../main/home.jsp'">홈</button> 
+   </div>
+</header>
 
-<section>
+	<section>
 
 
-  <div class="container">
-  
-        
-   <form name="frm" method="post" action="loginsub.jsp">
+		<div class="container">
+
+
+			<form name="frm" method="post" action="loginsub.jsp">
+
+				<div>
+					<input type="text" name="userid" placeholder="아이디를 입력하세요.">
+				</div>
+				<div>
+					<input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
+
+				</div>
+				<tr>
+					<th><input type="submit" value="로그인"
+						onclick="fn_memberSubmit(); return false;"> <input
+						type="reset" value="취소" onclick="home.jsp"> 
+					 <input type="button" value="회원가입"
+						onclick="location='memberWrite.jsp'""></th>
+				</tr>
+			</form>
+		</div>
+
+	</section>
+	<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer class="section footer-classic context-dark bg-image" style="background: #aabacc;">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+              <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
+                <!-- Rights-->
+                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Contacts</h5>
+              <dl class="contact-list">
+                <dt>Address:</dt>
+                <dd>798 South Park Avenue, Jaipur, Raj</dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>email:</dt>
+                <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>phones:</dt>
+                <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a href="tel:#">https://karosearch.com</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              <h5>Links</h5>
+              <ul class="nav-list">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Pricing</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutters social-container">
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+        </div>
+      </footer>
    
-   <div >
-   <input type="text" name="userid" placeholder="아이디를 입력하세요.">
-   
-      </div>
-   <div >
-   <input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
-   
-      </div>
-   <tr>
-      <th  >
-         <input type="submit"  value="로그인" 
-               onclick="fn_memberSubmit(); return false;">
-         <input type="reset"value="취소" onclick="home.jsp">
-      </th>
-   </tr>
-</form>
-      </div>
-      
-</section>
-
-<%@ include file = "../include/footer.jsp" %> 
-	
 </body>
 </html>

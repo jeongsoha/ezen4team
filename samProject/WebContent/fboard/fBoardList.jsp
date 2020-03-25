@@ -13,7 +13,7 @@ if( viewPage == null ){
 	viewPage = "1";
 }
 
-String totalSql = " select count(*) total from pboard ";
+String totalSql = " select count(*) total from pboard";
 ResultSet rs2 = stmt.executeQuery(totalSql);
 rs2.next();
 int total = rs2.getInt("total");
@@ -115,7 +115,7 @@ function fn_Write(){
         	%>
         	<tr align="center">
         		<td><%=bunq %></td>
-        		<td  style="text-align:left;"><a href="fBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
+        		<td  style="text-align:left;"><a href="../fboard/fBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
         		<td><%=userid %></td>
         		<td><%=sdate %></td>
         		<td><%=hit %></td>
