@@ -127,7 +127,7 @@ ul, ol {
 .d4{
 	clear:both;
 	width:1000px;
-	height:300px;
+	height:1000px;
      text-align:center;
      background-color : #B677FF;
 }

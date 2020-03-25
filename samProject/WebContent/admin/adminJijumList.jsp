@@ -4,6 +4,11 @@
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
 <%    
+	String serch = request.getParameter("serch");
+	
+if (serch == null ) {
+	serch = "";
+}
 
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
@@ -25,7 +30,8 @@ int unit = 5;
     String sql = " select b.* from (select rownum rn, a.* from (SELECT jino, jicode, jiname, jiaddr, jitel, "
   				+ " jiabil1,jiabil2, jiabil3,jirecomend,jistate, "
     			+ " to_char(jisdate,'yyyy-mm-dd') jisdate, "
-    			+ " jistar FROM pjijum "
+    			+ " jistar, jicode||jiname||jiaddr||jitel serch   "
+    			+ " FROM pjijum "
     			+ " order by jino DESC) a ) b " 
     		  + " where rn >="+startNo+" and rn <="+endNo+" ";  
         
@@ -92,6 +98,14 @@ function fn_popup(num) {
 	alert("hi  지점수정 페이지 이동 전" + a);
 }
 
+function fn_serch() {
+	
+	
+	var a = document.getElementById("serch1").value 
+	
+	alert(a);
+}
+
 </script>
 
 
@@ -116,17 +130,18 @@ function fn_popup(num) {
 
 		<div class="dashboard" style="float:right">
 			
-			
+				
  <form  class="form-inline" method=post action="">
-
+ 
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
       <div class="input-group-text">검색</div>
     </div>
-    <input type="text"  size="30" maxlength="50"  placeholder="검색할 지점명 또는 주소를 입력">
+    <input type="text"  size="30" maxlength="50" name=serch1 id=serch1  placeholder="검색할 지점명 또는 주소를 입력">
   
   </div>
-    <button type="submit" class="btn btn-primary mb-2">검색</button>
+    <button type="submit" class="btn btn-primary mb-2" onclick="fn_serch()" >검색</button>
+
 </form>
 			
 			</div>
