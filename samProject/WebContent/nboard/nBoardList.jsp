@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -52,6 +53,9 @@ ResultSet rs = stmt.executeQuery(sql);
 <meta charset="UTF-8">
 <title>목록</title>
 </head>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
 <style>
 /* #5483b1 */
 #hbutton {
@@ -140,19 +144,6 @@ ul, ol {
       }
 </style>
 
-<section>
-
-function searchCheck(frm){
-	if(frm.keyWord.value=""){
-		alert("검색 단어를 입력하세요.");
-		frm.keyWord.focus();
-		return;
-	}
-	frm.submit();
-}
-
-</section>
-
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -168,25 +159,18 @@ function searchCheck(frm){
 <br>
 <br>
 
-<table align="center" style="margin-left:700px; ">
-
-	<tr>
-		<td>
-		</td>
-	</tr>
-
 <table align="center" style="margin-right:700px; border-collapse: separate;border-spacing:0 10px;">
-
    <tr>
-      <td><input type="button" value="공지사항" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
-      <td><input type="button" value="자유게시판" OnClick="location='../fboard/fBoardList.jsp'" style="width:100px;"></td>
+      <td><input type="button" value="공지사항" class="btn btn-secondary" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
+      <td><input type="button" value="자유게시판" class="btn btn-secondary" OnClick="location='../fboard/fBoardList.jsp'" style="width:100px;"></td>
    </tr>
-   
+
 </table>
 
 
    
-   <table class="table1" align="center" style="width:900px;" bgcolor="#ffffff">
+   <table align="center" style="width:900px;" bgcolor="#ffffff" class="table table-striped">
+    <thead>
             <tr align="center">
                <th width="10%" class="td1"></th>
                <th width="40%" class="td1">제목</th>
@@ -201,7 +185,7 @@ function searchCheck(frm){
                }
                %>
             </tr>
-            
+    </thead>
             <%
            int number = 1;
            while(rs.next()){
@@ -226,13 +210,13 @@ function searchCheck(frm){
               }
               %>
               
-              
            </tr> 
 
            <%   
               number++;
            }      
            %>
+           
     </table>       
     
       <%
@@ -240,7 +224,7 @@ function searchCheck(frm){
       %>
     <table align="center" style="margin-left:800px; border-collapse:separate; border-spacing:0 10px;">
    <tr>
-      <td><input type="button" value="글쓰기" onClick="location='nBoardWrite.jsp'" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
+      <td><input type="button" class="btn btn-secondary" value="글쓰기" onClick="location='nBoardWrite.jsp'" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
    </tr>
    </table>
       <%

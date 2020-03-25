@@ -31,6 +31,7 @@ String pub = rs.getString("pub");
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="../css/menu_footer.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
 <script>
 
@@ -85,8 +86,8 @@ String pub = rs.getString("pub");
 				   <option value="2" <%if("2".equals(pub)) out.print("selected"); %>>비공개</option>
              </select> &nbsp;&nbsp;
                 
-             <input type="submit" value="수정완료" style="width:100px;">
-             <input type="button" value="취소" onClick="location='nBoardList.jsp'" style="width:100px; ">
+             <input type="submit" class="btn btn-secondary" value="수정완료" style="width:100px;">
+             <input type="button" class="btn btn-secondary" value="취소" onClick="location='nBoardList.jsp'" style="width:100px; ">
           </th>
        </tr>
    </table>

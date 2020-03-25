@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<footer class="section footer-classic context-dark bg-image" style="background: #aabacc;width:1898px;">
+<footer class="section footer-classic context-dark bg-image" style="background: #aabacc; clear:both; width:1898px;">
         <div class="container">
           <div class="row row-30">
             <div class="col-md-4 col-xl-5">

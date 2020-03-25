@@ -95,7 +95,7 @@ function fn_Write(){
 	
 	</table>
 	
-	<table class="table1" align="center">
+	<table class="table1" align="center" >
       		<tr align="center">
       			<th width="8%" class="td1"></th>
       			<th width="60%" class="td1">제목</th>
