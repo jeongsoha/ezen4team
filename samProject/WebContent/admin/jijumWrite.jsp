@@ -4,7 +4,8 @@
 
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
- <%    
+ <%    /* 
+	아직 미구성 */
     
     String memno = request.getParameter("memno");
  	// String memno = "12";
@@ -38,7 +39,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=devide-width" , initial-scale="1">
-<title>회원 관리</title>
+<title>회원 정보 수정</title>
 </head>
 
 <link rel="stylesheet" type="text/css" href="../css/adminlayout.css">
@@ -66,16 +67,53 @@
 
 .dashboard {
 	width: 1010px;
-	height: 100px;
+	height: 150px;
 	border: 1px solid #ccc;
 	float: left;
 }
 
+.memberlist {
+	width: 1000px;
+	border: 1px solid #cccccc;
+	border-collapse: collapse;
+	text-align: center;
+}
 
+#test div {
+	clear: both;
+	border: 1px solid #cccccc;
+	text-align: center;
+}
 
+.admintop {
+	clear: both;
+	width: 1500px;
+	height: 100px;
+	text-align: center;
+	border: 3px solid #ccc;
+}
 </style>
 
 <body>
+
+	<section>
+
+		<div class="admintop">어드민 최상단</div>
+
+	</section>
+
+
+	<div class="mainbody">
+
+		<div style="float: left; width: 300px; height: 800px"
+			class="adminLeft">
+
+			<%@ include file="topMenu.jsp"%>
+
+		</div>
+
+	<div class="dashboard">대시보드 상단 (회원정보 수정화면 입니다.)</div>
+
 
 		<div class="adminRight">
 			<!-- 카테목록 -->

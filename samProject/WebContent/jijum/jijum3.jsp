@@ -1,11 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    <%@ include file="../include/dbcon2.jsp"%>
      <%
     String sessionUserid = (String) session.getAttribute("sessionUserid");
     String adminConfirm = (String) session.getAttribute("adminConfirm");
        //set
-    %>
+   
+   
+String tab =  (String)request.getParameter("tab");
+
+if (tab == null) {  // 첫 진입 null 이면 에러(수정)
+   tab = "1";
+}
+
+
+
+   String sql = " SELECT jiname, jiaddr,"
+            + " jitel, jiabil1, jiabil2,jiabil3, " 
+              + " jirecomend,jistate, "
+            + " jistar"
+            + " FROM pjijum  ";
+   
+    if("1".equals(tab)){ 
+        sql = sql + " WHERE jirecomend='Y' ";
+        
+     
+     } else if ("2".equals(tab)) { 
+        sql = sql + " WHERE jiabil1='Y' ";
+        
+        
+     } else if ("3".equals(tab)) { 
+        sql = sql + " WHERE jiabil2='Y' ";
+        
+        
+     } else if ("4".equals(tab)) { 
+        sql = sql +" WHERE jiabil3='Y' ";
+        
+     
+     }
+
+   
+   ResultSet rs = stmt.executeQuery(sql);
+
+
+
+%>
+
     
     
 <!DOCTYPE html>
@@ -18,32 +59,32 @@
 <style>
 /* #5483b1 */
 #hbutton {
-	border-top-right-radius:5px; 
-	border-bottom-right-radius:5px; 
-	margin-left:-3px;
+   border-top-right-radius:5px; 
+   border-bottom-right-radius:5px; 
+   margin-left:-3px;
 
 }
 
 #hdiv button {
-	border:1px solid #5483b1;
-	background-color: rgba(0,0,0,0);
-	color:#5483b1;
-	padding:5px;
-	border-radius: 12px;
-	width:120px;
-	height:50px;
-	float:right;
-	margin-left:10px;
-	
+   border:1px solid #5483b1;
+   background-color: rgba(0,0,0,0);
+   color:#5483b1;
+   padding:5px;
+   border-radius: 12px;
+   width:120px;
+   height:50px;
+   float:right;
+   margin-left:10px;
+   
 }
 
 #hdiv button:hover{
-	color:white; 
-	background-color:#5483b1; 
+   color:white; 
+   background-color:#5483b1; 
 }
 
 .hdiv1 {
-	
+   
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -98,10 +139,10 @@ ul, ol {
 
 .table100 {
 clear : both;
- 	width : 1000px;
- 	height : 300px;
-	text-align:center;
-	border:3px solid #ccc;
+    width : 1000px;
+    height : 300px;
+   text-align:center;
+   border:3px solid #ccc;
 
 
 }
@@ -200,7 +241,7 @@ font-size:15px;
    <div id="hdiv" style="margin-right:100px;">
    
       <% if( sessionUserid == null){
-    	  %> 
+         %> 
   
       <button id="hbutton">회원가입</button> 
       <button id="hbutton" onclick="movein()">로그인</button> 
@@ -223,30 +264,80 @@ font-size:15px;
 
 <div class="tabmenu">
   <ul>
-    <li id="tab1" class="btnCon"><a class="btn first" href="#tab1">프리미엄 스토어</a>
+    <li id="tab1" class="btnCon"><a class="btn first" href="jijum3.jsp?tab=1">프리미엄 스토어</a>
       <div class="tabCon" >1</div></li>
 
 
-<li id="tab2" class="btnCon"><a class="btn" href="#tab2">전기자전거 서비스지정점</a>
+<li id="tab2" class="btnCon"><a class="btn" href="jijum3.jsp?tab=2">전기자전거 서비스지정점</a>
       <div class="tabCon" >234</div>
       
     </li> 
     
-    <li id="tab3" class="btnCon"><a class="btn" href="#tab3">서비스지정점</a>
+    <li id="tab3" class="btnCon"><a class="btn" href="jijum3.jsp?tab=3">서비스지정점</a>
       <div class="tabCon" >789</div>
       
     </li>
     
-    <li id="tab4" class="btnCon"><a class="btn" href="#tab4">전기자전거취급점</a>
+    <li id="tab4" class="btnCon"><a class="btn" href="jijum3.jsp?tab=4">전기자전거취급점</a>
       <div class="tabCon" >456</div>
       
     </li>
 </ul>
 </div>
-</div>
 
 
+<table>
 
+   <tr style="border-bottom:1px solid;">
+
+      <th>이름</th>
+      <th>주소</th>
+      <th>전화번호</th>
+      <th>능력1</th>
+      <th>능력2</th>
+      <th>능력3</th>
+      <th>코멘트</th>
+      <th>영업상태</th>
+      <th>평점</th>
+
+   </tr>
+
+<%
+while(rs.next()){
+   
+String name =rs.getString("jiname");
+String addr =rs.getString("jiaddr");
+String tel =rs.getString("jitel");
+String abil1 =rs.getString("jiabil1");
+String abil2 =rs.getString("jiabil2");
+String abil3 =rs.getString("jiabil3");
+String comend =rs.getString("jirecomend");
+String state =rs.getString("jistate");
+String star =rs.getString("jistar");
+
+         
+%>
+
+<tr style="border-bottom:1px solid; text-align:center; word-spacing:3px;">
+
+<td><%=name %></td>
+<td><%=addr %></td>
+<td><%=tel %></td>
+<td><%=abil1 %></td>
+<td><%=abil2 %></td>
+<td><%=abil3 %></td>
+<td><%=comend %></td>
+<td><%=state %></td>
+<td><%=star %></td>
+
+</tr>
+<%
+}      
+   
+%>
+
+
+</table>
 
 
 
