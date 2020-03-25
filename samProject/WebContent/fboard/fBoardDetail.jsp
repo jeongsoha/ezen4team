@@ -8,38 +8,57 @@
 String userid1 = (String) session.getAttribute("sessionUserid");
 String admin = (String) session.getAttribute("adminConfirm");
 
+String bunq = "";
+String bunq_re = "";
+String gubun = "";
+String dbrecontent = "";
+String userid = "";
+String title = "";
+String content = "";
+String sdate = "";
+String hit = "";
+ResultSet reRs = null;
 
-String bunq = request.getParameter("bunq");
+bunq = request.getParameter("bunq"); // 게시판 유니크값
+bunq_re = request.getParameter("bunq_re"); // 댓글 유니크값
+gubun = request.getParameter("gubun"); // 게시판 구분
 
-String sql = " UPDATE pboard SET hit = hit+1 "  // 조회수 증가 
-		+ " WHERE bunq = '"+bunq+"' ";
-
-	stmt.executeUpdate(sql);
-	
-
- sql = " SELECT userid,title,content,to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') sdate,hit "   //디테일 출력 
-		   + " FROM pboard "
+// 조회
+if( bunq != null && !"".equals(bunq)){
+   // 조회수 증가
+   String sql1 = " UPDATE pboard SET hit = hit+1 "
+        + " WHERE bunq = '"+Integer.parseInt(bunq)+"' ";  
+   stmt2.executeUpdate(sql1); 
+   
+   // 디테일 출력
+   String sql = " SELECT userid, title, content, to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') as sdate, hit"  
+		   + "  FROM pboard"
 		   + " WHERE bunq='"+bunq+"' ";
 
-ResultSet rs = stmt.executeQuery(sql);
-rs.next();
+   ResultSet rs = stmt2.executeQuery(sql);
+   rs.next();
+   userid = rs.getString("userid");
+   title = rs.getString("title");
+   content = rs.getString("content");
+   sdate = rs.getString("sdate");
+   hit = rs.getString("hit");
+   
+   // 댓글출력
+   String reSql = " SELECT reunq, userid, recontent, sdate, boardcode FROM reboard "
+		    + " WHERE boardcode = '"+bunq+"' "
+		    + " ORDER BY sdate asc ";
+			 
+   reRs = stmt.executeQuery(reSql);
+}
 
-String userid = rs.getString("userid");
-String title = rs.getString("title");
-String content = rs.getString("content");
-String sdate = rs.getString("sdate");
-String hit = rs.getString("hit");
-
-
-String reSql = " SELECT boardcode FROM reboard "
-			 + " WHERE boardcode = '"+bunq+"' ";  /* 댓글의 절대값을 가져와 삭제... */
-
-       reSql = " SELECT reunq,userid,recontent,sdate,boardcode FROM reboard "  /* 댓글 출력 */
-			 + " WHERE boardcode = '"+bunq+"' "
-			 + " ORDER BY sdate asc ";
-			
-
-ResultSet reRs = stmt.executeQuery(reSql);
+//수정
+if( bunq_re != null && !"".equals(bunq_re)){
+   String sql2 = " SELECT recontent FROM reboard "
+         + " WHERE reunq='"+bunq_re+"' ";
+   ResultSet rs2 = stmt3.executeQuery(sql2);
+   rs2.next();
+   dbrecontent = rs2.getString("recontent");    // 데이터베이스에있는 댓글내용을 가져옴
+}
 
 
 
@@ -54,14 +73,14 @@ ResultSet reRs = stmt.executeQuery(reSql);
 <style>
 
    .table1 {
-      	width:600px;
-      	border:1px solid #555555;
-      	border-collapse:collapse;
+         width:600px;
+         border:1px solid #555555;
+         border-collapse:collapse;
       }
       
       .td1{
-      	border:1px solid #555555;
-      	padding:5px;
+         border:1px solid #555555;
+         padding:5px;
       }
       
 </style>
@@ -76,31 +95,33 @@ ResultSet reRs = stmt.executeQuery(reSql);
 <script>
 
 function fn_reWrite() {
-	
-	/* 데이터 유효성  체크 */
-	var f = document.frm2;
-	var user = "<%=userid1%>";
-	//alert(user);
-	if( user != "null" && user != null && user != "") {
-		if( f.recontent.value=="" ){
-			alert("내용을 입력해주세요.");
-			f.recontent.focus();
-			return false;  // 자바스크립트 중단!
-		}else{
-			f.submit();
-		}
-	}else{
-		alert("로그인을 해주세요");
-		location ="../fboard/fBoardList.jsp";
-	}
-	
-	
+   
+   /* 데이터 유효성  체크 */
+   var f = document.frm2;
+   var user = "<%=userid1%>";
+   //alert(user);
+   if( user != "null" && user != null && user != "") {
+      if( f.recontent.value=="" ){
+         alert("내용을 입력해주세요.");
+         f.recontent.focus();
+         return false;  // 자바스크립트 중단!
+      }else{
+         f.submit();
+      }
+   }else{
+      alert("로그인을 해주세요");
+      location ="../fboard/fBoardList.jsp";
+   }
+   
+   
 }
+
+
 
 </script>
 
 <body> 
-
+<%out.print(dbrecontent); %>
 
 <%@ include file = "../include/header.jsp" %>
 
@@ -119,8 +140,8 @@ function fn_reWrite() {
 
 <input type="hidden" name="bunq" value="<%=bunq %>" >  <!-- 유니크값 같이 보내기 -->
 
-	<div align="center">
-	
+   <div align="center">
+   
 <table style="margin-left:0px;">
          <tr align="left">
                <td>글쓴이</td>
@@ -139,7 +160,7 @@ function fn_reWrite() {
    </tr>
    
    <tr>
-   	  <td><%=title %></td>
+        <td><%=title %></td>
    </tr>
    
    <tr>
@@ -160,24 +181,21 @@ if (userid1 == null){
 }else if( userid1.equals(userid) || "Y".equals(admin) ) {
 %>
  
-	<table>
-	<tr>
-		<td><input type="submit" value="수정" style="width:100px;"></td>
-		<td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='fBoardDelete.jsp?bunq=<%=bunq%>'"></td>
-	</tr>
-	</table>
+   <table>
+   <tr>
+      <td><input type="submit" value="수정" style="width:100px;"></td>
+      <td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='fBoardDelete.jsp?bunq=<%=bunq%>'"></td>
+   </tr>
+   </table>
 <%
 }
 %>
-
-	</div>
-	
-	<!--                   댓글                         -->
-	
+   </div>      
 </form>
 
+<!--                   댓글                         -->   
 
-	<table class="table">
+   <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -191,12 +209,12 @@ if (userid1 == null){
   
   <%
   int number = 1;
-  while(reRs.next()){
-	  String reuserid = reRs.getString("userid");
-	  String recontent = reRs.getString("recontent");
-	  String resdate = reRs.getString("sdate");
-	  String reunq = reRs.getString("reunq");
-	 
+  if(reRs != null){
+	  while(reRs.next()){
+		     String reuserid = reRs.getString("userid");
+		     String recontent = reRs.getString("recontent");
+		     String resdate = reRs.getString("sdate");
+		     String reunq = reRs.getString("reunq");
   %>
   
   <tbody>
@@ -209,10 +227,10 @@ if (userid1 == null){
       if( reuserid.equals(userid1) || "Y".equals(admin) ){
       %>
       <td style="width:10px;">
-      <button type="button" class="btn btn-outline-info">수정</button></td>
+      <button type="button" class="btn btn-outline-info" onClick="location='fBoardDetail.jsp?bunq=<%=bunq%>&bunq_re=<%=reunq%>&gubun=U'">수정</button></td>
       
       <td>
-      <button type="button" class="btn btn-outline-info" >삭제</button></td>
+      <button type="button" class="btn btn-outline-info" onClick="location='../fboard/reBoardSave.jsp?reunq=<%=reunq%>&gubun=D'">삭제</button></td>
       <%
       number++;
       }
@@ -221,6 +239,7 @@ if (userid1 == null){
   </tbody>
   
   <%
+  	}
   }
   %>
   
@@ -230,13 +249,16 @@ if (userid1 == null){
 <form name="frm2" method="post" action="reBoardSave.jsp">
 <input type="hidden" name="userid" value="<%=userid1%>"> 
 <input type="hidden" name="bunq" value="<%=bunq%>"> 
+<input type="hidden" name="gubun" value="<%=gubun%>">
+<input type="hidden" name="reunq" value="<%=bunq_re%>">
+
 
  <table>
-  	<tr>
-  		<th>댓글</th>
-  		<td><input type="text" name="recontent" style="width:1200px;height:50px;"></td>
-  		<td><button type="submit" class="btn btn-secondary btn-lg" onClick="fn_reWrite(); return false;">등록</button></td>
-  	</tr>
+     <tr>
+        <th>댓글</th>
+        <td><input type="text" name="recontent" value="<%=dbrecontent%>" style="width:1200px;height:50px;"></td>
+        <td><button type="submit" class="btn btn-secondary btn-lg" onClick="fn_reWrite(); return false;">확인</button></td>
+     </tr>
   </table>
   
 </form>
@@ -249,7 +271,6 @@ if (userid1 == null){
 </section>
 
 <%@ include file = "../include/footer.jsp" %> 
-	
+   
 </body>
 </html>
-
