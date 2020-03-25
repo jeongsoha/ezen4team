@@ -4,6 +4,9 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
+
+String userid1 = (String) session.getAttribute("sessionUserid"); 
+
 	String sql = " select b.* from ( "
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title" 
@@ -11,6 +14,14 @@
 			   + " order by bunq desc ) a ) b "
        	  + " where rn <= 3 ";
 	ResultSet rs = stmt.executeQuery(sql);
+	
+	/* String sql2 = " select b.* from ( "
+			  + " 	select rownum rn, a.* from( "
+			  + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
+			  + " from pboard  "
+			  + " order by bunq desc ) a ) b "
+			  + " where rn <=3 " ;
+	ResultSet rs2 = stmt.executeQuery(sql2); */
 %>
 
 
@@ -163,7 +174,7 @@ ul, ol {
 <!-- -------------------111 -->
 
 	<div class="d d1" >
-	<img src = "../images/11.JPG" width="331" height="330"><img src = "../images/12.JPG" width="331" height="330"><img src = "../images/13.JPG" width="331" height="330">
+	<img src = "../images/11.JPG" width="332" height="330"><img src = "../images/12.JPG" width="332" height="330"><img src = "../images/13.JPG" width="332" height="330">
 	</div>
 	
 <!-- -------------------222 -->
@@ -172,7 +183,7 @@ ul, ol {
 	<br>
 		<a href="../nboard/nBoardList.jsp">공지사항</a>
 		<br><br>		
-		<table align="center" style="width:450px;" class="table table-hover" >
+		<table align="center" style="width:500px; height:150px;" class="table table-striped" >
 	<thead>
 		<tr align="center">
 			<th width="20%" class=""></th>
@@ -187,7 +198,20 @@ ul, ol {
 	%>
 	<tr align="center">
 		<td><%=bunq %></td>
-		<td style="text-align:left;"><a href="nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
+	<%
+		if( userid1 == null || "".equals(userid1) ){
+			alert("로그인을 해주세요!");
+	%>
+			<td style="text-align:left;">
+			<a href="../member/login.jsp"><%=title %></a></td>
+	<%
+		}else{
+	%>
+			<td style="text-align:left;">
+			<a href="nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
+	<%
+		}
+	%>
 	</tr>
 	<%
 		number++;
