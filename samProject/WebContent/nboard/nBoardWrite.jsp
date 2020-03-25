@@ -20,6 +20,9 @@ function fn_write() {
 <meta charset="UTF-8">
 <title>공지사항</title>
 </head>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
 <style>
 /* #5483b1 */
 #hbutton {
@@ -119,7 +122,7 @@ ul, ol {
    <form name="frm" method="post" action="nBoardWriteSave.jsp">
    
    <div align="center">
-<table style="border-collapse: separate; border-spacing: 0 10px;" bgcolor="skyblue">
+<table style="border-collapse: separate; border-spacing: 0 10px;">
     
    <tr>
       <th>
@@ -154,8 +157,8 @@ ul, ol {
                    <option value="2">비공개</option>
                 </select> &nbsp;&nbsp;
                 
-             <input type="button" value="등록" onClick="fn_write(); return false;" style="width:100px;">
-             <input type="button" value="취소" onClick="location='nBoardList.jsp'" style="width:100px; ">
+             <input type="button" value="등록" class="btn btn-secondary" onClick="fn_write(); return false;" style="width:100px;">
+             <input type="button" value="취소" class="btn btn-secondary" onClick="location='nBoardList.jsp'" style="width:100px; ">
           </th>
        </tr>
    </table>

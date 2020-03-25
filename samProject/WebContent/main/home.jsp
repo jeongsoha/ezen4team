@@ -1,13 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
- 
+<%@ include file="../include/dbcon2.jsp" %>
+<% request.setCharacterEncoding("utf-8"); %>
+
+<%
+	String sql = " select b.* from ( "
+		       + " 	select rownum rn, a.* from( "
+			   + " select bunq,title" 
+			   + " from pboard where pub='1' "
+			   + " order by bunq desc ) a ) b "
+       	  + " where rn <= 3 ";
+	ResultSet rs = stmt.executeQuery(sql);
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메인 홈</title>
 </head>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
 <style>
 /* #5483b1 */
 #hbutton {
@@ -88,6 +103,41 @@ ul, ol {
     visibility: hidden;
     transition: .22s ease;
 }
+.d{
+	float:left;
+}
+.d1{
+	clear:both;
+	width:1000px;
+     height:300px;
+     text-align:center;
+}
+.d2{
+	width:500px;
+     height:300px;
+     text-align:center;
+     background-color : #E8D9FF;
+}
+.d3{
+	width:500px;
+     height:300px;
+     text-align:center;
+     background-color : #ECADFF;
+}
+.d4{
+	clear:both;
+	width:1000px;
+	height:300px;
+     text-align:center;
+     background-color : #B677FF;
+}
+.detail {
+	margin-left:450px;
+  	width:1000px;             //1006
+  	height:900px;             //906
+  	text-align:center;
+  }
+
 
 .table100 {
 	clear : both;
@@ -97,7 +147,7 @@ ul, ol {
 	border:3px solid #ccc;
 	
 
-}
+
 </style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -115,14 +165,70 @@ ul, ol {
 
 <div class="container">  
 <section>
-
-<div class="table100" >
-배너 도는 공간 
-</div>
+<div class="detail">
 
 
-<div class="table100" >
-내용 도는 공간
+
+<!-- -------------------111 -->
+
+
+	<div class="d d1" >
+	<img src = "../images/11.JPG" width="331" height="330"><img src = "../images/12.JPG" width="331" height="330"><img src = "../images/13.JPG" width="331" height="330">
+	</div>
+	
+<!-- -------------------222 -->
+
+	<div class="d d2">
+	<br>
+		<a href="../nboard/nBoardList.jsp">공지사항</a>
+		<br><br>		
+		<table align="center" style="width:450px;" class="table table-hover" >
+	<thead>
+		<tr align="center">
+			<th width="20%" class=""></th>
+			<th width="80%" class="">제목</th>
+		</tr>
+	</thead>
+	<%
+		int number=1;
+		while(rs.next()){
+			String bunq = rs.getString("bunq");
+			String title = rs.getString("title");
+	%>
+	<tr align="center">
+		<td><%=bunq %></td>
+		<td style="text-align:left;"><a href="nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
+	</tr>
+	<%
+		number++;
+		}
+	%>
+</table>
+		
+		
+	
+	</div>
+
+
+
+
+<!-- -------------------333 -->
+
+	<div class="d d3" >
+	<br>
+		<a href="../fboard/fBoardList.jsp">자유게시판</a>
+		<br><br>
+	</div>
+	
+<!-- -------------------444 -->
+
+	<div class="d d4" >
+	<br><br>
+		<p> 우리회사 상품 </p>
+	</div>
+	
+<!-- -------------------- -->
+
 </div>
 
 </section>

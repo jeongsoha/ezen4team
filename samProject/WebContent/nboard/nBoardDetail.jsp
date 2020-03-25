@@ -35,6 +35,9 @@ String hit = rs.getString("hit");
 <meta charset="UTF-8">
 <title>메인 홈</title>
 </head>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
 <style>
 
    .table1 {
@@ -77,7 +80,7 @@ String hit = rs.getString("hit");
          <tr align="left">
                <td>글쓴이</td>
                <td width="150px" class="td1"><%=userid %></td>
-               <td>작성일</td>
+               <td >작성일</td>
                <td width="200px" class="td1"><%=sdate %></td>
                <td>조회수</td>
                <td width="100px" class="td1"><%=hit %></td>
@@ -109,8 +112,8 @@ if("Y".equals(admin) ){
 %>
 	<table>
 	<tr>
-		<td><input type="submit" value="수정" onClick="location='nBoardModify.jsp'" style="width:100px;"></td>
-		<td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='nBoardDelete.jsp?bunq=<%=bunq%>'"></td>
+		<td><input type="submit" value="수정" class="btn btn-secondary" onClick="location='nBoardModify.jsp'" style="width:100px;"></td>
+		<td><input type="button" value="삭제" class="btn btn-secondary" style="width:100px;color:#fdfde9;" onClick="location='nBoardDelete.jsp?bunq=<%=bunq%>'"></td>
 	</tr>
 	</table>
 <%
