@@ -61,13 +61,16 @@
            
            
          </ul>
-      <li><a href="#">회사소개</a></li>
+      <li><a href="../imgboard/imgBoardList.jsp">제품소개</a></li>
+      
+       <li><a href="#">회사소개</a></li>
       
        <% if( header_sessionUserid == null){
          %> 
          
       <li><a href="#" onclick="location='../member/login.jsp'">로그인</a> </li>
       <li><a href="#" onclick="location='../member/memberWrite.jsp'">회원가입</a></li>
+        
         
      
      <%

@@ -56,7 +56,7 @@ String reSql = "";
 
 %>
       <script>
-     history.back();
+    location="fBoardDetail.jsp?bunq=<%=bunq%>"
      </script>  
 
 %>	
