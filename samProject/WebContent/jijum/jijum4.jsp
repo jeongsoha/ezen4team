@@ -105,7 +105,7 @@
 			<tr
 				style="border-bottom: 1px solid; text-align: center; word-spacing: 3px;">
 
-				<td><a href="?addrji=<%=addrji%>"><%=name%></a></td>
+				<td><a href="?tab=<%=tab %>&addrji=<%=addrji%>"><%=name%></a></td>
 				<td><%=addr%></td>
 				<td><%=tel%></td>
 				<td><%=abil1%></td>
