@@ -81,7 +81,8 @@
 			<!-- 카테목록 -->
 			
 			<p> - 현재 정보 - </p>
-			<table class="memberlist" >
+			<table class="table">
+  <thead class="thead-light">
 				<tr>
 					<th>회원번호</th>
 					<th>유저이름</th>
@@ -97,7 +98,8 @@
 					<th>회원상태</th>
 				
 				</tr> 
-
+  </thead>
+  <tbody>
 	
 				<tr>
 					<td><%=memno %></td>
@@ -114,7 +116,8 @@
 					<td><%=state %></td>
 				</tr>
 	
-			</table>
+			  </tbody>
+</table>
 			
 			<div class="adminRight">
 			<!-- 카테목록 -->
@@ -125,7 +128,8 @@
 		  
 		  	<input type="hidden" name="memno" value="<%=memno %>">
 			
-			<table class="memberlist" >
+			<table class="table">
+  <thead class="thead-dark">
 				<tr>
 					<th>회원번호</th>
 					<th>유저이름</th>
@@ -141,7 +145,8 @@
 					<th>회원상태</th>
 				
 				</tr> 
-	
+	  </thead>
+  <tbody>
 				<tr>
 					<td><%=memno %></td>
 					<td ><input type="text" style="width:50px" name="username" value="<%=username %>"></td>
@@ -157,7 +162,8 @@
 					<td><input type="text" style="width:50px" name="state" value="<%=state %>"></td>
 				</tr>
 	
-			</table>
+			  </tbody>
+</table>
 
 		</div>
 		<p></p>

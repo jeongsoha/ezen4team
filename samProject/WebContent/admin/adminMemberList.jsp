@@ -98,11 +98,32 @@ function fn_popup(num) {
 		</div>
 
 	<div class="adminRight">
-			<!-- 카테목록 -->
+				<!--아래는  검색창-->
 
-			<div class="dashboard">대시보드 상단 (검색기능)</div>
+		<div class="dashboard" style="float:right">
+			
+			
+ <form  class="form-inline" method=post action="">
 
-			<table class="memberlist">
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">검색</div>
+    </div>
+    <input type="text"  size="30" maxlength="50"  placeholder="검색할 지점명 또는 주소를 입력">
+  
+  </div>
+    <button type="submit" class="btn btn-primary mb-2">검색</button>
+</form>
+			
+			</div>
+			
+
+<!-- --아래는 회원 리스트 노출--- -->
+
+<table class="table">
+  <thead class="thead-dark">
+			
+		
 				<tr>
 					<th>회원번호</th>
 					<th>유저이름</th>
@@ -119,6 +140,9 @@ function fn_popup(num) {
 					<th>회원정보</th>
 
 				</tr>
+				
+				 </thead>
+  <tbody>
 
 				<%
 				int number=1;
@@ -160,7 +184,8 @@ function fn_popup(num) {
 	number++;
 	}
 	%>
-			</table>
+		   </tbody>
+</table>
 
 	 <p align = "center">
 

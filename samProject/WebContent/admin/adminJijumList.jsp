@@ -112,7 +112,7 @@ function fn_popup(num) {
 
  
 		<div class="adminRight">
-			<!-- 카테목록 -->
+			<!--아래는  검색창-->
 
 		<div class="dashboard" style="float:right">
 			
@@ -128,8 +128,6 @@ function fn_popup(num) {
   </div>
     <button type="submit" class="btn btn-primary mb-2">검색</button>
 </form>
-			
-			
 			
 			</div>
 
