@@ -114,9 +114,30 @@ function fn_popup(num) {
 		<div class="adminRight">
 			<!-- 카테목록 -->
 
-			<div class="dashboard" style=clear:both>대시보드 상단 (검색기능)</div>
+		<div class="dashboard" style="float:right">
+			
+			
+ <form  class="form-inline" method=post action="">
 
-			<table class="memberlist">
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">검색</div>
+    </div>
+    <input type="text"  size="30" maxlength="50"  placeholder="검색할 지점명 또는 주소를 입력">
+  
+  </div>
+    <button type="submit" class="btn btn-primary mb-2">검색</button>
+</form>
+			
+			
+			
+			</div>
+
+
+<!-- --아래는 지점 리스트 노출--- -->
+
+			<table class="table">
+			<thead class="thead-dark">
 				<tr>
 					<th>지점번호</th>
 					<th>지점코드</th>
@@ -127,12 +148,13 @@ function fn_popup(num) {
 					<th>능력1</th>
 					<th>능력2</th>
 					<th>능력3</th>
-					<th>추천여부</th>
-					<th>지점상태</th>
+					<th>추천</th>
+					<th>오픈</th>
 					<th>평점</th>
 					 
 				</tr>
-
+				 </thead>
+				<tbody>	
 				<%
 				int number=1;
 				while(rs.next() ) {
@@ -149,8 +171,6 @@ function fn_popup(num) {
 					String jirecomend = rs.getString("jirecomend");
 					String jistate = rs.getString("jistate");
 					String jistar = rs.getString("jistar");
-					
-			
 		
 				%>
 				<tr>
@@ -168,12 +188,11 @@ function fn_popup(num) {
 					<td><%=jistar %></td>
 					 
 					<!-- 수정화면 전환 -->
-
 				</tr>
 				<%	
 	number++;
 	}
-	%>
+	%> </tbody>
 			</table>
 
 			 <p align = "center">
