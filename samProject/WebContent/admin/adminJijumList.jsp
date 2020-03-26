@@ -125,7 +125,7 @@ function fn_serch() {
 		</div>
 
  
-		<div class="adminRight">
+		<div style="clear:both">
 			<!--아래는  검색창-->
 
 		<div class="dashboard" style="float:right">
@@ -203,18 +203,23 @@ function fn_serch() {
 					<!-- 수정화면 전환 -->
 				</tr>
 				<%	
-	number++;
-	}
-	%> </tbody>
-			</table>
-
-			 <p align = "center">
+				number++;
+				}
+				%> </tbody>
+					</table>
+						
+ <div Style="width:100px; margin: 0 auto" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
+	
+  <ul class="pagination pagination-sm">
+				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <a href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %></a>
+     <li align = "center" class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %></a></li>
      <% }%>
+    </ul>
 
-     </p>    
+</div>
+     
 
 		</div>
 
