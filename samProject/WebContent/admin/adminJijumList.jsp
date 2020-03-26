@@ -1,28 +1,25 @@
+
+  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
     
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
 <%    
-	/* String search = request.getParameter("search1");
+	String serch = request.getParameter("serch");
 	
-if (search == null ) {
-	search = "";
-} */
-
+if (serch == null ) {
+	serch = "";
+}
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
 		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
 			viewPage = "1";
 		}
-
 		String totalSql = " select count(*) total from pmember";
 		ResultSet rs2 = stmt.executeQuery(totalSql);
 		rs2.next();
 		int total = rs2.getInt("total");
-
 		int totalPage = (int) Math.ceil((double)total/unit);
 		int startNo = (Integer.parseInt(viewPage)-1) * unit +1;  //  1 -> 1 ,  2 -> 11 , 3 -> 21
 		int endNo = startNo+unit-1;
@@ -32,9 +29,8 @@ int unit = 5;
     String sql = " select b.* from (select rownum rn, a.* from (SELECT jino, jicode, jiname, jiaddr, jitel, "
   				+ " jiabil1,jiabil2, jiabil3,jirecomend,jistate, "
     			+ " to_char(jisdate,'yyyy-mm-dd') jisdate, "
-    			+ " jistar, jicode||jiname||jiaddr||jitel search   "
+    			+ " jistar, jicode||jiname||jiaddr||jitel serch   "
     			+ " FROM pjijum "
-    		//	+ " where 1=1 and jicode||jiname||jiaddr||jitel like '%  %' " // where search like '% 서치내용 %'
     			+ " order by jino DESC) a ) b " 
     		  + " where rn >="+startNo+" and rn <="+endNo+" ";  
         
@@ -69,55 +65,42 @@ int unit = 5;
   
   
 <style>
-
 .table101 {
 	float: left;
  	width :	700px;
  	height : 100px;
 	text-align:center;
 	border:3px solid #ccc;
-
 }
-
 .table102 {
 	float: left;
  	width :	700px;
  	height : 600px;
 	text-align:center;
 	border:3px solid #ccc;
-
 }
-
 .body_container{
    width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
    margin: 0px auto;  /*중앙정렬*/
      
 }
-
 </style>
 
 
 <script>
-
 function fn_popup(num) {
 	
 	var a = num;
 	
 	alert("hi  지점수정 페이지 이동 전" + a);
 }
-
-
-/* function fn_search() {
+function fn_serch() {
 	
-	var f = document.frm_search;
-	var x = document.getElementById("search1").value;
-	//var before = encodeURI("adminJijumList.jsp?search="+x);
-	var before = encodeURI("adminJijumList.jsp");
-	f.action = before
-	f.submit();
+	
+	var a = document.getElementById("serch1").value 
+	
+	alert(a);
 }
- */
-
 </script>
 
 
@@ -143,18 +126,16 @@ function fn_popup(num) {
 			
 		
 				
-    <form name=frm_search method=post action="">
+ <form  class="form-inline" method=post action="">
  
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
-          <div class="input-group-text">검색</div>
+      <div class="input-group-text">검색</div>
     </div>
-    
-
-    <input type="text"  size="30" maxlength="50" name=search1 id=search1  placeholder="검색할 지점명 또는 주소를 입력">
+    <input type="text"  size="30" maxlength="50" name=serch1 id=serch1  placeholder="검색할 지점명 또는 주소를 입력">
   
   </div>
-    <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()" >검색</button>
+    <button type="submit" class="btn btn-primary mb-2" onclick="fn_serch()" >검색</button>
 
 </form>
 			
