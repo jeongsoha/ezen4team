@@ -79,11 +79,16 @@ int unit = 5;
 	text-align:center;
 	border:3px solid #ccc;
 }
+<<<<<<< HEAD
 .body_container{
    width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
    margin: 0px auto;  /*중앙정렬*/
      
 }
+=======
+
+
+>>>>>>> parent of ddbae8c... 관리자페이지 디자인 중
 </style>
 
 
@@ -114,7 +119,8 @@ function fn_serch() {
 
 	<div class="container" style=clear:both>  
 
-		<div style="width: 1000px; height: 150px">
+		<div style="float: left; width: 1000px; height: 150px"
+			class="adminLeft">
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
@@ -122,9 +128,8 @@ function fn_serch() {
 		<div style="clear:both">
 			<!--아래는  검색창-->
 
-		<div class="body_container">
+		<div class="dashboard" style="float:right">
 			
-		
 				
  <form  class="form-inline" method=post action="">
  
@@ -139,7 +144,7 @@ function fn_serch() {
 
 </form>
 			
-			
+			</div>
 
 
 <!-- --아래는 지점 리스트 노출--- -->
@@ -202,22 +207,23 @@ function fn_serch() {
 				}
 				%> </tbody>
 					</table>
-			</div>	</div>	
-					
+						
  <div Style="width:100px; margin: 0 auto" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
 	
   <ul class="pagination pagination-sm">
 				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %></a></li>
+     <li align = "center" class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %></a></li>
      <% }%>
     </ul>
 
-</div>     
-<div Style=height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+</div>
+     
+
 		</div>
 
+	</div>
 
 <%@ include file = "../include/footer.jsp" %> 
 	
