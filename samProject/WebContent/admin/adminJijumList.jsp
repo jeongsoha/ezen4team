@@ -136,7 +136,7 @@ function fn_serch() {
 			
 		
 				
- <form  class="form-inline" method=post action="">
+ <form  class="form_serch" method=post action="">
  
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
