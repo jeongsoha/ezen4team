@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
     
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
 <%    
-	String serch = request.getParameter("serch");
+	/* String search = request.getParameter("search1");
 	
-if (serch == null ) {
-	serch = "";
-}
+if (search == null ) {
+	search = "";
+} */
 
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
@@ -30,8 +32,9 @@ int unit = 5;
     String sql = " select b.* from (select rownum rn, a.* from (SELECT jino, jicode, jiname, jiaddr, jitel, "
   				+ " jiabil1,jiabil2, jiabil3,jirecomend,jistate, "
     			+ " to_char(jisdate,'yyyy-mm-dd') jisdate, "
-    			+ " jistar, jicode||jiname||jiaddr||jitel serch   "
+    			+ " jistar, jicode||jiname||jiaddr||jitel search   "
     			+ " FROM pjijum "
+    		//	+ " where 1=1 and jicode||jiname||jiaddr||jitel like '%  %' " // where search like '% 서치내용 %'
     			+ " order by jino DESC) a ) b " 
     		  + " where rn >="+startNo+" and rn <="+endNo+" ";  
         
@@ -103,13 +106,17 @@ function fn_popup(num) {
 	alert("hi  지점수정 페이지 이동 전" + a);
 }
 
-function fn_serch() {
+
+/* function fn_search() {
 	
-	
-	var a = document.getElementById("serch1").value 
-	
-	alert(a);
+	var f = document.frm_search;
+	var x = document.getElementById("search1").value;
+	//var before = encodeURI("adminJijumList.jsp?search="+x);
+	var before = encodeURI("adminJijumList.jsp");
+	f.action = before
+	f.submit();
 }
+ */
 
 </script>
 
@@ -136,16 +143,18 @@ function fn_serch() {
 			
 		
 				
- <form  class="form-inline" method=post action="">
+    <form name=frm_search method=post action="">
  
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">검색</div>
+          <div class="input-group-text">검색</div>
     </div>
-    <input type="text"  size="30" maxlength="50" name=serch1 id=serch1  placeholder="검색할 지점명 또는 주소를 입력">
+    
+
+    <input type="text"  size="30" maxlength="50" name=search1 id=search1  placeholder="검색할 지점명 또는 주소를 입력">
   
   </div>
-    <button type="submit" class="btn btn-primary mb-2" onclick="fn_serch()" >검색</button>
+    <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()" >검색</button>
 
 </form>
 			
