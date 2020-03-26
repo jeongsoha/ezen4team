@@ -3,7 +3,15 @@
     
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
+
 <%    
+	 String search = request.getParameter("search1");
+	
+if (search == null ) {
+	search = "";
+} 
+
+ 
 	String serch = request.getParameter("serch");
 	
 if (serch == null ) {
@@ -32,6 +40,7 @@ int unit = 5;
     			+ " to_char(jisdate,'yyyy-mm-dd') jisdate, "
     			+ " jistar, jicode||jiname||jiaddr||jitel serch   "
     			+ " FROM pjijum "
+    		+ " where 1=1 and jicode||jiname||jiaddr||jitel like '%"+search+"%' " // where search like '% 서치내용 %'
     			+ " order by jino DESC) a ) b " 
     		  + " where rn >="+startNo+" and rn <="+endNo+" ";  
         
@@ -103,12 +112,16 @@ function fn_popup(num) {
 	alert("hi  지점수정 페이지 이동 전" + a);
 }
 
-function fn_serch() {
+ function fn_search() {
 	
+	var f = document.frm_search;
+	//var x = document.getElementById("search1").value;
+	//var before = encodeURI("adminJijumList.jsp?search="+x);   여의도
+	// var before = encodeURI("adminJijumList.jsp");
+	//f.action = before  &name=1111
 	
-	var a = document.getElementById("serch1").value 
-	
-	alert(a);
+	f.action ="adminJijumList.jsp";
+	f.submit();
 }
 
 </script>
@@ -142,10 +155,10 @@ function fn_serch() {
     <div class="input-group-prepend">
       <div class="input-group-text">검색</div>
     </div>
-    <input type="text"  size="30" maxlength="50" name=serch1 id=serch1  placeholder="검색할 지점명 또는 주소를 입력">
+    <input type="text"  size="30" maxlength="50" name=search1 id=search1 placeholder="검색할 지점명 또는 주소를 입력">
   
   </div>
-    <button type="submit" class="btn btn-primary mb-2" onclick="fn_serch()" >검색</button>
+    <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()" >검색</button>
 
 </form>
 			
