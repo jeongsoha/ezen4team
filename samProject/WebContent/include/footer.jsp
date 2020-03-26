@@ -8,7 +8,6 @@
 </head>
 <body>
 
-	
 
 <footer class="section footer-classic context-dark bg-image" style="background: #aabacc; clear:both; width:1898px;">
         <div class="container">
