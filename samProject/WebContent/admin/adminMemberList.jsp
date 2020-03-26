@@ -31,6 +31,8 @@
     ResultSet rs = stmt.executeQuery(sql);
     
 %>
+
+
  
 <!DOCTYPE html>
 <html>
@@ -62,6 +64,11 @@
  	height : 600px;
 	text-align:center;
 	border:3px solid #ccc;
+}
+
+.body_container{
+   width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
+   margin: 0px auto;  /*중앙정렬*/
 
 }
 
@@ -99,8 +106,9 @@ function fn_popup(num) {
 
 	<div class="adminRight">
 				<!--아래는  검색창-->
-
-		<div class="dashboard" style="float:right">
+	<div class="body_container">
+	
+		<div class="dashboard" style="float:right">  <!-- 검색보드 -->
 			
 			
  <form  class="form-inline" method=post action="">
@@ -186,30 +194,27 @@ function fn_popup(num) {
 	%>
 		   </tbody>
 </table>
-
-	 <p align = "center">
-
-     <% for(int i=1 ; i<=totalPage ; i++) {
-
-    	 %>	 
-
-     <a href="adminMemberList.jsp?viewPage=<%=i%>"><%=i %></a>
-
-     <% }%>
-
-     </p>    
-
-		</div>
 	
+			</div>	</div>	
+					
+ <div Style="width:100px; margin: 0 auto" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
+	
+  <ul class="pagination pagination-sm">
+				 
+     <% for(int i=1 ; i<=totalPage ; i++) {
+    	 %>	 
+     <li class="page-item"> <a class="page-link" href="adminMemberList.jsp?viewPage=<%=i%>"><%=i %></a></li>
+     <% }%>
+    </ul>
 
+</div>     
 
-		<form name="frm" method="post" action="cateSave.jsp">
-
+<div Style=height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
 		
-		</form>
 
 
-	</div>
+	</div><div Style=height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+		
 
 <%@ include file = "../include/footer.jsp" %> 
 	
