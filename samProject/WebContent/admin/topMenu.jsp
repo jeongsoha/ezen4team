@@ -45,6 +45,6 @@ font-size:12px;
 		
 		</div>
 		
-	</div>
+
 
 </body>
