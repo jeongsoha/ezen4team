@@ -7,22 +7,22 @@
 
 String userid1 = (String) session.getAttribute("sessionUserid"); 
 
-	String sql = " select b.* from ( "
-		       + " 	select rownum rn, a.* from( "
-			   + " select bunq,title" 
-			   + " from pboard where pub='1' and gubun='1' "
-			   + " order by bunq desc ) a ) b "
-       	  	   + " where rn <= 5 ";
-	ResultSet rs = stmt.executeQuery(sql);
-	
-	String sql2 = " select d.* from ( "
-			  + " 	select rownum rn, c.* from( "
-			  + " select bunq,title " 
-			  + " from pboard where gubun='2' "
-			  + " order by bunq desc ) c ) d "
-			  + " where rn <= 5 " ;
-	
-	ResultSet rs2 = stmt2.executeQuery(sql2);
+   String sql = " select b.* from ( "
+             + "    select rownum rn, a.* from( "
+            + " select bunq,title" 
+            + " from pboard where pub='1' and gubun='1' "
+            + " order by bunq desc ) a ) b "
+                  + " where rn <= 5 ";
+   ResultSet rs = stmt.executeQuery(sql);
+   
+   String sql2 = " select d.* from ( "
+           + "    select rownum rn, c.* from( "
+           + " select bunq,title " 
+           + " from pboard where gubun='2' "
+           + " order by bunq desc ) c ) d "
+           + " where rn <= 5 " ;
+   
+   ResultSet rs2 = stmt2.executeQuery(sql2);
 %>
 
 
@@ -44,7 +44,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-	clear:both;
+   clear:both;
   max-width: 1920px;
   max-height: 600px;
   position: relative;
@@ -139,32 +139,32 @@ img {vertical-align: middle;}
 /* --------- */
 /* #5483b1 */
 #hbutton {
-	border-top-right-radius:5px; 
-	border-bottom-right-radius:5px; 
-	margin-left:-3px;
+   border-top-right-radius:5px; 
+   border-bottom-right-radius:5px; 
+   margin-left:-3px;
 
 }
 
 #hdiv button {
-	border:1px solid #5483b1;
-	background-color: rgba(0,0,0,0);
-	color:#5483b1;
-	padding:5px;
-	border-radius: 12px;
-	width:120px;
-	height:50px;
-	float:right;
-	margin-left:10px;
-	
+   border:1px solid #5483b1;
+   background-color: rgba(0,0,0,0);
+   color:#5483b1;
+   padding:5px;
+   border-radius: 12px;
+   width:120px;
+   height:50px;
+   float:right;
+   margin-left:10px;
+   
 }
 
 #hdiv button:hover{
-	color:white; 
-	background-color:#5483b1; 
+   color:white; 
+   background-color:#5483b1; 
 }
 
 .hdiv1 {
-	
+   
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -217,42 +217,38 @@ ul, ol {
     transition: .22s ease;
 }
 .d{
-	float:left;
+   float:left;
 }
 .d1{
-	clear:both;
-	width:1920px;
+   clear:both;
+   width:1920px;
      height:600px;
      text-align:center;
 }
 .d2{
-	width:500px;
+   width:500px;
      height:295px;
      text-align:center;
      /* background-color : #E8D9FF; */
 }
 .d3{
-	width:500px;
+   width:500px;
      height:295px;
      text-align:center;
     /* background-color : #ECADFF; */
 }
 .d4{
-	clear:both;
-	width:1000px;
-<<<<<<< HEAD
-	height:1000px;
-=======
-	height:305px;
->>>>>>> origin/soha7
+   clear:both;
+   width:1000px;
+   height:305px;
      text-align:center;
      background-color : #f7fff7;
 }
 .detail {
-	margin-left:460px;
-  	width:1010px;             //1006
-  	height:610px;             //906
-  	text-align:center;
+   margin-left:460px;
+     width:1010px;             //1006
+     height:610px;             //906
+     text-align:center;
   }
 
 
@@ -274,27 +270,27 @@ var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-	showSlides(slideIndex += n);
+   showSlides(slideIndex += n);
 }
 
 function currentSlide(n) {
-	showSlides(slideIndex = n);
+   showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
-	var i;
-	var slides = document.getElementsByClassName("mySlides");
-	var dots = document.getElementsByClassName("dot");
-	if(n > slides.length) {slideIndex=1}
-	if(n < 1){slideIndex = slides.length}
-	for(i=0;i<slides.length; i++){
-		slides[i].style.display = "none";
-	}
-	for(i=0;i<dots.length; i++){
-		dots[i].className = dots[i].className.replace(" active", "");
-	}
-	slides[slideIndex-1].style.display = "block";
-	dots[slideIndex-1].className += " active";
+   var i;
+   var slides = document.getElementsByClassName("mySlides");
+   var dots = document.getElementsByClassName("dot");
+   if(n > slides.length) {slideIndex=1}
+   if(n < 1){slideIndex = slides.length}
+   for(i=0;i<slides.length; i++){
+      slides[i].style.display = "none";
+   }
+   for(i=0;i<dots.length; i++){
+      dots[i].className = dots[i].className.replace(" active", "");
+   }
+   slides[slideIndex-1].style.display = "block";
+   dots[slideIndex-1].className += " active";
 
 }
 </script>
@@ -312,21 +308,21 @@ function showSlides(n) {
 <div class="d d1 slideshow-container">
 
 <div class="mySlides fade">
-	<div class="numbertext"> 1 / 3 </div>
-	<img src="../images/bicycle1.JPG" style="width:1920px; height:600px;">
-	<div class="text">Caption Text</div>
+   <div class="numbertext"> 1 / 3 </div>
+   <img src="../images/bicycle1.JPG" style="width:1920px; height:600px;">
+   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
-	<div class="numbertext"> 2 / 3 </div>
-	<img src="../images/bicycle2.JPG" style=" width:1920px; height:600px;">
-	<div class="text">Caption Two</div>
+   <div class="numbertext"> 2 / 3 </div>
+   <img src="../images/bicycle2.JPG" style=" width:1920px; height:600px;">
+   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
-	<div class="numbertext"> 3 / 3 </div>
-	<img src = "../images/bicycle3.JPG" style=" width:1920px; height:600px;">
-	<div class="text">Caption Three</div>
+   <div class="numbertext"> 3 / 3 </div>
+   <img src = "../images/bicycle3.JPG" style=" width:1920px; height:600px;">
+   <div class="text">Caption Three</div>
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -336,115 +332,115 @@ function showSlides(n) {
 <br>
 
 <div style="text-align:center">
-	<span class="dot" onclick="currentSlide(1)"></span>
-	<span class="dot" onclick="currentSlide(2)"></span>
-	<span class="dot" onclick="currentSlide(3)"></span>
+   <span class="dot" onclick="currentSlide(1)"></span>
+   <span class="dot" onclick="currentSlide(2)"></span>
+   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 </div>
 
 <!-- ------- -->
 <!-- <div class="d d1" >
-	<img src = "../images/11.JPG" width="332" height="300"><img src = "../images/12.JPG" width="332" height="300"><img src = "../images/13.JPG" width="332" height="300">
+   <img src = "../images/11.JPG" width="332" height="300"><img src = "../images/12.JPG" width="332" height="300"><img src = "../images/13.JPG" width="332" height="300">
 </div>   -->
 
 
 <div class="detail">
-	
-	
+   
+   
 <!-- -------------------222 -->
 
 <div class="d d2">
 <table align="center" style="width:500px;" class="table table-striped">
-	<thead>
-		<tr align="center">
-			<th width="15%" scope="col"></th>
-			<th width="85%" scope="col">공지사항</th>
-		</tr>
-	</thead>
-	<%
-		int number=1;
-		while(rs.next()){
-			String bunq = rs.getString("bunq");
-			String title = rs.getString("title");
-	%>
-	<tr align="center">
-		<td scope="row"><%=bunq %></td>
-		<td style="text-align:left;">
-	<%
-	if(userid1 == null || "".equals(userid1)) {
-	%>
-		<a href="../member/login.jsp"><%=title %></a>
-		<script>
-		//alert("로그인을 해주세요!"");
-		</script>
-	<%	
-	} else{
-	%>	
-		<a href="../nboard/nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
-	</tr>
-	<%
-		}
-		number++;
-	}
-	%>
+   <thead>
+      <tr align="center">
+         <th width="15%" scope="col"></th>
+         <th width="85%" scope="col">공지사항</th>
+      </tr>
+   </thead>
+   <%
+      int number=1;
+      while(rs.next()){
+         String bunq = rs.getString("bunq");
+         String title = rs.getString("title");
+   %>
+   <tr align="center">
+      <td scope="row"><%=bunq %></td>
+      <td style="text-align:left;">
+   <%
+   if(userid1 == null || "".equals(userid1)) {
+   %>
+      <a href="../member/login.jsp"><%=title %></a>
+      <script>
+      //alert("로그인을 해주세요!"");
+      </script>
+   <%   
+   } else{
+   %>   
+      <a href="../nboard/nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
+   </tr>
+   <%
+      }
+      number++;
+   }
+   %>
 </table>
-		
-		
-	
-	</div>
+      
+      
+   
+   </div>
 
 <!-- -------------------333 -->
 
-	<div class="d d3">
-		<table align="center" style="width:500px;" class="table table-striped table-dark">
-			<thead>
-	      		<tr align="center">
-	      			<th width="15%" scope="col"></th>
-	      			<th width="85%" scope="col">자유게시판</th>
-				</tr>
-			</thead>
-		<%
-        		int number2 = 1;
-        		while(rs2.next()){
-        			String bunq = rs2.getString("bunq");
-        			String title = rs2.getString("title");
-		%>
-			<tr align="center">
-				<td scope="row"><%=bunq %></td>
-				<td style="text-align:left;">
+   <div class="d d3">
+      <table align="center" style="width:500px;" class="table table-striped table-dark">
+         <thead>
+               <tr align="center">
+                  <th width="15%" scope="col"></th>
+                  <th width="85%" scope="col">자유게시판</th>
+            </tr>
+         </thead>
+      <%
+              int number2 = 1;
+              while(rs2.next()){
+                 String bunq = rs2.getString("bunq");
+                 String title = rs2.getString("title");
+      %>
+         <tr align="center">
+            <td scope="row"><%=bunq %></td>
+            <td style="text-align:left;">
         <%
-        	if(userid1 == null || "".equals(userid1)){
+           if(userid1 == null || "".equals(userid1)){
         %>
-        		<a href="../member/login.jsp"><%=title %></a>
-        		<script>
-        		//alert("로그인을 해주세요!");
-        		</script>
+              <a href="../member/login.jsp"><%=title %></a>
+              <script>
+              //alert("로그인을 해주세요!");
+              </script>
         <%
-        	}else{
+           }else{
         %>
-        			<a href="../fboard/fBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
-					</tr>
-		<%   	
-        	}
-        		number2++;
-        		}   	
-        		%>
-    		</table>  
-	</div>
+                 <a href="../fboard/fBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
+               </tr>
+      <%      
+           }
+              number2++;
+              }      
+              %>
+          </table>  
+   </div>
 
 <!-- -------------------444 -->
 
-	<div class="d d4" >
-	<br><br>
-		<p> 우리회사 상품 </p>
-	</div>
-	
+   <div class="d d4" >
+   <br><br>
+      <p> 우리회사 상품 </p>
+   </div>
+   
 <!-- -------------------- -->
 
 </div>
 </section>
 
 <%@ include file = "../include/footer.jsp" %> 
-	
+   
 </body>
 </html>
