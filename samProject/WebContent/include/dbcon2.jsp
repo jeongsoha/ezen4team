@@ -8,6 +8,8 @@
 <%@page import="java.sql.ResultSet"%>
      <%@page import="java.sql.ResultSet"%>
      <%@page import="java.util.Date"%>
+          <%@page import="java.net.URLDecoder"%>
+           <%@page import="java.net.URLEncoder"%>
 
  <!--  db 서버 연결을 위한 인클루드용 파일 -->
  

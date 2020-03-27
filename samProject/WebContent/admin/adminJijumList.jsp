@@ -5,11 +5,16 @@
 
 
 <%    
+
 	 String search = request.getParameter("search1");
 	
 if (search == null ) {
 	search = "";
-} 
+} 	
+     String encodedString = URLEncoder.encode(search, "UTF-8");
+	//String insearch = "";
+
+//String search = java.net.URLDecoder.decode(request.getParameter("search1"), "UTF-8");
  
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
@@ -103,9 +108,11 @@ function fn_popup(num) {
 	// var before = encodeURI("adminJijumList.jsp");
 	//f.action = before  &name=1111
 	
-	f.action ="adminJijumList.jsp?search1="+x;
+	var addr ="adminJijumList.jsp?search1="+x;
 	
+	var ds = encodeURI(addr);
 	
+	f.action = ds
 	f.submit();
 }
 </script>
@@ -218,7 +225,7 @@ function fn_popup(num) {
 				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>&search1=<%=search%>"><%=i %>
+     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>&search1=<%=encodedString%>"><%=i %>
  
      
      </a></li>
