@@ -7,7 +7,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
 
-String path = "D:/eclipse-workspace/ezen4team/samProject/WebContent/smart/upload"; // 이미지가 저장될 주소
+String path = "c:/workspace/ezen4team/samProject/WebContent/smart/upload"; // 이미지가 저장될 주소
 String filename = "";
 
 if(request.getContentLength() > 10*1024*1024 ){

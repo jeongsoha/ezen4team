@@ -7,7 +7,7 @@ String admin = (String) session.getAttribute("adminConfirm");
 String unq = request.getParameter("unq");
 
 String Domain  ="http://localhost:8080/myProject2";   
-String RealPath = "D:/eclipse-workspace/ezen4team/samProject/WebContent";
+String RealPath = "c:/workspace/ezen4team/samProject/WebContent/smart/upload";
 
 if( admin == null && "".equals(admin) ) {
 %>
