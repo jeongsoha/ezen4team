@@ -86,7 +86,7 @@ function fn_popup(num) {
 
 	// window.open('웹주소','별칭','옵션')  // 별칭은 중요도 낮다
 
-	window.open(url,'popup','width=1000,height=600');
+	window.open(url,'popup','width=900,height=800');
 
 }
 
@@ -119,7 +119,7 @@ function fn_popup(num) {
     <div class="input-group-prepend">
       <div class="input-group-text">검색</div>
     </div>
-    <input type="text"  size="30" maxlength="50"  placeholder="검색할 지점명 또는 주소를 입력">
+    <input type="text"  size="30" maxlength="50"  placeholder="검색할 유저정보 입력">
   
   </div>
     <button type="submit" class="btn btn-primary mb-2">검색</button>

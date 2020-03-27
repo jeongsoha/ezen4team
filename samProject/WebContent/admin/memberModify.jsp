@@ -46,27 +46,10 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 
 <style>
-.mainbody {
-	width: 1500px;
-	height: 1000px;
-	border: 1px solid #ccc;
-}
-
-.adminLeft {
-	width: 210px;
-	border: 1px solid #ccc;
-	float: none;
-}
-
-.adminRight {
-	width: 1010px;
-	border: 1px solid #ccc;
-	float: left;
-}
 
 .dashboard {
-	width: 1010px;
-	height: 100px;
+	width: 900px;
+	height: 1000px;
 	border: 1px solid #ccc;
 	float: left;
 }
@@ -77,107 +60,41 @@
 
 <body>
 
-		<div class="adminRight">
-			<!-- 카테목록 -->
+		<div class="dashboard">
+			<!-- 상세정보 내용 -->
 			
-			<p> - 현재 정보 - </p>
-			<table class="table">
+			<h3> - 회원 상세정보 - </h3>
+			  <form name="frm" method="post" action="memberModifySave.jsp">
+			  	<input type="hidden" name="memno" value="<%=memno %>">
+			  	
+			<table class="table" >
   <thead class="thead-light">
 				<tr>
-					<th>회원번호</th>
-					<th>유저이름</th>
-					<th>ID</th>
-					<th>전화번호</th>
-					<th>이메일</th>
-					<th>생년월일</th>
-					<th>성별</th>
-					<th>우편번호</th>
-					<th>주소</th>
-					<th>흥미</th>
-					<th>가입일시</th>
-					<th>회원상태</th>
-				
-				</tr> 
-  </thead>
-  <tbody>
-	
-				<tr>
-					<td><%=memno %></td>
-					<td><%=username %></td>
-					<td><%=userid %></td>
-					<td><%=tel %></td>
-					<td><%=mail %></td>
-					<td><%=birth %></td>
-					<td><%=gender %></td>
-					<td><%=post %></td>
-					<td><%=addr %></td>
-					<td><%=inter %></td>
-					<td><%=flog %></td>
-					<td><%=state %></td>
-				</tr>
-	
-			  </tbody>
-</table>
+				    <th scope="col"> 항목</th><th width=40%>현재 정보</th><th width=40%>수정사항 입력</th></tr> <tr>
+					<th >회원번호</th><td><%=memno %></td><td><%=memno %></td></tr> <tr>
+					<th >유저이름</th>	<td><%=username %></td><td ><input type="text" style="width:150px" name="username" value="<%=username %>"></td></tr> <tr>
+					<th >ID</th><td><%=userid %></td><td><input type="text"  style="width:150px" name="userid"  value="<%=userid %>"></td></tr> <tr>
+					<th >전화번호</th><td><%=tel %></td><td><input type="text" style="width:150px" name="tel" value="<%=tel %>"></td></tr> <tr>
+					<th >이메일</th><td><%=mail %></td><td><input type="text" style="width:150px" name="mail" value="<%=mail %>"></td></tr> <tr>
+					<th >생년월일</th><td><%=birth %></td><td><input type="text" style="width:150px" name="birth" value="<%=birth %>"></td></tr> <tr>
+					<th >성별</th><td><%=gender %></td><td><input type="text" style="width:150px" name="gender" value="<%=gender %>"></td></tr> <tr>
+					<th >우편번호</th><td><%=post %></td><td><input type="text" style="width:150px" name="post" value="<%=post %>"></td></tr> <tr>
+					<th >주소</th><td><%=addr %></td><td><input type="text" style="width:350px" name="addr" value="<%=addr %>"></td></tr> <tr>
+					<th >흥미</th><td><%=inter %></td><td><input type="text" style="width:150px" name="inter" value="<%=inter %>"></td></tr> <tr>
+					<th >가입일시</th><td><%=flog %></td><td><%=flog %></td></tr> <tr>
+					<th >회원상태</th><td><%=state %></td><td><input type="text" style="width:150px" name="state" value="<%=state %>"></td></tr> 
+			</table>
 			
-			<div class="adminRight">
-			<!-- 카테목록 -->
-			
-			<p> - 수정 정보입력 - </p>
-			
-		  <form name="frm" method="post" action="memberModifySave.jsp">
-		  
-		  	<input type="hidden" name="memno" value="<%=memno %>">
-			
-			<table class="table">
-  <thead class="thead-dark">
-				<tr>
-					<th>회원번호</th>
-					<th>유저이름</th>
-					<th>ID</th>
-					<th>전화번호</th>
-					<th>이메일</th>
-					<th>생년월일</th>
-					<th>성별</th>
-					<th>우편번호</th>
-					<th>주소</th>
-					<th>흥미</th>
-					<th>가입일시</th>
-					<th>회원상태</th>
-				
-				</tr> 
-	  </thead>
-  <tbody>
-				<tr>
-					<td><%=memno %></td>
-					<td ><input type="text" style="width:50px" name="username" value="<%=username %>"></td>
-					<td><input type="text" style="width:50px" name="userid"  value="<%=userid %>"></td>
-					<td><input type="text" style="width:50px" name="tel" value="<%=tel %>"></td>
-					<td><input type="text" style="width:50px" name="mail" value="<%=mail %>"></td>
-					<td><input type="text" style="width:50px" name="birth" value="<%=birth %>"></td>
-					<td><input type="text" style="width:50px" name="gender" value="<%=gender %>"></td>
-					<td><input type="text" style="width:50px" name="post" value="<%=post %>"></td>
-					<td><input type="text" style="width:50px" name="addr" value="<%=addr %>"></td>
-					<td><input type="text" style="width:50px" name="inter" value="<%=inter %>"></td>
-					<td><%=flog %></td>
-					<td><input type="text" style="width:50px" name="state" value="<%=state %>"></td>
-				</tr>
-	
-			  </tbody>
-</table>
-
-		</div>
-		<p></p>
-		<p></p>
-
-
+		
+		<p align="center">
 	
 			<button type="submit">수정하기</button>
-			<button type="button" onclick="history.go(-1)">수정취소</button>
-
+			<button type="button" onclick="window.close();">창닫기(수정취소)</button>
+	</p>
 		</form>
 
 	</div>
 
-	</div>
+	
 </body>
 </html>
