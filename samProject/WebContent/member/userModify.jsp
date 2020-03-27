@@ -32,7 +32,6 @@
 	String inter = rs.getString("inter");
 	String flog = rs.getString("flog");
 	String state = rs.getString("state");
-	String pwd = rs.getString("pwd");
 	String hangender = rs.getString("hangender");
 	String haninter = rs.getString("haninter");
 	String hanstate = rs.getString("hanstate");
