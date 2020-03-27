@@ -21,7 +21,7 @@
 
 #hdiv button:hover{
 	color:white; 
-	background-color:#5483b1; 
+	background-color:#red; 
 }
 
 .hdiv1 {
@@ -200,8 +200,8 @@ text-align:center;
 text-decoration:none;
 }
 
-.menubar li a:hover, .menubar ul li:hover a{	/* 마우스올렸을떄 색전환 */
-background:#2d3246;
+.menubar li a:hover, .menubar ul li:hover a{	/* 마우스올렸을떄 윗 배경색*/
+background:#ffffff;
 color:cobaltblue;
 text-decoration:none;
 }
@@ -224,7 +224,7 @@ z-index:200;
 display:block; 			/* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
 }
 
-.menubar li li {		/* 마우스 올렸을떄 드랍다운메뉴 */
+.menubar li li {		/* 마우스 올렸을떄 드랍다운메뉴 !! 배경색 */
 background: #ffffff;
 display:block;
 float:none;

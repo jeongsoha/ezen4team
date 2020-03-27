@@ -32,12 +32,12 @@
 
 <body>
 
-<header style="background-color:#2d3246;height:100px;width:1920px;">
+<header style="background-color:#ffa6cf;height:100px;width:1920px;">
   <div class="header_container"> 
   
   <!-- 배너 좌측에서부터 150px 간격 -->
    <div style="float:left;">   
-      <img style="margin-left:-50px;width:150px;height:90px;" src="../images/logo.JPG" onclick="location='../main/home.jsp'">
+      <img style="margin-left:-150px;width:100px;height:100px;" src="../images/logo3.JPG" onclick="location='../main/home.jsp'">
    </div>
    <br>
    <br>

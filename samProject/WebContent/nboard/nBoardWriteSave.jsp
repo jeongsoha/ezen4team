@@ -10,14 +10,15 @@
 String title = request.getParameter("title").trim(); 
 String content = request.getParameter("content").trim();
 String pub = request.getParameter("pub"); 
+String userid1 = (String) session.getAttribute("sessionUserId");
 
-String sql = "insert into pboard(bunq,title,content,pub,sdate,userid)";
-sql+= "values(bunq_seq.NEXTVAL , '"+title+"','"+content+"','"+pub+"',sysdate,'soha')";
+String sql = "insert into pboard(bunq,title,content,pub,sdate,userid,gubun)";
+sql+= "values(bunq_seq.NEXTVAL , '"+title+"','"+content+"','"+pub+"',sysdate,'"+userid1+"','1')";
 
 if(  title == null || "".equals(title)) {
 %>
     <script>
-   alert("잘못된 접근");
+   alert("제목을 입력하세요!");
    history.back();  // 뒤화면 GO
    </script>
 <%
@@ -27,7 +28,17 @@ if(  title == null || "".equals(title)) {
 if(content == null || "".equals(content)) {
 	%>
     <script>
-   alert("잘못된 접근");
+   alert("내용을 입력하세요!");
+   history.back();  // 뒤화면 GO
+   </script>
+<%
+   return;
+}
+
+if(pub == null || "".equals(pub)) {
+	%>
+    <script>
+   alert("공개여부를 선택해주세요..");
    history.back();  // 뒤화면 GO
    </script>
 <%
