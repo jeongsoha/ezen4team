@@ -60,14 +60,17 @@
 
 	<div class="container">  
 
-		<div style="float: left; width: 1000px; height: 150px"
+		<div style="float: left; width: 1000px; height: 100px"
 			class="adminLeft">
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
-  소개할 내용 기재
+  <img style=" width: 1000px; height: 600px" src="../images/admin_sample.jpg">
 
 	</div>
+	     
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+		
 
 <%@ include file = "../include/footer.jsp" %> 
 	

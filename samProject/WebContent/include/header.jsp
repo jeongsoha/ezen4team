@@ -60,12 +60,21 @@
            <li><a href="#" onclick="location='../fboard/fBoardList.jsp'">자유게시판</a></li>
            
            
-         </ul>
+          </ul>
       <li><a href="../imgboard/imgBoardList.jsp">제품소개</a></li>
       
-       <li><a href="#">회사소개</a></li>
       
-       <% if( header_sessionUserid == null){
+       
+        <% if( header_adminConfirm != null){
+         %> 
+         
+      <li><a href="#" onclick="location='../admin/adminJijumList.jsp'"> 관리메뉴 </a> </li>
+              
+     
+     <%
+       }
+      
+       if( header_sessionUserid == null){
          %> 
          
       <li><a href="#" onclick="location='../member/login.jsp'">로그인</a> </li>
@@ -77,7 +86,7 @@
        } else {
       %>
       
-      <li><a href="#">회원정보</a> </li>
+      <li><a href="#" onclick="location='../member/userModify.jsp'">회원정보</a> </li>
       <li><a href="#" onclick="location='../member/logoutsub.jsp'">로그아웃</a></li>
       
        <% } %>

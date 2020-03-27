@@ -21,9 +21,12 @@
 	    
     String sql = " select b.* from (select rownum rn, a.* from (SELECT memno, username,userid, tel, mail, "
   				+ " to_char(birth,'yyyy-mm-dd') birth, "
-    			+ " gender,post,addr,inter, "
+    			+ " gender,post,"
+    			+ " addr, SUBSTR(addr, 1, 2)||'..' shortaddr, "
+    			+ " inter, decode(inter,'1','자전거','2','킥보드','0','미선택') haninter, "
     			+ " to_char(flog,'yyyy-mm-dd hh:mi') flog, "
-    			+ " state FROM pmember "
+    			+ " state, decode(state,'1','정회원','2','관리자','3','탈퇴','기타') hanstate "
+    			+ " FROM pmember "
     			+ " order by memno DESC)a ) b " 
 	       	    + " where rn >="+startNo+" and rn <="+endNo+"" ;  	// 페이징처리 구성
     
@@ -31,6 +34,8 @@
     ResultSet rs = stmt.executeQuery(sql);
     
 %>
+
+
  
 <!DOCTYPE html>
 <html>
@@ -62,6 +67,11 @@
  	height : 600px;
 	text-align:center;
 	border:3px solid #ccc;
+}
+
+.body_container{
+   width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
+   margin: 0px auto;  /*중앙정렬*/
 
 }
 
@@ -77,7 +87,7 @@ function fn_popup(num) {
 
 	// window.open('웹주소','별칭','옵션')  // 별칭은 중요도 낮다
 
-	window.open(url,'popup','width=1000,height=600');
+	window.open(url,'popup','width=900,height=800');
 
 }
 
@@ -92,33 +102,58 @@ function fn_popup(num) {
 
 	<div class="container">  
 
-		<div style="float: left; width: 1000px; height: 150px"
+		<div style="float: left; width: 1000px; height: 100px"
 			class="adminLeft">
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
 	<div class="adminRight">
-			<!-- 카테목록 -->
+				<!--아래는  검색창-->
+	<div class="body_container">
+	
+		<div class="dashboard" style="float:right">  <!-- 검색보드 -->
+			
+			
+ <form  class="form-inline" method=post action="">
 
-			<div class="dashboard">대시보드 상단 (검색기능)</div>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">검색</div>
+    </div>
+    <input type="text"  size="30" maxlength="50"  placeholder="검색할 유저정보 입력">
+  
+  </div>
+    <button type="submit" class="btn btn-primary mb-2">검색</button>
+</form>
+			
+			</div>
+			
 
-			<table class="memberlist">
+<!-- --아래는 회원 리스트 노출--- -->
+
+<table class="table">
+  <thead class="thead-dark">
+			
+		
 				<tr>
-					<th>회원번호</th>
-					<th>유저이름</th>
+					<th>No.</th>
+					<th>Name</th>
 					<th>ID</th>
 					<th>전화번호</th>
 					<th>이메일</th>
 					<th>생년월일</th>
 					<th>성별</th>
-					<th>우편번호</th>
+					
 					<th>주소</th>
 					<th>흥미</th>
 					<th>가입일시</th>
-					<th>회원상태</th>
-					<th>회원정보</th>
+					<th>상태</th>
+					
 
 				</tr>
+				
+				 </thead>
+  <tbody style="font-size:13px">
 
 				<%
 				int number=1;
@@ -133,26 +168,29 @@ function fn_popup(num) {
 					String gender = rs.getString("gender");
 					String post = rs.getString("post");
 					String addr = rs.getString("addr");
+					String shortaddr = rs.getString("shortaddr");
 					String inter = rs.getString("inter");
 					String flog = rs.getString("flog");
 					String state = rs.getString("state");
+					String haninter = rs.getString("haninter");
+					String hanstate = rs.getString("hanstate");
+				
 			
 		
 				%>
 				<tr>
 					<td><%=memno %></td>
-					<td><%=username %></td>
+					<td><a href=# onclick="fn_popup(<%=memno%>)"><%=username %></td>
 					<td><%=userid %></td>
 					<td><%=tel %></td>
 					<td><%=mail %></td>
 					<td><%=birth %></td>
 					<td><%=gender %></td>
-					<td><%=post %></td>
-					<td><%=addr %></td>
-					<td><%=inter %></td>
+					<td><%=shortaddr %></td>
+					<td><%=haninter %></td>
 					<td><%=flog %></td>
-					<td><%=state %></td>
-					<td><button type="button" onclick="fn_popup(<%=memno%>)">수정</a></td>
+					<td><%=hanstate %></td>
+					
 					<!-- 수정화면 전환 -->
 
 				</tr>
@@ -160,31 +198,30 @@ function fn_popup(num) {
 	number++;
 	}
 	%>
-			</table>
-
-	 <p align = "center">
-
-     <% for(int i=1 ; i<=totalPage ; i++) {
-
-    	 %>	 
-
-     <a href="adminMemberList.jsp?viewPage=<%=i%>"><%=i %></a>
-
-     <% }%>
-
-     </p>    
-
-		</div>
+		   </tbody>
+</table>
 	
+			</div>	</div>	
+					
+ <div Style="width:100px; margin: 0 auto" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
+	
+  <ul class="pagination pagination-sm">
+				 
+     <% for(int i=1 ; i<=totalPage ; i++) {
+    	 %>	 
+     <li class="page-item"> <a class="page-link" href="adminMemberList.jsp?viewPage=<%=i%>"><%=i %></a></li>
+     <% }%>
+    </ul>
 
+</div>     
 
-		<form name="frm" method="post" action="cateSave.jsp">
-
+<div Style=height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
 		
-		</form>
 
 
-	</div>
+	</div>     
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+		
 
 <%@ include file = "../include/footer.jsp" %> 
 	

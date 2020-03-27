@@ -4,18 +4,17 @@
 
 <%@ include file="..\\include\\dbcon2.jsp"%>
 
- <%    
-    
-    String memno = request.getParameter("memno");
- 	// String memno = "12";
-    
-    String sql = " SELECT username,userid, tel, mail, "
+   <%
+    String userM_sessionUserid = (String) session.getAttribute("sessionUserid");
+           
+     
+    String sql = " SELECT memno,username,userid, tel, mail, pwd, "
   				+ " to_char(birth,'yyyy-mm-dd') birth, "
     			+ " gender, case when gender='M' then '남자' when gender='F' then '여자' else '기타' end hangender,  "
     			+ " post,addr,inter, decode(inter,'1','자전거','2','킥보드','0','미선택') haninter,"
     			+ " to_char(flog,'yyyy-mm-dd hh:mi') flog, "
     			+ " state, decode(state,'1','정회원','2','관리자','3','탈퇴','기타') hanstate " 
-    			+ " FROM pmember Where memno='"+memno+"' ";
+    			+ " FROM pmember Where userid='"+userM_sessionUserid+"' ";
     			
         
     ResultSet rs = stmt.executeQuery(sql);
@@ -24,6 +23,7 @@
    	String username = rs.getString("username");
 	String userid = rs.getString("userid");
 	String tel = rs.getString("tel");
+	String pwd = rs.getString("pwd");
 	String mail = rs.getString("mail");
 	String birth = rs.getString("birth");
 	String gender = rs.getString("gender").trim();
@@ -61,15 +61,30 @@
       changeYear: true
     });
   } );
+  
+  
+  function fn_userModify() {
+	  
+	  var inputpwd = document.getElementById("pwd")
+	  
+	  if( pwd.equals("") ) {
+		alert("1");  
+	  }
+			return false;  	  
+  }
+  
+  
   </script>
+  
+  
   
 <style>
 
-.dashboard {
+.user_Modifyboard {
 	width: 900px;
 	height: 1000px;
 	border: 1px solid #ccc;
-	float: left;
+	margin: 0 auto;
 }
 
 
@@ -78,25 +93,23 @@
 
 <body>
 
-		<div class="dashboard">
+<%@ include file = "../include/header.jsp" %>
+
+		<div class="user_Modifyboard" >
 			<!-- 상세정보 내용 -->
 			
 			<h3> - 회원 상세정보 - </h3>
-			  <form name="frm" method="post" action="memberModifySave.jsp">
-			  	<input type="hidden" name="memno" value="<%=memno %>">
+			  <form name="frm" method="post" action="userModifySave.jsp">
+			 
 			  	
 			<table class="table" >
-  <thead class="thead-light">
+  	<thead class="thead-light">
 					<tr>
 						<th scope="col">항목</th>
 						<th width=40%>현재 정보</th>
 						<th width=40%>수정사항 입력</th>
 					</tr>
-					<tr>
-						<th>회원번호</th>
-						<td><%=memno %></td>
-						<td><%=memno %></td>
-					</tr>
+
 					<tr>
 						<th>유저이름</th>
 						<td><%=username %></td>
@@ -171,18 +184,31 @@
                   <option value="2" <% if(state.equals("2")){out.print("selected");}%>>&nbsp; 관리자  </option>
                   <option value="3" <% if(state.equals("3")){out.print("selected");}%>>&nbsp; 탈퇴회원  </option>
                   </select></td>
-					</tr></table>
+					</tr>
+					
+						<tr>
+						<th>비밀번호</th>
+						<td><%=pwd %></td>
+						<td><input type="text" style="width: 150px" name="inputpwd"
+							value="<%=pwd %>"></td>
+						</tr>
+					
+					</table>
 			
 		
 		<p align="center">
 	
-			<button type="submit">수정하기</button>
+			<button type="submit" onclick="fn_userModify();">수정하기</button>
 			<button type="button" onclick="window.close();">창닫기(수정취소)</button>
 	</p>
 		</form>
 
 	</div>
-
 	
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+
+<%@ include file = "../include/footer.jsp" %> 
+	
+
 </body>
 </html>
