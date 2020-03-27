@@ -50,7 +50,19 @@
 <link rel="stylesheet" type="text/css" href="../css/adminlayout.css">
 <!-- // 아직없다 -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">   <!--  이건 크게 중요하지 않아서 파일생성치 않음 -->
+  <script src="../js/jquery-1.12.4.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#birth" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+  
 <style>
 
 .dashboard {
@@ -112,7 +124,7 @@
 					<tr>
 						<th>생년월일</th>
 						<td><%=birth %></td>
-						<td><input type="text" style="width: 150px" name="birth"
+						<td><input type="text" style="width: 150px" name="birth" id="birth"
 							value="<%=birth %>"></td>
 					</tr>
 					<tr>
