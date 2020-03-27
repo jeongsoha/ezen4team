@@ -65,9 +65,12 @@
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
-  소개할 내용 기재
+  <img src="../images/admin_sample.jpg">
 
 	</div>
+	     
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+		
 
 <%@ include file = "../include/footer.jsp" %> 
 	

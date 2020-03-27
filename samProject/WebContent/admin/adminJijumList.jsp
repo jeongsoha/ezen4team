@@ -12,12 +12,6 @@ if (search == null ) {
 } 
 
  
-	String serch = request.getParameter("serch");
-	
-if (serch == null ) {
-	serch = "";
-}
-
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
 		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
@@ -38,9 +32,9 @@ int unit = 5;
     String sql = " select b.* from (select rownum rn, a.* from (SELECT jino, jicode, jiname, jiaddr, jitel, "
   				+ " jiabil1,jiabil2, jiabil3,jirecomend,jistate, "
     			+ " to_char(jisdate,'yyyy-mm-dd') jisdate, "
-    			+ " jistar, jicode||jiname||jiaddr||jitel serch   "
+    			+ " jistar, jicode||jiname||jiaddr||jitel search   "
     			+ " FROM pjijum "
-    		+ " where 1=1 and jicode||jiname||jiaddr||jitel like '%"+search+"%' " // where search like '% 서치내용 %'
+    		+ " where jicode||jiname||jiaddr||jitel like '%"+search+"%' " // where search like '% 서치내용 %'
     			+ " order by jino DESC) a ) b " 
     		  + " where rn >="+startNo+" and rn <="+endNo+" ";  
         
@@ -115,7 +109,7 @@ function fn_popup(num) {
  function fn_search() {
 	
 	var f = document.frm_search;
-	//var x = document.getElementById("search1").value;
+	//var x = document.getElementById("search1").value;  이것저것 시도한 흔적;;
 	//var before = encodeURI("adminJijumList.jsp?search="+x);   여의도
 	// var before = encodeURI("adminJijumList.jsp");
 	//f.action = before  &name=1111
@@ -149,21 +143,22 @@ function fn_popup(num) {
 			
 		
 				
- <form  class="form_serch" method=post action="">
+ <form Style="float:right"  class="form-inline" method=post action="">
  
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
       <div class="input-group-text">검색</div>
-    </div>
-    <input type="text"  size="30" maxlength="50" name=search1 id=search1 placeholder="검색할 지점명 또는 주소를 입력">
   
-  </div>
-    <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()" >검색</button>
-
+    <input type="text" size="30" maxlength="50" name=search1 id=search1 placeholder="검색할 지점명 또는 주소를 입력" value=<%=search %>>
+   
+    
+ </div> </div> <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()" >찾기</button>
 </form>
 			
-			
-
+<div Style="font-size:12px; text"> <br>* 능력 1 : 전기자전거 서비스지정점 |
+ 능력 2 :일반 서비스지정점 |
+ 능력 3 :전기자전거 취급점 
+</div>
 
 <!-- --아래는 지점 리스트 노출--- -->
 
@@ -180,12 +175,12 @@ function fn_popup(num) {
 					<th>능력2</th>
 					<th>능력3</th>
 					<th>추천</th>
-					<th>오픈</th>
+					<th>상태</th>
 					<th>평점</th>
 					 
 				</tr>
 				 </thead>
-				<tbody>	
+				<tbody style="font-size:13px">
 				<%
 				int number=1;
 				while(rs.next() ) {
@@ -233,12 +228,18 @@ function fn_popup(num) {
 				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %></a></li>
+     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %>
+     <form method=post>
+     
+     </form>
+     
+     </a></li>
      <% }%>
     </ul>
 
 </div>     
-<div Style=height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+     
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
 		</div>
 
 
