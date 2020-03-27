@@ -12,9 +12,8 @@ if (search == null ) {
 	search = "";
 } 	
      String encodedString = URLEncoder.encode(search, "UTF-8");
-	//String insearch = "";
 
-//String search = java.net.URLDecoder.decode(request.getParameter("search1"), "UTF-8");
+
  
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
@@ -104,9 +103,6 @@ function fn_popup(num) {
 	
 	var f = document.frm_search;
 	var x = document.getElementById("search1").value;  
-	//var before = encodeURI("adminJijumList.jsp?search="+x);   여의도
-	// var before = encodeURI("adminJijumList.jsp");
-	//f.action = before  &name=1111
 	
 	var addr ="adminJijumList.jsp?search1="+x;
 	

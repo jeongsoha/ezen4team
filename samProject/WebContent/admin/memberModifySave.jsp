@@ -19,7 +19,8 @@
 	String gender = request.getParameter("gender"); 
 	String addr = request.getParameter("addr");
 	String post = request.getParameter("post");
-	String inter = request.getParameter("inter");
+	String inter = request.getParameter("inter").trim();
+	String state = request.getParameter("state").trim();
 			
 	String sql = "UPDATE pmember SET";
 	        sql +=" username='"+username+"', ";
@@ -30,7 +31,8 @@
 	 		sql +=" gender='"+gender+"', ";
 	 		sql +=" addr='"+addr+"', ";
 	 		sql +=" post='"+post+"', ";
-	 		sql +=" inter='"+inter+"' ";
+	 		sql +=" inter='"+inter+"', ";
+	 		sql +=" state='"+state+"' ";
 	 		sql +=" WHERE memno='"+memno+"' ";
 		   
 		 

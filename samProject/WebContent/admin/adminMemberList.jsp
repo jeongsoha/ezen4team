@@ -23,9 +23,10 @@
   				+ " to_char(birth,'yyyy-mm-dd') birth, "
     			+ " gender,post,"
     			+ " addr, SUBSTR(addr, 1, 2)||'..' shortaddr, "
-    			+ " inter, "
+    			+ " inter, decode(inter,'1','자전거','2','킥보드','0','미선택') haninter, "
     			+ " to_char(flog,'yyyy-mm-dd hh:mi') flog, "
-    			+ " state FROM pmember "
+    			+ " state, decode(state,'1','정회원','2','관리자','3','탈퇴','기타') hanstate "
+    			+ " FROM pmember "
     			+ " order by memno DESC)a ) b " 
 	       	    + " where rn >="+startNo+" and rn <="+endNo+"" ;  	// 페이징처리 구성
     
@@ -171,6 +172,9 @@ function fn_popup(num) {
 					String inter = rs.getString("inter");
 					String flog = rs.getString("flog");
 					String state = rs.getString("state");
+					String haninter = rs.getString("haninter");
+					String hanstate = rs.getString("hanstate");
+				
 			
 		
 				%>
@@ -183,9 +187,9 @@ function fn_popup(num) {
 					<td><%=birth %></td>
 					<td><%=gender %></td>
 					<td><%=shortaddr %></td>
-					<td><%=inter %></td>
+					<td><%=haninter %></td>
 					<td><%=flog %></td>
-					<td><%=state %></td>
+					<td><%=hanstate %></td>
 					
 					<!-- 수정화면 전환 -->
 
