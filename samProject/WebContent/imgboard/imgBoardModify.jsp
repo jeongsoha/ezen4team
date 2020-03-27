@@ -4,23 +4,45 @@
 
 <%
 String admin = (String) session.getAttribute("adminConfirm"); 
+String unq = request.getParameter("unq");
+
+String Domain  ="http://localhost:8080/myProject2";   
+String RealPath = "D:/eclipse-workspace/ezen4team/samProject/WebContent";
 
 if( admin == null && "".equals(admin) ) {
 %>
 	<script>
 	alert("잘못된 경로입니다");
-	location = "../main/main.jsp";
+	location = "../main/home.jsp";
 	</script>
 <% 	
 
 }
+
+String sql = " SELECT title,content,imgname1,imgpath1,imgtitle,imgcontent "
+		   + " FROM imgboard "
+		   + " WHERE unq = '"+unq+"' ";
+ResultSet rs = stmt.executeQuery(sql);
+rs.next();
+
+
+String title = rs.getString("title");
+String content = rs.getString("content");
+String imgname1 = rs.getString("imgname1");
+String imgpath1 = rs.getString("imgpath1");
+String imgtitle = rs.getString("imgtitle");
+String imgcontent = rs.getString("imgcontent");
+
+content = content.replaceAll("\\\"","\\\\\""); 
+
+String img = Domain + imgpath1 + "/" + imgname1; /* 이미지 주소 */
 %>    
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 홈</title>
+<title>수정화면</title>
 </head>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -64,28 +86,29 @@ function fn_WriteInsert() {
 <br>
 <br>
 
-<form name="frm" method="post" action="imgBoardWriteSave.jsp" enctype="Multipart/form-data">
+<form name="frm" method="post" action="imgBoardModifySave.jsp" enctype="Multipart/form-data">
+<input type="hidden" name="unq" value="<%=unq%>">
 	<div align="center">
 	<table style="margin-left:0px;border-collapse: separate;border-spacing:0 10px;">
 		<tr>
         	<th class="badge badge-dark" style="font-size:17px;">제목</th>
         </tr>
         <tr>
-        	<td><input type="text" name="title" id=title style="width:710px;"></td>
+        	<td><input type="text" name="title" id=title style="width:710px;" value="<%=title%>"></td>
         </tr>
         
         <tr>
         	<th class="badge badge-dark" style="font-size:17px;">이미지 제목</th>
         </tr>
         <tr>
-        	<td><input type="text" name="imgtitle" style="width:710px;"></td>
+        	<td><input type="text" name="imgtitle" style="width:710px;" value="<%=imgtitle%>"></td>
         </tr>
         
          <tr>
         	<th class="badge badge-dark" style="font-size:17px;">이미지 내용</th>
         </tr>
         <tr>
-        	<td><input type="text" name="imgcontent" style="width:710px;"></td>
+        	<td><input type="text" name="imgcontent" style="width:710px;" value="<%=imgcontent%>">></td>
         </tr>
          
          <tr>
@@ -111,7 +134,7 @@ function fn_WriteInsert() {
 	</div>
 	<table style="margin-left:850px;">
 	<tr>
-		<td><input type="submit" value="등록" onClick="fn_WriteInsert(); return false;" style="width:100px;" class="btn btn-outline-info"></td>
+		<td><input type="submit" value="수정완료" onClick="fn_WriteInsert(); return false;" style="width:100px;" class="btn btn-outline-info"></td>
 		<td><input type="button" value="취소" onClick="location='fBoardList.jsp'" style="width:100px;" class="btn btn-outline-info"></td>
 	</tr>
 	</table>
@@ -134,6 +157,7 @@ function fn_WriteInsert() {
 
 <script type="text/javascript">
 var oEditors = [];
+var content = "<%=content %>";
 
 // 추가 글꼴 목록
 //var aAdditionalFontSet = [["MS UI Gothic", "MS UI Gothic"], ["Comic Sans MS", "Comic Sans MS"],["TEST","TEST"]];
@@ -152,7 +176,7 @@ nhn.husky.EZCreator.createInIFrame({
 	}, //boolean
 	fOnAppLoad : function(){
 		//예제 코드
-		//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+		oEditors.getById["ir1"].exec("PASTE_HTML", [content]);
 	},
 	fCreator: "createSEditor2"
 });
@@ -182,3 +206,4 @@ function setDefaultFont() {
 	oEditors.getById["ir1"].setDefaultFont(sDefaultFont, nFontSize);
 }
 </script>
+

@@ -12,35 +12,6 @@ a:hover, a:active, a:focus { text-decoration:underline }
 
 
 
-/* topMenu */
-#hbutton {
-	border-top-right-radius:5px; 
-	border-bottom-right-radius:5px; 
-	margin-left:-3px;
-
-}
-
-#hdiv button {
-	border:1px solid #5483b1;
-	background-color: rgba(0,0,0,0);
-	color:#ffffff;
-	padding:5px;
-	border-radius: 12px;
-	width:5%;
-	height:20%;
-	float:right;
-	margin-left:10px;
-	
-}
-
-#hdiv button:hover{
-	color:white; 
-	background-color:#5483b1; 
-}
-
-.hdiv1 {
-
-}
 
 /* footer */
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -77,7 +48,7 @@ ul, ol {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.5);
 }
-.social-container .col {
+.social-container1 .col {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .nav-list li a:before {

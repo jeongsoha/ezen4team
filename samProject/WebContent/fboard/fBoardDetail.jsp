@@ -19,9 +19,13 @@ String sdate = "";
 String hit = "";
 ResultSet reRs = null;
 
+
+
 bunq = request.getParameter("bunq"); // 게시판 유니크값
 bunq_re = request.getParameter("bunq_re"); // 댓글 유니크값
 gubun = request.getParameter("gubun"); // 게시판 구분
+
+
 
 // 조회
 if( bunq != null && !"".equals(bunq)){
@@ -110,7 +114,7 @@ function fn_reWrite() {
       }
    }else{
       alert("로그인을 해주세요");
-      location ="../fboard/fBoardList.jsp";
+      location ="../member/login.jsp";
    }
    
    
@@ -230,7 +234,7 @@ if (userid1 == null){
       <button type="button" class="btn btn-outline-info" onClick="location='fBoardDetail.jsp?bunq=<%=bunq%>&bunq_re=<%=reunq%>&gubun=U'">수정</button></td>
       
       <td>
-      <button type="button" class="btn btn-outline-info" onClick="location='../fboard/reBoardSave.jsp?reunq=<%=reunq%>&gubun=D'">삭제</button></td>
+      <button type="button" class="btn btn-outline-info" onClick="location='../fboard/reBoardSave.jsp?bunq=<%=bunq%>&reunq=<%=reunq%>&gubun=D'">삭제</button></td>
       <%
       number++;
       }

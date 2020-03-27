@@ -7,7 +7,7 @@
 
 String userid1 = (String) session.getAttribute("sessionUserid"); 
 
-int unit = 20;
+int unit = 3;
 String viewPage = request.getParameter("viewPage");
 if( viewPage == null ){
 	viewPage = "1";
@@ -111,10 +111,11 @@ function fn_Write(){
         		String userid = rs.getString("userid");
         		String sdate = rs.getString("sdate");
         		String hit = rs.getString("hit");
+        		String rn = rs.getString("rn");
         		        		
         	%>
         	<tr align="center">
-        		<td><%=bunq %></td>
+        		<td><%=rn %></td>
         		<td  style="text-align:left;"><a href="../fboard/fBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
         		<td><%=userid %></td>
         		<td><%=sdate %></td>

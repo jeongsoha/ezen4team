@@ -6,11 +6,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="../css/menu_footer.css">
+
 <body>
 
 
 <footer class="section footer-classic context-dark bg-image" style="background: #aabacc; clear:both; width:1898px;">
-        <div class="container">
+        <div class="container1">
 
           <div class="row row-30">
             <div class="col-md-4 col-xl-5">

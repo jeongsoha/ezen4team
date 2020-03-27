@@ -7,7 +7,17 @@
 
 String admin = (String) session.getAttribute("adminConfirm");
 
-int unit = 20;
+String Domain  ="http://localhost:8080/myProject2";                   
+String RealPath = "D:/eclipse-workspace/ezen4team/samProject/WebContent";
+
+/* String imgSql = " SELECT unq,title,imgname1,imgpath1,imgtitle,imgcontent FROM imgboard "
+              + " ORDER BY sdate asc ";
+
+ResultSet imgRs = stmt2.executeQuery(imgSql); */
+
+
+
+int unit = 3;
 String viewPage = request.getParameter("viewPage");
 if( viewPage == null ){
 	viewPage = "1";
@@ -24,21 +34,21 @@ int endNo = startNo + unit-1;
 
 String sql = " select b.* from ( "
 	       + " 	select rownum rn, a.* from( "
-		   + " select unq,userid,imgname1,imgpath1,title,content,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
+		   + " select unq,userid,imgname1,imgpath1,title,content,to_char(sysdate,'YYYY-MM-DD') sdate,imgtitle,imgcontent " 
 		   + " from imgboard  "
 		   + " order by unq desc ) a ) b "
 		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
 		  
-ResultSet rs = stmt.executeQuery(sql);
+ResultSet imgRs = stmt.executeQuery(sql);
 				   
-%>
+%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 홈</title>
+<title>이미지 리스트</title>
 </head>
-
+<link rel="stylesheet" href="../css/imgList.css">
 <style>
 .table1 {
       	width:1100px;
@@ -46,18 +56,6 @@ ResultSet rs = stmt.executeQuery(sql);
       	border-collapse:collapse;
       }
 </style>
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="../css/menu_footer.css">
-
-<script>
-
-
-
-</script>
 
 <body> 
 
@@ -73,55 +71,73 @@ ResultSet rs = stmt.executeQuery(sql);
 
 
 
-<table align="center" style="margin-right:899px;border-collapse: separate;border-spacing:0 10px;">
+<table align="center">
+		 	<tr>
+		 	<%
+		 	
+		 	
+		 	int count = 0;
+		 	while(imgRs.next()){
+		 		String title = imgRs.getString("title");
+		 		String imgname1 = imgRs.getString("imgname1");
+		 		String imgpath1 = imgRs.getString("imgpath1");
+		 		String imgtitle = imgRs.getString("imgtitle");
+		 		String imgcontent = imgRs.getString("imgcontent");
+		 		int unq = imgRs.getInt("unq");
+		 		
+		 		String img = Domain + imgpath1 + "/" + imgname1;
+		 		
+		 	
+		 		
+		 	%>
+		 	<td>
+        		<div class="container">
+  <h3 class="title"><%=title %></h3>
+  <div class="content">
+    <a href="imgBoardDetail.jsp?unq=<%=unq %>" >
+      <div class="content-overlay"></div>
+      <img class="content-image" src="<%=img%>">
+      <div class="content-details fadeIn-bottom">
+        <h3 class="content-title"><%=imgtitle %></h3>
+        <p class="content-text"><%=imgcontent %></p>
+      </div>
+    </a>
+  </div>
+</div>
+</td>
 
-	
-	
-	</table>
-	
-	<table class="table1" align="center">
-	
-      		<tr align="center">
-      			     			
-      		</tr>
-      		<%
-      		
-        	int number = 1;
-        	while(rs.next()){
-        	String unq = rs.getString("unq");
-        	String title = rs.getString("title");
-        		        		
-        	%>
-        	<tr align="center">
-        		<td><img src=""></td>	
-        	</tr> 
-        	
-        	<tr align="center">
-        		<td><img title=""></td>	
-        	</tr>     
-        	<%   	
-        		number++;
-        	}   	
-        	%>
-    </teble>  		
+
+        		
+        	<%
+        		if(count%3 == 2){
+        			out.print("</tr><tr>");
+        		}
+        	count++;
+		 	}
+		 	if( count == 0 ){
+		 		out.print("<td class='std'>등록된 상품이 없습니다.</td>");
+		 	}
+        	%>	       		
+        	</tr>
+        </table>
    
-    
-        
-      		
-    <table align="center" style="margin-left:1003px; border-collapse:separate; border-spacing:0 10px;">
-<%
+   <%
 if (admin == null){
 %>
 
 <%
 }else if( "Y".equals(admin) ) {
-%>    
-	<tr>
-		<td><input type="button" value="글쓰기" onClick="fn_Write(); return false;" style="width:100px;" class="btn btn-outline-info"></td>  <!-- 글쓰기 버튼 -->
-	</tr>
+%>
+	
+	<div align="center">
+		<td><input type="button" value="글쓰기" onClick="location='imgBoardWrite.jsp?'" style="width:100px;" class="btn btn-outline-info"></td>
+	</div>
 <%
 }
-%>	
+%> 
+        
+      		
+  
 	<p align="center">
         	<%
         	for(int i=1; i<=totalPage; i++){
@@ -131,7 +147,7 @@ if (admin == null){
         	}
         	%>
         </p>
-	</table>
+	
 	
 	
 <br>

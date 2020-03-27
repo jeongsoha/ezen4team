@@ -13,6 +13,7 @@
 String admin = (String) session.getAttribute("adminConfirm");
 
 
+
 /*                       이미지                             */
 
 int maxSize = 1024*1024*10; 
@@ -21,6 +22,7 @@ String uploadPath = request.getRealPath(path);
 MultipartRequest multi = new MultipartRequest( 
 request,uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 
+String unq = multi.getParameter("unq");
 String title = multi.getParameter("title");
 String content = multi.getParameter("content");
 String imgtitle = multi.getParameter("imgtitle"); 
@@ -55,17 +57,15 @@ int fileSize = 0;
 	String file = (String)files.nextElement();
 	String orgName = multi.getFilesystemName(file); 
 	
-String imgSql = " INSERT INTO imgboard ( "
-		      + " unq, userid, title, content, sdate, imgname1, imgpath1,imgtitle,imgcontent ) "
-	          + " VALUES (iunq_seq.nextVal , "
-	          + " '"+admin+"' , "
-	          + " '"+title+"' , "
-	          + " '"+content+"' , "
-	          + " sysdate , "
-	          + " '"+orgName+"' , "
-	          + " '"+path+"' , "
-	          + " '"+imgtitle+"' , "
-	          + " '"+imgcontent+"' ) ";
+String imgSql = " UPDATE imgboard SET "
+			  + " title='"+title+"' , "
+			  + " content='"+content+"' , "
+			  + " imgtitle='"+imgtitle+"' , "
+			  + " imgcontent='"+imgcontent+"' , "
+			  + " imgname1='"+orgName+"' , "
+			  + " imgpath1='"+path+"' "
+			  + " WHERE unq = '"+unq+"' ";
+		    
 
 stmt.executeUpdate(imgSql);			
 

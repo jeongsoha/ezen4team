@@ -56,7 +56,7 @@ String reSql = "";
 
 %>
       <script>
-    location="fBoardDetail.jsp?bunq=<%=bunq%>"
+    location="fBoardDetail.jsp?bunq=<%=bunq%>";
      </script>  
 
 %>	
