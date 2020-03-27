@@ -13,7 +13,7 @@ if( viewPage == null ){
 	viewPage = "1";
 }
 
-String totalSql = " select count(*) total from pboard";
+String totalSql = " select count(*) total from pboard where gubun='2'";
 ResultSet rs2 = stmt.executeQuery(totalSql);
 rs2.next();
 int total = rs2.getInt("total");
@@ -25,7 +25,7 @@ int endNo = startNo + unit-1;
 String sql = " select b.* from ( "
 	       + " 	select rownum rn, a.* from( "
 		   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
-		   + " from pboard  "
+		   + " from pboard where gubun='2' "
 		   + " order by bunq desc ) a ) b "
 		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
 		  
@@ -40,6 +40,85 @@ ResultSet rs = stmt.executeQuery(sql);
 </head>
 
 <style>
+/* #5483b1 */
+#hbutton {
+   border-top-right-radius:5px; 
+   border-bottom-right-radius:5px; 
+   margin-left:-3px;
+
+}
+
+#hdiv button {
+   border:1px solid #5483b1;
+   background-color: rgba(0,0,0,0);
+   color:#ffffff;
+   padding:5px;
+   border-radius: 12px;
+   width:5%;
+   height:20%;
+   float:right;
+   margin-left:10px;
+   
+}
+
+#hdiv button:hover{
+   color:white; 
+   background-color:#5483b1; 
+}
+
+.hdiv1 {
+
+}
+
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
 .table1 {
       	width:1100px;
       	border:1px solid #555555;
@@ -86,23 +165,25 @@ function fn_Write(){
 
 
 
-<table align="center" style="margin-right:899px;border-collapse: separate;border-spacing:0 10px;">
+<table align="center"style="margin-right:700px; border-collapse: separate;border-spacing:0 10px;">
 
 	<tr>
-		<td><input type="button" value="공지사항" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
-		<td><input type="button" value="자유게시판" OnClick="location='fBoardList.jsp'" style="width:100px;"></td>
+		<td><input type="button" value="공지사항" class="btn btn-secondary" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
+		<td><input type="button" value="자유게시판" class="btn btn-secondary" OnClick="location='fBoardList.jsp'" style="width:100px;"></td>
 	</tr>
 	
 	</table>
 	
-	<table class="table1" align="center" >
+	<table align="center" class="table table-striped" style="width:900px;" bgcolor="#ffffff">
+	<thead>
       		<tr align="center">
-      			<th width="8%" class="td1"></th>
-      			<th width="60%" class="td1">제목</th>
+      			<th width="10%" class="td1"></th>
+      			<th width="40%" class="td1">제목</th>
       			<th width="15%" class="td1">작성자</th>
-      			<th width="10%" class="td1">작성일</th>
-      			<th width="5%" class="td1">조회수</th>
+      			<th width="15%" class="td1">작성일</th>
+      			<th width="10%" class="td1">조회수</th>
       		</tr>
+     </thead>
       		<%
         	int number = 1;
         	while(rs.next()){
@@ -130,10 +211,10 @@ function fn_Write(){
     
         
       		
-    <table align="center" style="margin-left:1003px; border-collapse:separate; border-spacing:0 10px;">
+    <table align="center" style="margin-left:800px; border-collapse:separate; border-spacing:0 10px;">
     
 	<tr>
-		<td><input type="button" value="글쓰기" onClick="fn_Write(); return false;" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
+		<td><input type="button" class="btn btn-secondary" value="글쓰기" onClick="fn_Write(); return false;" style="width:100px;"></td>  <!-- 글쓰기 버튼 -->
 	</tr>
 	
 	<p align="center">

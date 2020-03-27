@@ -116,11 +116,12 @@ ul, ol {
 <section>
 
 <section>
+
 <br><br>
 <h1 style="text-align:center;">공지사항</h1>
-<br><br><br>
+<br><br>
+<br>
    <form name="frm" method="post" action="nBoardWriteSave.jsp">
-   
    <div align="center">
 <table style="border-collapse: separate; border-spacing: 0 10px;">
     
@@ -177,6 +178,7 @@ ul, ol {
 <br>
 <br>
 <br>
+
 </section>
 
 <%@ include file = "../include/footer.jsp" %> 

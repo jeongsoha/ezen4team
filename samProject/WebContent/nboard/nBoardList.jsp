@@ -14,9 +14,9 @@ if( viewPage == null ){
 }
 String totalSql = "";
 if("Y".equals(admin)) {
-	totalSql = " select count(*) total from pboard ";
+	totalSql = " select count(*) total from pboard where gubun='1' ";
 }else{
-	totalSql = " select count(*) total from pboard where pub='1' ";
+	totalSql = " select count(*) total from pboard where pub='1' and gubun='1' ";
 }
 ResultSet rs2 = stmt.executeQuery(totalSql);
 rs2.next();
@@ -31,15 +31,15 @@ if("Y".equals(admin)) {
 	sql = " select b.* from ( "
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
-			   + " from pboard "
-			   + " order by bunq desc ) a ) b "
+			   + " from pboard where gubun='1' "
+			   + " order by bunq asc ) a ) b "
 	         + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
 }else {
 	sql = " select b.* from ( "
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
-			   + " from pboard where pub='1' "
-			   + " order by bunq desc ) a ) b "
+			   + " from pboard where pub='1' and gubun='1' "
+			   + " order by bunq asc ) a ) b "
        	  + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
 }
 ResultSet rs = stmt.executeQuery(sql);
@@ -169,7 +169,7 @@ ul, ol {
 
 
    
-   <table align="center" style="width:900px;" bgcolor="#ffffff" class="table table-striped">
+   <table align="center" style="width:900px;" class="table table-striped">
     <thead>
             <tr align="center">
                <th width="10%" class="td1"></th>
@@ -194,10 +194,11 @@ ul, ol {
               String sdate = rs.getString("sdate");
               String hit = rs.getString("hit");
               String pub = rs.getString("pub");
+              String rn = rs.getString("rn");
 
            %>
            <tr align="center">
-              <td><%=bunq %></td>
+              <td><%=rn %></td>
               <td  style="text-align:left;"><a href="nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
               <td>관리자</td>
               <td><%=sdate %></td>
