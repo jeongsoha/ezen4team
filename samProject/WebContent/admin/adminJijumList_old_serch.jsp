@@ -10,16 +10,19 @@
 if (search == null ) {
 	search = "";
 } 
+
  
 int unit = 5;
 		String viewPage = request.getParameter("viewPage");
 		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
 			viewPage = "1";
 		}
+
 		String totalSql = " select count(*) total from pmember";
 		ResultSet rs2 = stmt.executeQuery(totalSql);
 		rs2.next();
 		int total = rs2.getInt("total");
+
 		int totalPage = (int) Math.ceil((double)total/unit);
 		int startNo = (Integer.parseInt(viewPage)-1) * unit +1;  //  1 -> 1 ,  2 -> 11 , 3 -> 21
 		int endNo = startNo+unit-1;
@@ -66,48 +69,55 @@ int unit = 5;
   
   
 <style>
+
 .table101 {
 	float: left;
  	width :	700px;
  	height : 100px;
 	text-align:center;
 	border:3px solid #ccc;
+
 }
+
 .table102 {
 	float: left;
  	width :	700px;
  	height : 600px;
 	text-align:center;
 	border:3px solid #ccc;
+
 }
+
 .body_container{
    width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
    margin: 0px auto;  /*중앙정렬*/
      
 }
+
 </style>
 
 
 <script>
+
 function fn_popup(num) {
 	
 	var a = num;
 	
 	alert("hi  지점수정 페이지 이동 전" + a);
 }
+
  function fn_search() {
 	
 	var f = document.frm_search;
-	var x = document.getElementById("search1").value;  
+	//var x = document.getElementById("search1").value;  이것저것 시도한 흔적;;
 	//var before = encodeURI("adminJijumList.jsp?search="+x);   여의도
 	// var before = encodeURI("adminJijumList.jsp");
 	//f.action = before  &name=1111
 	
-	f.action ="adminJijumList.jsp?search1="+x;
-	
-	
+	f.action ="adminJijumList.jsp";
 	f.submit();
 }
+
 </script>
 
 
@@ -121,7 +131,7 @@ function fn_popup(num) {
 
 	<div class="container" style=clear:both>  
 
-		<div style="width: 1000px; height: 150px">
+		<div style="width: 1000px; height: 100px">
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
@@ -133,7 +143,7 @@ function fn_popup(num) {
 			
 		
 				
- <form Style="float:right"  class="form-inline" name="frm_search" method=post action="">
+ <form Style="float:right"  class="form-inline" method=post action="">
  
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
@@ -145,7 +155,7 @@ function fn_popup(num) {
  </div> </div> <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()" >찾기</button>
 </form>
 			
-<div Style="font-size:12px; text"> <br>* 능력 1 : 전기자전거 서비스지정점 |
+<div Style="font-size:12px;font-weight:bold"> <br>* 능력 1 : 전기자전거 서비스지정점 |
  능력 2 :일반 서비스지정점 |
  능력 3 :전기자전거 취급점 
 </div>
@@ -218,8 +228,10 @@ function fn_popup(num) {
 				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>&search1=<%=search%>"><%=i %>
- 
+     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %>
+     <form method=post>
+     
+     </form>
      
      </a></li>
      <% }%>

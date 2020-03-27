@@ -98,14 +98,12 @@ function fn_popup(num) {
  function fn_search() {
 	
 	var f = document.frm_search;
-	var x = document.getElementById("search1").value;  
+	//var x = document.getElementById("search1").value;  이것저것 시도한 흔적;;
 	//var before = encodeURI("adminJijumList.jsp?search="+x);   여의도
 	// var before = encodeURI("adminJijumList.jsp");
 	//f.action = before  &name=1111
 	
-	f.action ="adminJijumList.jsp?search1="+x;
-	
-	
+	f.action ="adminJijumList.jsp";
 	f.submit();
 }
 </script>
@@ -133,7 +131,7 @@ function fn_popup(num) {
 			
 		
 				
- <form Style="float:right"  class="form-inline" name="frm_search" method=post action="">
+ <form Style="float:right"  class="form-inline" method=post action="">
  
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
@@ -218,8 +216,10 @@ function fn_popup(num) {
 				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>&search1=<%=search%>"><%=i %>
- 
+     <li class="page-item"> <a class="page-link" href="adminJijumList.jsp?viewPage=<%=i%>"><%=i %>
+     <form method=post>
+     
+     </form>
      
      </a></li>
      <% }%>

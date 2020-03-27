@@ -101,7 +101,7 @@ function fn_popup(num) {
 
 	<div class="container">  
 
-		<div style="float: left; width: 1000px; height: 150px"
+		<div style="float: left; width: 1000px; height: 100px"
 			class="adminLeft">
 		<%@ include file="topMenu.jsp"%>
 		</div>

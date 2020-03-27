@@ -60,12 +60,12 @@
 
 	<div class="container">  
 
-		<div style="float: left; width: 1000px; height: 150px"
+		<div style="float: left; width: 1000px; height: 100px"
 			class="adminLeft">
 		<%@ include file="topMenu.jsp"%>
 		</div>
 
-  <img src="../images/admin_sample.jpg">
+  <img style=" width: 1000px; height: 600px" src="../images/admin_sample.jpg">
 
 	</div>
 	     
