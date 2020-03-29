@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-    String header_sessionUserid = (String) session.getAttribute("sessionUserid");
+    String footer_sessionUserid = (String) session.getAttribute("sessionUserid");
 %>
            
 <!DOCTYPE html>
@@ -60,7 +60,7 @@
               <br>
               <ul class="nav-list">
          <%
-              if( header_sessionUserid == null || "".equals(header_sessionUserid)){
+              if( footer_sessionUserid == null || "".equals(footer_sessionUserid)){
          %> 
               	<li><a href="../member/login.jsp">로그인</a></li>
          <%
