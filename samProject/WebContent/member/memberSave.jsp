@@ -13,7 +13,7 @@
     String gender = request.getParameter("gender");
     String mail = request.getParameter("mail");
     String tel = request.getParameter("tel");
-       String inter = request.getParameter("inter");
+    String inter = request.getParameter("inter");
    
     
         

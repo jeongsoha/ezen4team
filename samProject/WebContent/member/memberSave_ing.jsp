@@ -5,7 +5,7 @@
     <%@ include file="../include/dbcon2.jsp" %>
     
         
-     <%  // 회원가입 시 저장처리
+    <%  // 회원가입 시 저장처리
     String userid = request.getParameter("userid");
     String pwd = request.getParameter("pwd");
     String username = request.getParameter("username");
@@ -15,16 +15,16 @@
     String gender = request.getParameter("gender");
     String mail = request.getParameter("mail");
     String tel = request.getParameter("tel");
-   
-   
+    String post = request.getParameter("post");
+    String addr = request.getParameter("addr");
     String inter = request.getParameter("inter");
     String birth = bir_year+"-"+bir_month+"-"+bir_day;
     
         
     String sql = "";
     
-    sql = "insert into pmember(memno,username,userid,pwd,tel,mail,birth,gender,inter,flog,state) "; 
- 	sql += " values(mem_seq.nextval,'"+username+"','"+userid+"','"+pwd+"','"+tel+"','"+mail+"','"+birth+"','"+gender+"','"+inter+"',sysdate,'1')";
+    sql = "insert into pmember(memno,username,userid,pwd,tel,mail,birth,gender,post,addr,inter,flog,state) "; 
+    sql += " values(mem_seq.nextval,'"+username+"','"+userid+"','"+pwd+"','"+tel+"','"+mail+"','"+birth+"','"+gender+"','"+post+"','"+addr+"','"+inter+"',sysdate,'1')";
     
 
     stmt.executeUpdate(sql);
