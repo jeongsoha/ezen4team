@@ -144,7 +144,7 @@ function fn_Write(){
 		location = "../fboard/fBoardWrite.jsp";
 	}else{
 		alert("로그인을 해주세요");
-		location ="../fboard/fBoardList.jsp";
+		location ="../member/login.jsp";
 	}
 		f.submit();
 }
@@ -158,7 +158,7 @@ function fn_Write(){
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">자유게시판</h1>
+<h1 style="text-align:center;" class="text-info">자유게시판</h1>
 <br>
 <br>
 <br>

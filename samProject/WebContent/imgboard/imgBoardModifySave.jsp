@@ -72,6 +72,6 @@ stmt.executeUpdate(imgSql);
 
 %>
 <script>
-alert("저장완료");
+
 location="imgBoardList.jsp";
 </script> 

@@ -49,7 +49,7 @@ int result = stmt.executeUpdate(sql);
 if(result > 0){
 %>
      <script>
-     alert("저장완료");
+    
      location="../fboard/fBoardList.jsp";  //메세지 띄우고 뒤로가기
      </script>
 <%

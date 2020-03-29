@@ -83,7 +83,7 @@ if( bunq_re != null && !"".equals(bunq_re)){
       }
       
       .td1{
-         border:1px solid #555555;
+         
          padding:5px;
       }
       
@@ -133,7 +133,7 @@ function fn_reWrite() {
 
 <br>
 <br>
-<h1 style="text-align:center;">자유게시판</h1>
+<h1 style="text-align:center;" class="text-info">자유게시판</h1>
 <br>
 <br>
 <br>
@@ -146,21 +146,21 @@ function fn_reWrite() {
 
    <div align="center">
    
-<table style="margin-left:0px;">
+<table style="margin-right:13px; " >
          <tr align="left">
-               <td>글쓴이</td>
+               <td class="badge badge-dark" style="font-size:17px;">글쓴이</td>
                <td width="150px" class="td1"><%=userid %></td>
-               <td>작성일</td>
-               <td width="200px" class="td1"><%=sdate %></td>
-               <td>조회수</td>
-               <td width="100px" class="td1"><%=hit %></td>
+               <td class="badge badge-dark" style="font-size:17px;">작성일</td>
+               <td width="150px" class="td1"><%=sdate %></td>
+               <td class="badge badge-dark" style="font-size:17px;">조회수</td>
+               <td width="150px" class="td1"><%=hit %></td>
             </tr>
 </table>
 
-<table style="border-collapse: separate; border-spacing: 0 10px;">
+<table style="border-collapse: separate; border-spacing: 0 10px; width:660px;">
 
    <tr>
-      <td>제목</td>
+      <td class="badge badge-dark" style="font-size:17px;">제목</td>
    </tr>
    
    <tr>
@@ -168,11 +168,11 @@ function fn_reWrite() {
    </tr>
    
    <tr>
-      <td>내용</td>
+      <td class="badge badge-dark" style="font-size:17px; ">내용</td>
    </tr>
    
    <tr>
-      <td><textarea name="content" style="width:600px;height:300px;" readOnly><%=content %></textarea></td>
+      <td><textarea name="content" style="width:650px;height:412px;" readOnly><%=content %></textarea></td>
    </tr>
 
 </table>
@@ -187,8 +187,8 @@ if (userid1 == null){
  
    <table>
    <tr>
-      <td><input type="submit" value="수정" style="width:100px;"></td>
-      <td><input type="button" value="삭제" style="width:100px;color:#fdfde9;" onClick="location='fBoardDelete.jsp?bunq=<%=bunq%>'"></td>
+      <td><input type="submit" value="수정" style="width:100px;" class="btn btn-outline-info"></td>
+      <td><input type="button" value="삭제" style="width:100px;" onClick="location='fBoardDelete.jsp?bunq=<%=bunq%>'" class="btn btn-outline-info"></td>
    </tr>
    </table>
 <%
@@ -196,6 +196,8 @@ if (userid1 == null){
 %>
    </div>      
 </form>
+
+<br><br>
 
 <!--                   댓글                         -->   
 
@@ -243,6 +245,7 @@ if (userid1 == null){
   </tbody>
   
   <%
+  number++;
      }
   }
   %>
@@ -259,9 +262,9 @@ if (userid1 == null){
 
  <table>
      <tr>
-        <th>댓글</th>
-        <td><input type="text" name="recontent" value="<%=dbrecontent%>" style="width:1200px;height:50px;"></td>
-        <td><button type="submit" class="btn btn-secondary btn-lg" onClick="fn_reWrite(); return false;">확인</button></td>
+        <th class="p-3 mb-2 bg-dark text-white" style="width:65px; height:50px;">댓글</th>
+        <td><input type="text" name="recontent" value="<%=dbrecontent%>" style="width:1700px;height:50px;"></td>
+        <td><button type="submit" class="btn btn-secondary btn-lg" onClick="fn_reWrite(); return false;"  style="width:100px;">확인</button></td>
      </tr>
   </table>
   

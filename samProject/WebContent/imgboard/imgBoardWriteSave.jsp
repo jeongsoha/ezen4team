@@ -52,18 +52,22 @@ if( len > 1000 ){
 Enumeration files = multi.getFileNames(); 
 int fileSize = 0;
 
-	String file = (String)files.nextElement();
-	String orgName = multi.getFilesystemName(file); 
+	String file1 = (String)files.nextElement();
+	String orgName1 = multi.getFilesystemName(file1); 
+	String file2 = (String)files.nextElement();
+	String orgName2 = multi.getFilesystemName(file2); 
 	
 String imgSql = " INSERT INTO imgboard ( "
-		      + " unq, userid, title, content, sdate, imgname1, imgpath1,imgtitle,imgcontent ) "
+		      + " unq, userid, title, content, sdate, imgname1, imgpath1,imgname2,imgpath2,imgtitle,imgcontent ) "
 	          + " VALUES (iunq_seq.nextVal , "
 	          + " '"+admin+"' , "
 	          + " '"+title+"' , "
 	          + " '"+content+"' , "
 	          + " sysdate , "
-	          + " '"+orgName+"' , "
+	          + " '"+orgName1+"' , "
 	          + " '"+path+"' , "
+	          + " '"+orgName2+"' , "
+	    	  + " '"+path+"' , "
 	          + " '"+imgtitle+"' , "
 	          + " '"+imgcontent+"' ) ";
 
@@ -72,6 +76,6 @@ stmt.executeUpdate(imgSql);
 
 %>
 <script>
-alert("저장완료");
+
 location="imgBoardList.jsp";
 </script> 

@@ -19,7 +19,7 @@ String hitSql = " UPDATE imgboard SET hit = hit+1 "
    
    
 /* imgboard 테이블 데이터 가져오기 */
-String imgSql = " SELECT unq,title,content,sdate,hit,imgpath1,imgname1 FROM imgboard "
+String imgSql = " SELECT unq,title,content,sdate,hit,imgpath1,imgname1,imgpath2,imgname2 FROM imgboard "
 			  + " WHERE unq='"+unq+"' ";
 ResultSet imgRs = stmt.executeQuery(imgSql);
 imgRs.next();
@@ -31,9 +31,13 @@ String sdate = imgRs.getString("sdate");
 String hit = imgRs.getString("hit");
 String imgpath1 = imgRs.getString("imgpath1");
 String imgname1 = imgRs.getString("imgname1");
+String imgname2 = imgRs.getString("imgname2");
+String imgpath2 = imgRs.getString("imgpath2");
 
 content = content.replaceAll("\\\"","\\\\\""); 
 String img = Domain + imgpath1 + "/" + imgname1; /* 이미지 주소 */
+
+String simg = Domain + imgpath2 + "/" + imgname2; /* 썸네일 이미지 주소 */
 
 
 %> 
@@ -79,6 +83,10 @@ background-color: #008DFF; color: #333;
 padding: 5px; text-align: center; border: 1px solid #008DFF;
 }
 
+.td1{
+         
+         padding:5px;
+      }
 </style>
 
 <body> 
@@ -88,7 +96,7 @@ padding: 5px; text-align: center; border: 1px solid #008DFF;
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">제품소개</h1>
+<h1 style="text-align:center;" class="text-info">제품소개</h1>
 <br>
 <br>
 <br>
@@ -134,7 +142,7 @@ padding: 5px; text-align: center; border: 1px solid #008DFF;
 
 <div align="center">
 <button class="btn01" onclick="fn_spread('hiddenContent02');">상세이미지</button> 
-<div id="hiddenContent02" class="example01" style="display: none; width:650px;"><img src="<%=img %>"></div>
+<div id="hiddenContent02" class="example01" style="display: none; width:650px;"><img src="<%=simg %>" width=640px ></div>
 </div>
 <br><br>
 

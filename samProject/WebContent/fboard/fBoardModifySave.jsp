@@ -46,7 +46,7 @@ int result = stmt.executeUpdate(sql);
 if(result > 0){
 %>
      <script>
-     alert("저장완료");
+     
      location = "fBoardList.jsp";
      </script>
 <%
