@@ -7,8 +7,8 @@
 
 String admin = (String) session.getAttribute("adminConfirm");
 
-String Domain  ="http://localhost:8080/myProject2";                   
-String RealPath = "D:/eclipse-workspace/ezen4team/samProject/WebContent";
+String Domain  ="http://192.168.4.142:8080/myProject2";       // ip 주소는 서버컴터용 기재함               
+String RealPath = "C:/workspace/ezen4team/samProject/WebContent";
 
 /* String imgSql = " SELECT unq,title,imgname1,imgpath1,imgtitle,imgcontent FROM imgboard "
               + " ORDER BY sdate asc ";

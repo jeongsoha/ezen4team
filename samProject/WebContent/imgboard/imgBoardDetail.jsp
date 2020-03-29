@@ -7,7 +7,7 @@ String admin = (String) session.getAttribute("adminConfirm");
 
 String unq = request.getParameter("unq"); /* imgList 에서 넘어온 unq값 */
 
-String Domain  ="http://localhost:8080/myProject2";   
+String Domain  ="http://192.168.4.142:8080/myProject2";    // ip 주소는 서버컴터용 기재함 
 String RealPath = "c:/workspace/ezen4team/samProject/WebContent/smart/upload";
 
 
