@@ -68,7 +68,7 @@
         <% if( header_adminConfirm != null){
          %> 
          
-      <li><a href="#" onclick="location='../admin/adminJijumList.jsp'"> 관리메뉴 </a> </li>
+      <li><a href="#" onclick="location='../admin/adminBoard.jsp'"> ADMIN메뉴 </a> </li>
               
      
      <%

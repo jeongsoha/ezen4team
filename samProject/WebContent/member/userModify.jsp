@@ -113,14 +113,12 @@
 					<tr>
 						<th>유저이름</th>
 						<td><%=username %></td>
-						<td><input type="text" style="width: 150px" name="username"
-							value="<%=username %>"></td>
+						<td><%=username %></td>
 					</tr>
 					<tr>
 						<th>ID</th>
 						<td><%=userid %></td>
-						<td><input type="text" style="width: 150px" name="userid"
-							value="<%=userid %>"></td>
+						<td><%=userid %></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
@@ -161,7 +159,7 @@
 							value="<%=addr %>"></td>
 					</tr>
 					<tr>
-						<th>흥미</th>
+						<th>관심사</th>
 						<td><%=haninter %></td>
 						  <td class="mtd">
                   <select style="width:150px;height:25px;" name="inter" > 
@@ -171,35 +169,21 @@
                   </select>
                   </td>
 					</tr>
-					<tr>
-						<th>가입일시</th>
-						<td><%=flog %></td>
-						<td><%=flog %></td>
-					</tr>
-					<tr>
-						<th>회원상태</th>
-						<td><%=hanstate %></td>
-						<td><select style="width:150px;height:25px;" name="state" > 
-                  <option value="1" <% if(state.equals("1")){out.print("selected");}%>>&nbsp; 정회원  </option>  <!-- 참고기능  selected -->
-                  <option value="2" <% if(state.equals("2")){out.print("selected");}%>>&nbsp; 관리자  </option>
-                  <option value="3" <% if(state.equals("3")){out.print("selected");}%>>&nbsp; 탈퇴회원  </option>
-                  </select></td>
-					</tr>
-					
-						<tr>
+														
+						<%-- <tr>
 						<th>비밀번호</th>
 						<td><%=pwd %></td>
 						<td><input type="text" style="width: 150px" name="inputpwd"
 							value="<%=pwd %>"></td>
 						</tr>
-					
+					 --%>
 					</table>
 			
 		
 		<p align="center">
 	
 			<button type="submit" onclick="fn_userModify();">수정하기</button>
-			<button type="button" onclick="window.close();">창닫기(수정취소)</button>
+			<button type="button" onclick="history.go(-1);">뒤로가기(수정취소)</button>
 	</p>
 		</form>
 

@@ -3,13 +3,28 @@
     
     
 <%@ include file="..\\include\\dbcon2.jsp"%>
-<%    	int unit = 5;
+
+
+<%    	
+
+		 String search = request.getParameter("search2");
+			
+		if (search == null ) {
+			search = "";
+		} 	
+		     String encodedString = URLEncoder.encode(search, "UTF-8");
+
+
+		int unit = 5;
 		String viewPage = request.getParameter("viewPage");
 		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
 			viewPage = "1";
 		}
 
-		String totalSql = " select count(*) total from pmember";
+		String totalSql = " select count(*) total from pmember "
+  			+ " where username||','||userid||','||tel||','||mail like '%"+search+"%' "; // where search like '% 서치내용 %'
+
+	
 		ResultSet rs2 = stmt.executeQuery(totalSql);
 		rs2.next();
 		int total = rs2.getInt("total");
@@ -25,8 +40,10 @@
     			+ " addr, SUBSTR(addr, 1, 2)||'..' shortaddr, "
     			+ " inter, decode(inter,'1','자전거','2','킥보드','0','미선택') haninter, "
     			+ " to_char(flog,'yyyy-mm-dd hh:mi') flog, "
-    			+ " state, decode(state,'1','정회원','2','관리자','3','탈퇴','기타') hanstate "
+    			+ " state, decode(state,'1','정회원','2','관리자','3','탈퇴','기타') hanstate, "
+    			+ " username||','||userid||','||tel||','||mail search  "
     			+ " FROM pmember "
+    			+ " where username||','||userid||','||tel||','||mail like '%"+search+"%' " // where search like '% 서치내용 %'
     			+ " order by memno DESC)a ) b " 
 	       	    + " where rn >="+startNo+" and rn <="+endNo+"" ;  	// 페이징처리 구성
     
@@ -91,6 +108,22 @@ function fn_popup(num) {
 
 }
 
+
+ function fn_search() {
+	
+	var f = document.frm_search;
+	var x = document.getElementById("search2").value;  
+	
+	var addr ="adminMemberList.jsp?search2="+x;
+	
+	var ds = encodeURI(addr);
+	
+	f.action = ds
+	f.submit();
+}
+
+
+
 </script>
 
 
@@ -102,7 +135,7 @@ function fn_popup(num) {
 
 	<div class="container">  
 
-		<div style="float: left; width: 1000px; height: 100px"
+		<div style="width: 1000px; height: 100px"
 			class="adminLeft">
 		<%@ include file="topMenu.jsp"%>
 		</div>
@@ -112,18 +145,18 @@ function fn_popup(num) {
 	<div class="body_container">
 	
 		<div class="dashboard" style="float:right">  <!-- 검색보드 -->
+		
 			
-			
- <form  class="form-inline" method=post action="">
+ <form Style="float:right"  class="form-inline" name="frm_search" method=post action="">
 
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
       <div class="input-group-text">검색</div>
     </div>
-    <input type="text"  size="30" maxlength="50"  placeholder="검색할 유저정보 입력">
+    <input type="text"  size="30" maxlength="50" name=search2 id=search2  placeholder="검색할 유저정보 입력" value=<%=search %>>
   
   </div>
-    <button type="submit" class="btn btn-primary mb-2">검색</button>
+    <button type="submit" class="btn btn-primary mb-2" onclick="fn_search()">검색</button>
 </form>
 			
 			</div>
@@ -209,7 +242,7 @@ function fn_popup(num) {
 				 
      <% for(int i=1 ; i<=totalPage ; i++) {
     	 %>	 
-     <li class="page-item"> <a class="page-link" href="adminMemberList.jsp?viewPage=<%=i%>"><%=i %></a></li>
+     <li class="page-item"> <a class="page-link" href="adminMemberList.jsp?viewPage=<%=i%>&search2=<%=encodedString%>"><%=i %></a></li>
      <% }%>
     </ul>
 

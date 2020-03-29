@@ -20,7 +20,10 @@ int unit = 5;
 		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
 			viewPage = "1";
 		}
-		String totalSql = " select count(*) total from pmember";
+	
+		String totalSql = " select count(*) total from pjijum "
+			+ " where jicode||jiname||jiaddr||jitel like '%"+search+"%' "; // where search like '% 서치내용 %'
+	
 		ResultSet rs2 = stmt.executeQuery(totalSql);
 		rs2.next();
 		int total = rs2.getInt("total");
@@ -47,7 +50,7 @@ int unit = 5;
 <html>
 <head>
 <meta charset="UTF-8">
-<title>어드민화면</title>
+<title>대리점 관리</title>
 </head>
 
 
@@ -95,9 +98,9 @@ int unit = 5;
 <script>
 function fn_popup(num) {
 	
-	var a = num;
+	var jinum = num;
 	
-	alert("hi  지점수정 페이지 이동 전" + a);
+	alert("지점번호" + jinum+ " : 수정화면 준비중");
 }
  function fn_search() {
 	

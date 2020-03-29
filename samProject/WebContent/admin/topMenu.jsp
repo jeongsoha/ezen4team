@@ -15,7 +15,7 @@ ul {
 }
 
 li {
-    margin: 0px 10px;
+
     padding: 0 0 0 0;
     border : 0;
   	float: left;
@@ -28,14 +28,27 @@ font-size:12px;
 }
       </style>
       
+      <script type="text/javascript">
+      
+      function fn_ready() {
+    	
+    	  alert("준비중입니다 :)");
+    		return false;
+      }
+      
+</script>
+      
 <body>
      	
 	<div Style="height:50px; line-height:50px">
 
 			<ul >
-		<li><a class="btn btn-outline-danger" href="adminBoard.jsp" role="button"> admin 홈</a></li>
+		<li><a class="btn btn-outline-danger btn-sm" href="adminBoard.jsp" role="button"> admin 홈</a></li>
+			<li> &nbsp; </li>
 		<li><a class="btn btn-primary btn-sm" href="adminJijumList.jsp" role="button"> 대리점 관리</a></li>
-		<li><a class="btn btn-primary btn-sm" href="goodsList.jsp" role="button"> 상품목록 관리</a></li>
+			<li> &nbsp; </li>
+		<li><a class="btn btn-primary btn-sm" href="#" role="button" onclick="fn_ready()"> 상품목록 관리</a></li>
+			<li> &nbsp; </li>
 		<li><a class="btn btn-primary btn-sm" href="adminMemberList.jsp" role="button"> 회원 관리</a></li>
 
 		</ul>

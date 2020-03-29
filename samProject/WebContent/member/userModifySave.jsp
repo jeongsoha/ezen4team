@@ -5,13 +5,10 @@
 
 	<%  
 	
+	String userId = (String) session.getAttribute("sessionUserid");  세션 어드민 여부 확인 구성 필요*/
 	
-	/* String userId = (String) session.getAttribute("sessionUserid");  세션 어드민 여부 확인 구성 필요*/
 	
-	
-	String memno = request.getParameter("memno").trim();
 	String username = request.getParameter("username").trim();
-	String userid = request.getParameter("userid").trim();
 	String tel = request.getParameter("tel");
 	String mail = request.getParameter("mail").trim();
 
@@ -23,8 +20,7 @@
 	String state = request.getParameter("state").trim();
 			
 	String sql = "UPDATE pmember SET";
-	        sql +=" username='"+username+"', ";
-	 		sql +=" userid='"+userid+"', ";
+	       
 	 		sql +=" tel='"+tel+"', ";
 	 		sql +=" mail='"+mail+"', ";
 	 		sql +=" birth='"+birth+"', ";
@@ -33,7 +29,7 @@
 	 		sql +=" post='"+post+"', ";
 	 		sql +=" inter='"+inter+"', ";
 	 		sql +=" state='"+state+"' ";
-	 		sql +=" WHERE memno='"+memno+"' ";
+	 		sql +=" WHERE userId='"+userid+"' ";
 		   
 		 
 	int rs = stmt.executeUpdate(sql);

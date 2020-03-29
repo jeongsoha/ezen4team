@@ -81,7 +81,7 @@
 		<div class="dashboard">
 			<!-- 상세정보 내용 -->
 			
-			<h3> - 회원 상세정보 - </h3>
+			<h3> - 회원 상세정보 (관리자 수정화면) - </h3>
 			  <form name="frm" method="post" action="memberModifySave.jsp">
 			  	<input type="hidden" name="memno" value="<%=memno %>">
 			  	
@@ -148,7 +148,7 @@
 							value="<%=addr %>"></td>
 					</tr>
 					<tr>
-						<th>흥미</th>
+						<th>관심사</th>
 						<td><%=haninter %></td>
 						  <td class="mtd">
                   <select style="width:150px;height:25px;" name="inter" > 
