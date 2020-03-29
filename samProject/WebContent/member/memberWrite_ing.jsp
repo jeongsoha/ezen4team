@@ -220,6 +220,6 @@ width:100%;
 </section>
 
 <%@ include file = "../include/footer.jsp" %> 
-	
+   
 </body>
 </html>
