@@ -162,6 +162,7 @@ ul, ol {
 <table align="center" style="margin-right:700px; border-collapse: separate;border-spacing:0 10px;">
    <tr>
       <td><input type="button" value="공지사항" class="btn btn-secondary" OnClick="location='../nboard/nBoardList.jsp'" style="width:100px;"></td>
+<td>&nbsp;&nbsp;&nbsp;</td>   
       <td><input type="button" value="자유게시판" class="btn btn-secondary" OnClick="location='../fboard/fBoardList.jsp'" style="width:100px;"></td>
    </tr>
 

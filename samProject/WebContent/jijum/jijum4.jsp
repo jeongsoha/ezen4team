@@ -1,61 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/dbcon2.jsp"%>
-<%/*
-int unit =5;
-String pageNo = request.getParameter("pageNo");
-if(pageNo==null){
-	pageNo="1";
-}
-String sqlcnt="select count(*) cnt from pjijum";
-ResultSet rscnt = stmt.executeQuery(sqlcnt);
-rscnt.next();
-int cnt = rscnt.getInt("cnt");
-int totalpage = (int)(Math.ceil((double)cnt/unit));
-int startNo = (Integer.parseInt(pageNo)-1) * unit;
-int count = cnt-startNo;
 
-String sql = " SELECT jiname, jiaddr,"
-           + " jitel, jiabil1, jiabil2,jiabil3, "
-           + " jirecomend,jistate, "
-           + " jistar, addrji"
-           + " FROM pjijum  "
-           + " limit "+startNo+","+unit;
-ResultSet rs =stmt.executeQuery(sql);
-*/%>
+<% 
 
-
-
-
-<%
-	String tab = (String) request.getParameter("tab");
+String tab = (String) request.getParameter("tab");
 	if (tab == null) {
 		tab = "";
 	}
-	String jicom = "Where jirecomend='Y'";
-	String ji1 = "Where jiabil1='Y'";
-	String ji2 = "Where jiabil2='Y'";
-	String ji3 = "Where jiabil3='Y'";
+	
+int unit = 5;
+		String viewPage = request.getParameter("viewPage");
+		if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
+			viewPage = "1";
+		}
+	
+		String totalSql = " select count(*) total from pjijum ";
+		
+	if (tab.equals("a")) {
+		totalSql += "  WHERE jirecomend='Y'";
+	} else if (tab.equals("b")) {
+		totalSql += "  WHERE  jiabil1='Y'";
+	} else if (tab.equals("c")) {
+		totalSql += "  WHERE  jiabil2='Y'";
+	} else if (tab.equals("d")) {
+		totalSql += "  and  jiabil3='Y'";
+
+	}
+	
+		ResultSet rs2 = stmt2.executeQuery(totalSql);
+		rs2.next();
+		int total = rs2.getInt("total");
+		int totalPage = (int) Math.ceil((double)total/unit);
+		int startNo = (Integer.parseInt(viewPage)-1) * unit +1;  //  1 -> 1 ,  2 -> 11 , 3 -> 21
+		int endNo = startNo+unit-1;
+		
+		
+
+	
+	
 %>
 
-
+	 
 <%
-	String sql = " SELECT jiname, jiaddr,"
+	String sql = " select b.* from (select a.*, rownum rn from (SELECT jiname, jiaddr,"
                           + " jitel, jiabil1, jiabil2,jiabil3, " + " jirecomend,jistate, "
-			+ " jistar, addrji" + " FROM pjijum  ";
+			+ " jistar, addrji" + " FROM pjijum) a ) b  "
+			+   " where rn >="+startNo+" and rn <="+endNo+" ";  
 
 	if (tab.equals("a")) {
-		sql += " Where jirecomend='Y'";
+		sql += "  and jirecomend='Y'";
 	} else if (tab.equals("b")) {
-		sql += " Where jiabil1='Y'";
+		sql += "  and  jiabil1='Y'";
 	} else if (tab.equals("c")) {
-		sql += " Where jiabil2='Y'";
+		sql += "  and  jiabil2='Y'";
 	} else if (tab.equals("d")) {
-		sql += " Where jiabil3='Y'";
+		sql += "  and  jiabil3='Y'";
 
 	}
 
 	ResultSet rs = stmt.executeQuery(sql);
+	
+	
+	
+	
 %>
 
 <!DOCTYPE html>
@@ -79,18 +87,18 @@ ResultSet rs =stmt.executeQuery(sql);
 
 		<ul>
 			<li id="tab1" class="btnCon"><a class="btn "
-				href="jijum4.jsp?tab=a" style=height:100px>프리미엄 스토어</a>
+				href="jijum4.jsp?tab=a" style=height:50px;line-height:50px>프리미엄 스토어</a>
 				<div class="tabCon"></div>
 			<li id="tab2" class="btnCon"><a class="btn"
-				href="jijum4.jsp?tab=b">전기자전거 서비스지정점</a>
+				href="jijum4.jsp?tab=b" style=height:50px;line-height:50px>전기자전거 서비스지정점</a>
 				<div class="tabCon"></div></li>
 
 			<li id="tab3" class="btnCon"><a class="btn"
-				href="jijum4.jsp?tab=c">서비스지정점</a>
+				href="jijum4.jsp?tab=c" style=height:50px;line-height:50px>서비스지정점</a>
 				<div class="tabCon"></div></li>
 
 			<li id="tab4" class="btnCon"><a class="btn"
-				href="jijum4.jsp?tab=d">전기자전거취급점</a>
+				href="jijum4.jsp?tab=d" style=height:50px;line-height:50px>전기자전거취급점</a>
 				<div class="tabCon"></div></li>
 		</ul>
 
@@ -122,7 +130,7 @@ ResultSet rs =stmt.executeQuery(sql);
 	        			<tr><td><h5><%=addr%></h5></td></tr>
 				<td ><h5><%=tel%></h5></td>
 				<tr></tr>
-				<td style="border-bottom: 2px solid red;"> 고객만족점수:<%=star%></td>
+				<td style="border-bottom: 2px solid red;"> 고객만족점수: <%=star%></td>
 
 			</tr>
 
@@ -137,8 +145,25 @@ ResultSet rs =stmt.executeQuery(sql);
 			
 	</div>
 
+
 	<br>
 	<br>
+	
+	 <div Style="width:100px; margin-left: 180px" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
+	
+  <ul class="pagination pagination-sm">
+				 
+     <% for(int i=1 ; i<=totalPage ; i++) {
+    	 %>	 
+     <li class="page-item"> <a class="page-link" href="jijum4.jsp?tab=<%=tab %>&viewPage=<%=i%>"><%=i %>
+      
+     </a></li>
+     <% }%>
+    </ul>
+
+</div>     
+
+
 	<br>
 	<br>
 	<br>

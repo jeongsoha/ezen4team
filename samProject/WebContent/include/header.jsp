@@ -32,18 +32,18 @@
 
 <body>
 
-<header style="background-color:#006633;height:200px;width:1920px;">    <!-- 헤더바탕색 -->
+<header style="background-color:#006633;height:120px;width:1920px;">    <!-- 헤더바탕색 -->
   <div class="header_container"> 
   
   <!-- 배너 좌측에서부터 150px 간격 -->
    <div style="float:left;">   
-      <img style="margin-left:-30px;width:200px;height:200px;" src="../images/yolo.png" onclick="location='../main/home.jsp'">
+      <img style="margin-left:-30px;margin-top:10px;width:90px;height:90px;" src="../images/logo2.PNG" onclick="location='../main/home.jsp'">
    </div>                                                           <!-- 헤더 로고 -->
    <br>
    <br>
     
    <div class="menubar">
-   <ul>
+   <ul style=margin-top:10px>
       
       <li><a href="#" onclick="location='../jijum/jijum4.jsp'">대리점</a>
       <ul>
