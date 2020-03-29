@@ -197,7 +197,7 @@ width:100%;
                     <tr>
                   <td class="mtd">
                   <select style="width:200px;height:40px;" name="inter" > 
-                  <option value="0">&nbsp; -- 선 택 --   <!-- 참고기능  selected -->
+                  <option value="0">&nbsp; -- 선 택 --   <!-- 이상태로 넘어가면, 미선택 0 으로 세팅-->
                   <option value="1">&nbsp; 자전거 <!-- 참고기능  selected -->
                   <option value="2">&nbsp; 킥보드 <!-- 참고기능  selected -->
                   </select>
