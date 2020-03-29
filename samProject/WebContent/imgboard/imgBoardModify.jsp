@@ -81,7 +81,7 @@ function fn_WriteInsert() {
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">제품소개</h1>
+<h1 style="text-align:center;" class="text-info">제품소개</h1>
 <br>
 <br>
 <br>

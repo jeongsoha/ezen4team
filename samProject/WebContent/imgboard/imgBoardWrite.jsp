@@ -59,7 +59,7 @@ function fn_WriteInsert() {
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">제품소개</h1>
+<h1 style="text-align:center;" class="text-info">제품소개</h1>
 <br>
 <br>
 <br>
@@ -89,11 +89,19 @@ function fn_WriteInsert() {
         </tr>
          
          <tr>
-         <th class="badge badge-dark" style="font-size:17px;">파일</th>
+         <th class="badge badge-dark" style="font-size:17px;">상세 이미지</th>
          </tr>
          
          <tr>
-          <td><input type="file" name="imgname"></td>
+          <td><input type="file" name="imgname1"></td>
+         </tr>
+         
+         <tr>
+         <th class="badge badge-dark" style="font-size:17px;">썸네일 이미지</th>
+         </tr>
+         
+         <tr>
+          <td><input type="file" name="imgname2"></td>
          </tr>
          
 	     <tr>

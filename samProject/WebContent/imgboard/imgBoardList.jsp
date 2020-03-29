@@ -17,7 +17,7 @@ ResultSet imgRs = stmt2.executeQuery(imgSql); */
 
 
 
-int unit = 3;
+int unit = 9;
 String viewPage = request.getParameter("viewPage");
 if( viewPage == null ){
 	viewPage = "1";
@@ -34,7 +34,7 @@ int endNo = startNo + unit-1;
 
 String sql = " select b.* from ( "
 	       + " 	select rownum rn, a.* from( "
-		   + " select unq,userid,imgname1,imgpath1,title,content,to_char(sysdate,'YYYY-MM-DD') sdate,imgtitle,imgcontent " 
+		   + " select unq,userid,imgname1,imgpath1,imgname2,imgpath2,title,content,to_char(sysdate,'YYYY-MM-DD') sdate,imgtitle,imgcontent " 
 		   + " from imgboard  "
 		   + " order by unq desc ) a ) b "
 		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
@@ -64,7 +64,7 @@ ResultSet imgRs = stmt.executeQuery(sql);
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">제품소개</h1>
+<h1 style="text-align:center;" class="text-info">제품소개</h1>
 <br>
 <br>
 <br>
@@ -86,7 +86,7 @@ ResultSet imgRs = stmt.executeQuery(sql);
 		 		int unq = imgRs.getInt("unq");
 		 		
 		 		String img = Domain + imgpath1 + "/" + imgname1;
-		 		
+		 	
 		 	
 		 		
 		 	%>

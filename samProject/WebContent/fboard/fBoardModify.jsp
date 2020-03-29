@@ -61,7 +61,7 @@ function fn_WriteInsert(){
 <section>
 <br>
 <br>
-<h1 style="text-align:center;">수정화면처리</h1>
+<h1 style="text-align:center;" class="text-info">자유게시판</h1>
 <br>
 <br>
 <br>
@@ -74,27 +74,28 @@ function fn_WriteInsert(){
 	
 	<table style="margin-left:0px;border-collapse: separate;border-spacing:0 10px;">
 		<tr>
-        	<th>제목</th>
+        	<th class="badge badge-dark" style="font-size:17px;">제목</th>
         </tr>
         <tr>
         	<td><input type="text" name="title"  style="width:600px;" value="<%=title%>"></td>
         </tr>
          
 	     <tr>
-	        <th>내용</th>
+	        <th class="badge badge-dark" style="font-size:17px;">내용</th>
 	     </tr>
 	     <tr>
 	      <td><textarea name="content" style="width:600px;height:300px;"><%=content%></textarea></td>
 	     </tr>
-	     </div>
 	</table>
 	
-	<table style="margin-left:400px;">
+	 
+	<table >
 	<tr>
-		<td><input type="submit" value="수정완료" style="width:100px;" onClick="fn_WriteInsert(); return false;"></td>
-		<td><input type="reset" value="취소" style="width:100px;color:#fdfde9;"></td>
+		<td><input type="submit" value="수정완료" style="width:100px;" onClick="fn_WriteInsert(); return false;" class="btn btn-outline-info"></td>
+		<td><input type="button" value="취소" onClick="location='fBoardList.jsp'" style="width:100px;" class="btn btn-outline-info"></td>
 	</tr>
 	</table>
+	 </div>
 </form>
 
 
