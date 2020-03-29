@@ -5,9 +5,9 @@
 
 	<%  
 	
-	String userId = (String) session.getAttribute("sessionUserid");  세션 어드민 여부 확인 구성 필요*/
+	// String userId = (String) session.getAttribute("sessionUserid");  세션 어드민 여부 확인 구성 필요*/
 	
-	
+	String userid = request.getParameter("userid").trim();
 	String username = request.getParameter("username").trim();
 	String tel = request.getParameter("tel");
 	String mail = request.getParameter("mail").trim();
@@ -29,7 +29,7 @@
 	 		sql +=" post='"+post+"', ";
 	 		sql +=" inter='"+inter+"', ";
 	 		sql +=" state='"+state+"' ";
-	 		sql +=" WHERE userId='"+userid+"' ";
+	 		sql +=" WHERE userid='"+userid+"' ";
 		   
 		 
 	int rs = stmt.executeUpdate(sql);
@@ -40,9 +40,7 @@
 		alert("정보변경 완료");
 	
 				
-	opener.document.location.reload();    //자식창 닫고 부모창 새로고침
-
-		self.close();
+	location="../member/userModify.jsp"
 			</script>
 		
 <%
