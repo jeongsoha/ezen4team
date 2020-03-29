@@ -114,8 +114,6 @@ width:100%;
 
 
 
-<h2 align="center">  <img style="width:250px;height:90px;" src="../images/logo2.PNG"> </h2>
-
    <form name="frm" method="post" action="memberSave.jsp">
    
       <!--  표 위치를 가운데로 오도록 만듬 / 테이블 범위확인 -->
