@@ -215,7 +215,7 @@ script
 						type="reset" value="취소" onclick="home.jsp"> <input
 						type="button" value="회원가입" onclick="location='memberWrite.jsp'"></th>
 					<div class="caption">
-						<a href="">Forgot password?</a>
+						<a href=#>Forgot password?</a>
 					</div>
 				</tr>
 			</form>
