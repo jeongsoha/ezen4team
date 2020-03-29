@@ -33,7 +33,7 @@ String hit = rs.getString("hit");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 홈</title>
+<title>공지사항 세부목록</title>
 </head>
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -47,7 +47,6 @@ String hit = rs.getString("hit");
       }
       
       .td1{
-      	border:1px solid #555555;
       	padding:5px;
       }
       
@@ -78,19 +77,19 @@ String hit = rs.getString("hit");
 	
 <table style="margin-left:0px;">
          <tr align="left">
-               <td>글쓴이</td>
-               <td width="150px" class="td1"><%=userid %></td>
-               <td >작성일</td>
-               <td width="200px" class="td1"><%=sdate %></td>
-               <td>조회수</td>
-               <td width="100px" class="td1"><%=hit %></td>
+               <td class="badge badge-dark" style="font-size:15px;">글쓴이</td>
+               <td width="120px" class="td1"><%=userid %></td>
+               <td class="badge badge-dark" style="font-size:15px;">작성일</td>
+               <td width="190px" class="td1"><%=sdate %></td>
+               <td class="badge badge-dark" style="font-size:15px;">조회수</td>
+               <td width="110px" class="td1"><%=hit %></td>
             </tr>
 </table>
 
 <table style="border-collapse: separate; border-spacing: 0 10px;">
 
    <tr>
-      <td>제목</td>
+      <td class="badge badge-dark" style="font-size:17px;">제목</td>
    </tr>
    
    <tr>
@@ -98,7 +97,7 @@ String hit = rs.getString("hit");
    </tr>
    
    <tr>
-      <td>내용</td>
+      <td class="badge badge-dark" style="font-size:17px;">내용</td>
    </tr>
    
    <tr>

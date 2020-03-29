@@ -195,6 +195,7 @@ script
 
 <body>
 
+<<<<<<< HEAD
 	<header style="background-color: #2d3246; height: 100px;">
 		<div style="float: left; margin-left: 100px;">
 			<img style="width: 250px; height: 90px;" src="../images/logo.JPG">
@@ -211,6 +212,11 @@ script
 	</header>
 
 	<section class="login-form" background="src=../images/img_1.png ">
+=======
+<body> 
+
+<%@ include file = "../include/header.jsp" %>
+>>>>>>> origin/soha9
 
 
 
