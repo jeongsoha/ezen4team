@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+    String header_sessionUserid = (String) session.getAttribute("sessionUserid");
+%>
+           
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +59,17 @@
               <h5>Links</h5>
               <br>
               <ul class="nav-list">
+         <%
+              if( header_sessionUserid == null || "".equals(header_sessionUserid)){
+         %> 
               	<li><a href="../member/login.jsp">로그인</a></li>
+         <%
+              }else{
+         %>
+         		<li><a href="../member/logoutsub.jsp'">로그아웃</a></li>
+         <%
+              }
+         %>
                 <li><a href="../nboard/nBoardList.jsp">공지사항</a></li>
                 <li><a href="../pboard/pBoardList.jsp">자유게시판</a></li>
                 <li><a href="../include/condition1.jsp">이용약관</a></li>
