@@ -21,7 +21,7 @@
 
 #hdiv button:hover{
 	color:white; 
-	background-color:#red; 
+	background-color:#red;
 }
 
 .hdiv1 {
@@ -110,6 +110,7 @@ font-weight:bold;
 margin-top:10px;
 font-size:20px;
 
+
 }
 .div2{
 width:500px;
@@ -118,7 +119,7 @@ float:right;
 border:1px ;
 margin-top:10px;
 font-weight:bold;
-font-size:20px
+font-size:20px;
 }
 .conten{
 font-size:15px;
@@ -166,20 +167,18 @@ font-size:15px;
 .menubar{
 border:none;
 border:0px;
-margin:0px;
+margin:0px;              /* 탑메뉴 내리기 */
 padding:0px;
 font: 67.5% "맑은고딕";
-font-size:14px;
+font-size:18px;                  /* 메뉴 글씨크기 */
 font-weight:bold;
 float :right;
-
 }
 
-.menubar ul{
-background: #2d3246;
+.menubar ul{         
 height:50px;
 list-style:none;
-margin:0;
+margin:150;
 padding:0;
 }
 
@@ -189,25 +188,25 @@ padding:0px;
 }
 
 .menubar li a{
-background: #2d3246;
-color:none;
+background: #006633;                        /* 탑메뉴 배경색!!! */      
+color:white;                                /* 탑메뉴 글씨색 */
 display:block;
 font-weight:normal;
 line-height:50px;
 margin:0px;
-padding:0px 25px;
+padding:0px 35px;
 text-align:center;
 text-decoration:none;
 }
 
 .menubar li a:hover, .menubar ul li:hover a{	/* 마우스올렸을떄 윗 배경색*/
-background:#ffffff;
-color:cobaltblue;
+background:#ffffff;                             /* 마우스올렸을때 아래 배경색 */
+color:#006633;        /* 마우스올렸을 때 글씨색 */
 text-decoration:none;
 }
 
 .menubar li ul{
-background: #2d3246;
+background: white;
 display:none; 				/* 평상시에는 드랍메뉴가 안보이게 하기 */
 height:auto;
 padding:0px;
@@ -240,7 +239,7 @@ background:none;
 .menubar li ul a{
 display:block;
 height:50px;
-font-size:12px;
+font-size:17px;
 font-style:normal;
 margin:0px;
 padding:0px 10px 0px 15px;
@@ -248,7 +247,7 @@ text-align:left;
 }
 
 .menubar li ul a:hover, .menubar li ul li:hover a{
-background: #ffffff; /* 드랍다운 메뉴색전환  */		
+background: #eeeeee; /* 드랍다운 메뉴색전환  */		
 border:0px;
 color:red;
 text-decoration:none;

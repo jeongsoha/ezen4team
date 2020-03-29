@@ -23,7 +23,7 @@ String pub = rs.getString("pub");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 홈</title>
+<title>공지사항 수정</title>
 </head>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">

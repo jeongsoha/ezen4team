@@ -18,7 +18,7 @@ function fn_write() {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>공지사항 작성</title>
 </head>
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">

@@ -23,7 +23,7 @@
 
 <style>
 .header_container{
-   width: 1000px;   /* 헤더 중앙에 위치할 px width 값*/
+   width: 1400px;   /* 헤더 중앙에 위치할 px width 값!! 탑메뉴 이동*/     
    margin: 0px auto;  /*중앙정렬*/
      
 }
@@ -32,13 +32,13 @@
 
 <body>
 
-<header style="background-color:#ffa6cf;height:100px;width:1920px;">
+<header style="background-color:#006633;height:200px;width:1920px;">    <!-- 헤더바탕색 -->
   <div class="header_container"> 
   
   <!-- 배너 좌측에서부터 150px 간격 -->
    <div style="float:left;">   
-      <img style="margin-left:-150px;width:100px;height:100px;" src="../images/logo3.JPG" onclick="location='../main/home.jsp'">
-   </div>
+      <img style="margin-left:-30px;width:200px;height:200px;" src="../images/yolo.png" onclick="location='../main/home.jsp'">
+   </div>                                                           <!-- 헤더 로고 -->
    <br>
    <br>
     

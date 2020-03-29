@@ -157,21 +157,8 @@ width:100%;
 
 
 <body> 
-<header style="background-color:#2d3246;height:100px;">
-   <div style="float:left;margin-left:100px;">
-      <img style="width:250px;height:90px;" src="../images/logo.JPG">
-   </div>
-   <br>
-   <br>
-   <div id="hdiv" style="margin-right:100px;">
-      <button id="hbutton" onclick="location='memberWrite.jsp'">회원가입</button> 
-      <button id="hbutton"onclick="location='login.jsp'" > 로그인</button> 
-      <button id="hbutton"onclick="location='jijum.jsp'">회사소개</button> 
-      <button id="hbutton">커뮤니티</button> 
-      <button id="hbutton">제품소개</button> 
-      <button id="hbutton"onclick="location='../main/home.jsp'">홈</button> 
-   </div>
-</header>
+
+<%@ include file = "../include/header.jsp" %>
 
 	<section>
 

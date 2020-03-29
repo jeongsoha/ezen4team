@@ -51,7 +51,7 @@ ResultSet rs = stmt.executeQuery(sql);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>목록</title>
+<title>공지사항 목록</title>
 </head>
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">

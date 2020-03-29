@@ -4,8 +4,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-
-String userid1 = (String) session.getAttribute("sessionUserid"); 
+String admin = (String) session.getAttribute("adminConfirm");
 
    String sql = " select b.* from ( "
              + "    select rownum rn, a.* from( "
@@ -116,9 +115,9 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 60s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 60s;
 }
 
 @-webkit-keyframes fade {
@@ -220,38 +219,42 @@ ul, ol {
    float:left;
 }
 .d1{
-   clear:both;
    width:1920px;
      height:600px;
      text-align:center;
 }
 .d2{
-   width:500px;
-     height:295px;
+   width:600px;
+     height:395px;
      text-align:center;
+     font-size: 23px;
+     /* font: 67.5% "맑은고딕"; */
      /* background-color : #E8D9FF; */
 }
 .d3{
-   width:500px;
-     height:295px;
+   width:600px;
+     height:395px;
      text-align:center;
+     font-size: 15px;
     /* background-color : #ECADFF; */
 }
 .d4{
    clear:both;
-   width:1000px;
-   height:305px;
+   width:1200px;
+   height:405px;
      text-align:center;
      background-color : #f7fff7;
 }
 .detail {
-   margin-left:460px;
-     width:1010px;             //1006
-     height:610px;             //906
+   margin-left:360px;
+     width:1210px;             //1006
+     height:810px;             //906
      text-align:center;
   }
-
-
+  .s {
+  	font-size:20px;
+  	font: "맑은고딕";
+  }
 
 
 
@@ -307,21 +310,22 @@ function showSlides(n) {
 <!-- -------------------111 -->
 <div class="d d1 slideshow-container">
 
+
 <div class="mySlides fade">
    <div class="numbertext"> 1 / 3 </div>
-   <img src="../images/bicycle1.JPG" style="width:1920px; height:600px;">
+   <img src="../images/pic1.png" style="width:1920px; height:600px;">
    <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
    <div class="numbertext"> 2 / 3 </div>
-   <img src="../images/bicycle2.JPG" style=" width:1920px; height:600px;">
+   <img src="../images/pic2.png" style=" width:1920px; height:600px;">
    <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
    <div class="numbertext"> 3 / 3 </div>
-   <img src = "../images/bicycle3.JPG" style=" width:1920px; height:600px;">
+   <img src = "../images/pic3.png" style=" width:1920px; height:600px;">
    <div class="text">Caption Three</div>
 </div>
 
@@ -338,19 +342,13 @@ function showSlides(n) {
 </div>
 </div>
 
-<!-- ------- -->
-<!-- <div class="d d1" >
-   <img src = "../images/11.JPG" width="332" height="300"><img src = "../images/12.JPG" width="332" height="300"><img src = "../images/13.JPG" width="332" height="300">
-</div>   -->
-
 
 <div class="detail">
-   
    
 <!-- -------------------222 -->
 
 <div class="d d2">
-<table align="center" style="width:500px;" class="table table-striped">
+<table align="center" style="width:600px; height:395px;" class="s table table-striped">
    <thead>
       <tr align="center">
          <th width="15%" scope="col"></th>
@@ -358,28 +356,18 @@ function showSlides(n) {
       </tr>
    </thead>
    <%
-      int number=1;
-      while(rs.next()){
+   int number=1;
+   while(rs.next()){
          String bunq = rs.getString("bunq");
          String title = rs.getString("title");
    %>
    <tr align="center">
       <td scope="row"><%=bunq %></td>
       <td style="text-align:left;">
-   <%
-   if(userid1 == null || "".equals(userid1)) {
-   %>
-      <a href="../member/login.jsp"><%=title %></a>
-      <script>
-      //alert("로그인을 해주세요!"");
-      </script>
-   <%   
-   } else{
-   %>   
+   
       <a href="../nboard/nBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
    </tr>
    <%
-      }
       number++;
    }
    %>
@@ -392,7 +380,7 @@ function showSlides(n) {
 <!-- -------------------333 -->
 
    <div class="d d3">
-      <table align="center" style="width:500px;" class="table table-striped table-dark">
+      <table align="center" style="width:600px; height:395px;" class="s table table-striped table-dark">
          <thead>
                <tr align="center">
                   <th width="15%" scope="col"></th>
@@ -408,31 +396,20 @@ function showSlides(n) {
          <tr align="center">
             <td scope="row"><%=bunq %></td>
             <td style="text-align:left;">
-        <%
-           if(userid1 == null || "".equals(userid1)){
-        %>
-              <a href="../member/login.jsp"><%=title %></a>
-              <script>
-              //alert("로그인을 해주세요!");
-              </script>
-        <%
-           }else{
-        %>
+
                  <a href="../fboard/fBoardDetail.jsp?bunq=<%=bunq%>"><%=title %></a></td>
                </tr>
-      <%      
-           }
+      <%
               number2++;
               }      
-              %>
+      %>
           </table>  
    </div>
 
 <!-- -------------------444 -->
 
    <div class="d d4" >
-   <br><br>
-      <p> 우리회사 상품 </p>
+
    </div>
    
 <!-- -------------------- -->
