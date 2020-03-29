@@ -45,16 +45,20 @@ if( title == null && "".equals("title") ){
 Enumeration files = multi.getFileNames(); 
 int fileSize = 0;
 
-	String file = (String)files.nextElement();
-	String orgName = multi.getFilesystemName(file); 
+String file1 = (String)files.nextElement();
+String orgName1 = multi.getFilesystemName(file1); 
+String file2 = (String)files.nextElement();
+String orgName2 = multi.getFilesystemName(file2); 
 	
 String imgSql = " UPDATE imgboard SET "
 			  + " title='"+title+"' , "
 			  + " content='"+content+"' , "
 			  + " imgtitle='"+imgtitle+"' , "
 			  + " imgcontent='"+imgcontent+"' , "
-			  + " imgname1='"+orgName+"' , "
-			  + " imgpath1='"+path+"' "
+			  + " imgname1='"+orgName1+"' , "
+			  + " imgpath1='"+path+"' , "
+			  + " imgpath2='"+orgName2+"' , "
+		      + " imgpath2='"+path+"' , "
 			  + " WHERE unq = '"+unq+"' ";
 		    
 

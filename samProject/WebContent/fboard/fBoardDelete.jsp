@@ -18,7 +18,7 @@ if( bunq == null || "".equals(bunq) ){
 return;
 }
 
-String sql = " Delete from pboard where bunq='"+bunq+"' ";
+String sql = " UPDATE pboard SET pub='2' WHERE bunq='"+bunq+"' ";
 
 int result = stmt.executeUpdate(sql);
 

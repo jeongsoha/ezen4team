@@ -111,12 +111,20 @@ function fn_WriteInsert() {
         	<td><input type="text" name="imgcontent" style="width:710px;" value="<%=imgcontent%>">></td>
         </tr>
          
-         <tr>
-         <th class="badge badge-dark" style="font-size:17px;">파일</th>
+          <tr>
+         <th class="badge badge-dark" style="font-size:17px;">상세 이미지</th>
          </tr>
          
          <tr>
-          <td><input type="file" name="imgname"></td>
+          <td><input type="file" name="imgname1"></td>
+         </tr>
+         
+         <tr>
+         <th class="badge badge-dark" style="font-size:17px;">썸네일 이미지</th>
+         </tr>
+         
+         <tr>
+          <td><input type="file" name="imgname2"></td>
          </tr>
          
 	     <tr>

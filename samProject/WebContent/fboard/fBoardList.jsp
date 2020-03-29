@@ -13,7 +13,7 @@ if( viewPage == null ){
 	viewPage = "1";
 }
 
-String totalSql = " select count(*) total from pboard where gubun='2'";
+String totalSql = " select count(*) total from pboard where gubun='2' and pub='1'";
 ResultSet rs2 = stmt.executeQuery(totalSql);
 rs2.next();
 int total = rs2.getInt("total");
@@ -25,7 +25,7 @@ int endNo = startNo + unit-1;
 String sql = " select b.* from ( "
 	       + " 	select rownum rn, a.* from( "
 		   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
-		   + " from pboard where gubun='2' "
+		   + " from pboard where gubun='2' and pub='1' "
 		   + " order by bunq desc ) a ) b "
 		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
 		  
