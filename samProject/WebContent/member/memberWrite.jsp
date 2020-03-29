@@ -114,7 +114,7 @@ width:100%;
 
 
 
-<h2 align="center">  <img style="width:250px;height:90px;" src="../images/logo.JPG"> </h2>
+<h2 align="center">  <img style="width:250px;height:90px;" src="../images/logo2.PNG"> </h2>
 
    <form name="frm" method="post" action="memberSave.jsp">
    
