@@ -36,7 +36,7 @@ String b = (String) sad[1];
 
 
 
-<div id="map" style="width:400px;height:350px; float:right"></div>
+<div id="map" style="width:650px;height:580px; float:right; margin-right:1px; border: 2px solid red;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4f360af1e4d59c2403323bcdc63e3fb7"></script>
 <script>

@@ -14,8 +14,10 @@
 
 
 <%
-	String sql = " SELECT jiname, jiaddr," + " jitel, jiabil1, jiabil2,jiabil3, " + " jirecomend,jistate, "
+	String sql = " SELECT jiname, jiaddr," 
+			    + " jitel, jiabil1, jiabil2,jiabil3, " + " jirecomend,jistate, "
 			+ " jistar, addrji" + " FROM pjijum  ";
+			
 
 	if (tab.equals("a")) {
 		sql += " Where jirecomend='Y'";
@@ -54,14 +56,15 @@
 			<li id="tab1" class="btnCon"><a class="btn "
 				href="jijum4.jsp?tab=a">프리미엄 스토어</a>
 				<div class="tabCon"></div>
+				
 			<li id="tab2" class="btnCon"><a class="btn"
 				href="jijum4.jsp?tab=b">전기자전거 서비스지정점</a>
 				<div class="tabCon"></div></li>
-
+				
 			<li id="tab3" class="btnCon"><a class="btn"
 				href="jijum4.jsp?tab=c">서비스지정점</a>
 				<div class="tabCon"></div></li>
-
+				
 			<li id="tab4" class="btnCon"><a class="btn"
 				href="jijum4.jsp?tab=d">전기자전거취급점</a>
 				<div class="tabCon"></div></li>
@@ -101,11 +104,11 @@
 
 
 			<tr
-				style="border-bottom: 1px solid; text-align: center; word-spacing: 3px;">
+				style="border-bottom: 1px solid; text-align: center; word-spacing: 3px;
+				">
 
-				<td>
-				<a href="?tab=<%=tab%>&addrji=<%=addrji%>"><h2><%=name%></h2></a></td>
-	        			<tr><<td><%=addr%></td></tr>
+				<td><a href="?tab=<%=tab %>&addrji=<%=addrji%>"><%=name%></a></td>
+				<td><%=addr%></td>
 				<td><%=tel%></td>
 				<td><%=abil1%></td>
 				<td><%=abil2%></td>

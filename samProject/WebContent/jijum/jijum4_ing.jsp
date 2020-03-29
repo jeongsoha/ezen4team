@@ -1,6 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/dbcon2.jsp"%>
+<%/*
+int unit =5;
+String pageNo = request.getParameter("pageNo");
+if(pageNo==null){
+	pageNo="1";
+}
+String sqlcnt="select count(*) cnt from pjijum";
+ResultSet rscnt = stmt.executeQuery(sqlcnt);
+rscnt.next();
+int cnt = rscnt.getInt("cnt");
+int totalpage = (int)(Math.ceil((double)cnt/unit));
+int startNo = (Integer.parseInt(pageNo)-1) * unit;
+int count = cnt-startNo;
+
+String sql = " SELECT jiname, jiaddr,"
+           + " jitel, jiabil1, jiabil2,jiabil3, "
+           + " jirecomend,jistate, "
+           + " jistar, addrji"
+           + " FROM pjijum  "
+           + " limit "+startNo+","+unit;
+ResultSet rs =stmt.executeQuery(sql);
+*/%>
+
+
+
+
 <%
 	String tab = (String) request.getParameter("tab");
 	if (tab == null) {
@@ -14,7 +40,8 @@
 
 
 <%
-	String sql = " SELECT jiname, jiaddr," + " jitel, jiabil1, jiabil2,jiabil3, " + " jirecomend,jistate, "
+	String sql = " SELECT jiname, jiaddr,"
+                          + " jitel, jiabil1, jiabil2,jiabil3, " + " jirecomend,jistate, "
 			+ " jistar, addrji" + " FROM pjijum  ";
 
 	if (tab.equals("a")) {
@@ -52,36 +79,24 @@
 
 		<ul>
 			<li id="tab1" class="btnCon"><a class="btn "
-				href="jijum4.jsp?tab=a">프리미엄 스토어</a>
+				href="jijum4_ing.jsp?tab=a">프리미엄 스토어</a>
 				<div class="tabCon"></div>
 			<li id="tab2" class="btnCon"><a class="btn"
-				href="jijum4.jsp?tab=b">전기자전거 서비스지정점</a>
+				href="jijum4_ing.jsp?tab=b">전기자전거 서비스지정점</a>
 				<div class="tabCon"></div></li>
 
 			<li id="tab3" class="btnCon"><a class="btn"
-				href="jijum4.jsp?tab=c">서비스지정점</a>
+				href="jijum4_ing.jsp?tab=c">서비스지정점</a>
 				<div class="tabCon"></div></li>
 
 			<li id="tab4" class="btnCon"><a class="btn"
-				href="jijum4.jsp?tab=d">전기자전거취급점</a>
+				href="jijum4_ing.jsp?tab=d">전기자전거취급점</a>
 				<div class="tabCon"></div></li>
 		</ul>
 
-		<table>
+		<table width="300;">
 
-			<tr style="border-bottom: 1px solid;">
-
-				<th>이름</th>
-				<th>주소</th>
-				<th>전화번호</th>
-				<th>능력1</th>
-				<th>능력2</th>
-				<th>능력3</th>
-				<th>코멘트</th>
-				<th>영업상태</th>
-				<th>평점</th>
-
-			</tr>
+			
 
 			<%
 				while (rs.next()) {
@@ -100,19 +115,14 @@
 
 
 
-			<tr
-				style="border-bottom: 1px solid; text-align: center; word-spacing: 3px;">
+			<tr style="border-top: 2px solid red; text-align: center; ">
 
 				<td>
-				<a href="?tab=<%=tab%>&addrji=<%=addrji%>"><h2><%=name%></h2></a></td>
-	        			<tr><<td><%=addr%></td></tr>
-				<td><%=tel%></td>
-				<td><%=abil1%></td>
-				<td><%=abil2%></td>
-				<td><%=abil3%></td>
-				<td><%=comend%></td>
-				<td><%=state%></td>
-				<td><%=star%></td>
+				<a href="?tab=<%=tab%>&addrji=<%=addrji%>"> <h2><%=name%></h2></a></td>
+	        			<tr><td><h5><%=addr%></h5></td></tr>
+				<td ><h5><%=tel%></h5></td>
+				<tr></tr>
+				<td style="border-bottom: 2px solid red;"> 고객만족점수:<%=star%></td>
 
 			</tr>
 
@@ -120,9 +130,11 @@
 				}
 			%>
 			<%@include file="api.jsp"%>
-
+		
 		</table>
-
+		
+			
+			
 	</div>
 
 	<br>
