@@ -211,8 +211,7 @@ script
 				</div>
 				<tr><br>
 					<th><input type="submit" value="로그인"
-						onclick="fn_memberSubmit(); return false;"> <input
-						type="reset" value="취소" onclick="home.jsp"> <input
+						onclick="fn_memberSubmit(); return false;">  <input
 						type="button" value="회원가입" onclick="location='memberWrite.jsp'"></th>
 					<div class="caption">
 						<a href=#>Forgot password?</a>

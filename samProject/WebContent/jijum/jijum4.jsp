@@ -79,7 +79,7 @@ ResultSet rs =stmt.executeQuery(sql);
 
 		<ul>
 			<li id="tab1" class="btnCon"><a class="btn "
-				href="jijum4jijum4.jsp?tab=a">프리미엄 스토어</a>
+				href="jijum4.jsp?tab=a" style=height:100px>프리미엄 스토어</a>
 				<div class="tabCon"></div>
 			<li id="tab2" class="btnCon"><a class="btn"
 				href="jijum4.jsp?tab=b">전기자전거 서비스지정점</a>
