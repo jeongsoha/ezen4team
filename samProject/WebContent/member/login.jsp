@@ -125,17 +125,7 @@ ul, ol {
 	text-decoration: none;
 }
 
-.login-form {
-	position: relative;
-	z-index: 2;
-}
 
-.login-form h1 {
-	font-size: 32px;
-	color: black;
-	text-align: center;
-	margin-bottom: 20px;
-}
 
 <
 script> $( function () { $( "#birthday " ).datepicker( { changeMonth:true,
@@ -205,19 +195,25 @@ script
 
 
 			<form name="frm" method="post" action="loginsub.jsp">
-				<h1>LOGIN</h1>
+				<h1>LOGIN</h1><br>
+				<div >
+				<input type="text" name="userid" placeholder="아이디를 입력하세요."
+				 style=" width:200px; height:30px; background-color:transparent;border:0 solid black;text-align:center;">
+
+
+					
+				</div><br>
 				<div>
-					<input type="text" name="userid" placeholder="아이디를 입력하세요.">
-				</div>
-				<div>
-					<input type="pwd" name="pwd" placeholder="비밀번호를 입력하세요.">
+				<input type="password" name="pwd" placeholder="비밀번호를 입력하세요."
+				 style=" width:200px; height:30px; background-color:transparent;border:0 solid black;text-align:center;">
+					<!-- <input type="password" name="pwd" placeholder="비밀번호를 입력하세요." style="width:200px; height:30px; outline:none;"> -->
 
 				</div>
-				<tr>
+				<tr><br>
 					<th><input type="submit" value="로그인"
 						onclick="fn_memberSubmit(); return false;"> <input
 						type="reset" value="취소" onclick="home.jsp"> <input
-						type="button" value="회원가입" onclick="location='memberWrite.jsp'""></th>
+						type="button" value="회원가입" onclick="location='memberWrite.jsp'"></th>
 					<div class="caption">
 						<a href="">Forgot password?</a>
 					</div>
