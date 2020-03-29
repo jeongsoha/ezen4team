@@ -1,31 +1,31 @@
 /* #5483b1 */
 #hbutton {
-	border-top-right-radius:5px; 
-	border-bottom-right-radius:5px; 
-	margin-left:-3px;
+   border-top-right-radius:5px; 
+   border-bottom-right-radius:5px; 
+   margin-left:-3px;
 
 }
 
 #hdiv button {
-	border:1px solid #5483b1;
-	background-color: rgba(0,0,0,0);
-	color:#5483b1;
-	padding:5px;
-	border-radius: 12px;
-	width:120px;
-	height:50px;
-	float:right;
-	margin-left:10px;
-	
+   border:1px solid #5483b1;
+   background-color: rgba(0,0,0,0);
+   color:#5483b1;
+   padding:5px;
+   border-radius: 12px;
+   width:120px;
+   height:50px;
+   float:right;
+   margin-left:10px;
+   
 }
 
 #hdiv button:hover{
-	color:white; 
-	background-color:#red;
+   color:white; 
+   background-color:#red;
 }
 
 .hdiv1 {
-	
+   
 }
 
 .context-dark, .bg-gray-dark, .bg-primary {
@@ -80,10 +80,10 @@ ul, ol {
 
 .table100 {
 clear : both;
- 	width : 1000px;
- 	height : 300px;
-	text-align:center;
-	border:3px solid #ccc;
+    width : 1000px;
+    height : 300px;
+   text-align:center;
+   border:3px solid #ccc;
 
 
 }
@@ -199,7 +199,7 @@ text-align:center;
 text-decoration:none;
 }
 
-.menubar li a:hover, .menubar ul li:hover a{	/* 마우스올렸을떄 윗 배경색*/
+.menubar li a:hover, .menubar ul li:hover a{   /* 마우스올렸을떄 윗 배경색*/
 background:#ffffff;                             /* 마우스올렸을때 아래 배경색 */
 color:#006633;        /* 마우스올렸을 때 글씨색 */
 text-decoration:none;
@@ -207,7 +207,7 @@ text-decoration:none;
 
 .menubar li ul{
 background: white;
-display:none; 				/* 평상시에는 드랍메뉴가 안보이게 하기 */
+display:none;             /* 평상시에는 드랍메뉴가 안보이게 하기 */
 height:auto;
 padding:0px;
 margin:0px;
@@ -220,10 +220,10 @@ z-index:200;
 }
 
 .menubar li:hover ul{
-display:block; 			/* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+display:block;          /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
 }
 
-.menubar li li {		/* 마우스 올렸을떄 드랍다운메뉴 !! 배경색 */
+.menubar li li {      /* 마우스 올렸을떄 드랍다운메뉴 !! 배경색 */
 background: #ffffff;
 display:block;
 float:none;
@@ -247,7 +247,7 @@ text-align:left;
 }
 
 .menubar li ul a:hover, .menubar li ul li:hover a{
-background: #eeeeee; /* 드랍다운 메뉴색전환  */		
+background: #eeeeee; /* 드랍다운 메뉴색전환  */      
 border:0px;
 color:red;
 text-decoration:none;

@@ -54,7 +54,7 @@
               <h5>Links</h5>
               <br>
               <ul class="nav-list">
-              	<li><a href="../member/.login.jsp">로그인</a></li>
+              	<li><a href="../member/login.jsp">로그인</a></li>
                 <li><a href="../nboard/nBoardList.jsp">공지사항</a></li>
                 <li><a href="../pboard/pBoardList.jsp">자유게시판</a></li>
                 <li><a href="../include/condition1.jsp">이용약관</a></li>
