@@ -39,16 +39,7 @@ if( title == null && "".equals("title") ){
 	return;
 }
 
-int len = content.length();
-if( len > 1000 ){
-%>
-	<script>
-	alert("글자 수가 1000자를 넘었습니다")
-	history.back();
-	</script>
-<% 	
-	return; 
-}
+
 
 
 Enumeration files = multi.getFileNames(); 

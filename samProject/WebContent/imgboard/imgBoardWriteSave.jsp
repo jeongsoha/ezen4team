@@ -37,17 +37,6 @@ if( title == null && "".equals("title") ){
 	return;
 }
 
-int len = content.length();
-if( len > 1000 ){
-%>
-	<script>
-	alert("글자 수가 1000자를 넘었습니다")
-	history.back();
-	</script>
-<% 	
-	return; 
-}
-
 
 Enumeration files = multi.getFileNames(); 
 int fileSize = 0;
@@ -58,7 +47,7 @@ int fileSize = 0;
 	String orgName2 = multi.getFilesystemName(file2); 
 	
 String imgSql = " INSERT INTO imgboard ( "
-		      + " unq, userid, title, content, sdate, imgname1, imgpath1,imgname2,imgpath2,imgtitle,imgcontent ) "
+		      + " unq, userid, title, content, sdate, imgname1, imgpath1, imgname2, imgpath2, imgtitle, imgcontent ) "
 	          + " VALUES (iunq_seq.nextVal , "
 	          + " '"+admin+"' , "
 	          + " '"+title+"' , "
