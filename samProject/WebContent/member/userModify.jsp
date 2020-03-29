@@ -19,7 +19,7 @@
         
     ResultSet rs = stmt.executeQuery(sql);
     rs.next();
-    
+    String memno = rs.getString("memno");
    	String username = rs.getString("username");
 	String userid = rs.getString("userid");
 	String tel = rs.getString("tel");
@@ -87,7 +87,14 @@
 	margin: 0 auto;
 }
 
+ .boxHap {
 
+ 
+
+ 	border:0px;
+ 		 	
+
+ }
 
 </style>
 
@@ -101,7 +108,7 @@
 			<h3> - 회원 상세정보 (유저 수정화면) - </h3>
 			  <form name="frm" method="post" action="userModifySave.jsp">
 			  
-			  	
+			  	<input type="hidden" name="memno" value="<%=memno %>">
 			<table class="table" >
   <thead class="thead-light">
 					<tr>
@@ -113,14 +120,12 @@
 					<tr>
 						<th>유저이름</th>
 						<td><%=username %></td>
-						<td><input type="text" style="width: 150px" name="username"
-							value="<%=username %>"></td>
+						<td><%=username %></td>
 					</tr>
 					<tr>
 						<th>ID</th>
 						<td><%=userid %></td>
-						<td><input type="text" style="width: 150px" name="userid"
-							value="<%=userid %>"></td>
+						<td><%=userid %></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
@@ -171,20 +176,8 @@
                   </select>
                   </td>
 					</tr>
-					<tr>
-						<th>가입일시</th>
-						<td><%=flog %></td>
-						<td><%=flog %></td>
-					</tr>
-					<tr>
-						<th>회원상태</th>
-						<td><%=hanstate %></td>
-						<td><select style="width:150px;height:25px;" name="state" > 
-                  <option value="1" <% if(state.equals("1")){out.print("selected");}%>>&nbsp; 정회원  </option>  <!-- 참고기능  selected -->
-                  <option value="2" <% if(state.equals("2")){out.print("selected");}%>>&nbsp; 관리자  </option>
-                  <option value="3" <% if(state.equals("3")){out.print("selected");}%>>&nbsp; 탈퇴회원  </option>
-                  </select></td>
-					</tr></table>
+				
+					</table>
 			
 		
 		<p align="center">

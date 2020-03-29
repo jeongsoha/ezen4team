@@ -7,8 +7,9 @@
 	
 	// String userId = (String) session.getAttribute("sessionUserid");  세션 어드민 여부 확인 구성 필요*/
 	
-	String userid = request.getParameter("userid").trim();
-	String username = request.getParameter("username").trim();
+	String memno = request.getParameter("memno").trim();
+
+
 	String tel = request.getParameter("tel");
 	String mail = request.getParameter("mail").trim();
 
@@ -17,7 +18,7 @@
 	String addr = request.getParameter("addr");
 	String post = request.getParameter("post");
 	String inter = request.getParameter("inter").trim();
-	String state = request.getParameter("state").trim();
+ 
 			
 	String sql = "UPDATE pmember SET";
 	       
@@ -27,9 +28,8 @@
 	 		sql +=" gender='"+gender+"', ";
 	 		sql +=" addr='"+addr+"', ";
 	 		sql +=" post='"+post+"', ";
-	 		sql +=" inter='"+inter+"', ";
-	 		sql +=" state='"+state+"' ";
-	 		sql +=" WHERE userid='"+userid+"' ";
+	 		sql +=" inter='"+inter+"' ";
+	 		sql +=" WHERE memno='"+memno+"' ";
 		   
 		 
 	int rs = stmt.executeUpdate(sql);
@@ -37,7 +37,7 @@
 	if(rs >0) {
 	%>
 		<script>
-		alert("정보변경 완료");
+		alert("회원님의 정보변경 완료");
 	
 				
 	location="../member/userModify.jsp"
