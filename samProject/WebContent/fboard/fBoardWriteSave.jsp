@@ -35,13 +35,14 @@ if( len > 1000 ){
 
 
 
-String sql = " INSERT INTO pboard(bunq,userid,title,content,sdate,gubun) "
+String sql = " INSERT INTO pboard(bunq,userid,title,content,sdate,gubun,pub) "
 		   + " VALUES ( bunq_seq.NEXTVAL , "
 		   + " '"+userid1+"' , "
 		   + " '"+title+"' , "
 		   + " '"+content+"' , "
 		   + " sysdate, "
-		   + " '2' ) ";
+		   + " '2' , "
+		   + " '1' )";
 		   
 
 int result = stmt.executeUpdate(sql);
