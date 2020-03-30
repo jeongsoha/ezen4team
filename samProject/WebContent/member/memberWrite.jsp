@@ -143,9 +143,9 @@ width:100%;
  		}
 		var url="idcheck.jsp?userid="+id;
 		//window.open('웹주소','별칭','옵션');
-		window.open(url,'popup','width=400,height=150');
+		window.open(url,'popup','width=400,height=200');
 	}
-	
+
 
 	
 </script>
