@@ -138,7 +138,7 @@ int unit = 5;
 
             <td>
             <a href="?tab=<%=tab%>&addrji=<%=addrji%>&viewPage=<%=viewpage%>"> <h2><%=name%></h2></a></td>
-                    <tr><td><h5><%=addr%></h5></td></tr>
+                    <tr><td><h6><%=addr%></h6></td></tr>
             <td ><h5><%=tel%></h5></td>
             <tr></tr>
             <td style="border-bottom: 2px solid red;"> 고객만족점수: <%=star%></td>

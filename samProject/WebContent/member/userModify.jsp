@@ -43,7 +43,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=devide-width" , initial-scale="1">
+<meta name="viewport" content="width=devide-width" >
 <title>회원 관리</title>
 </head>
 
@@ -82,7 +82,7 @@
 
 .user_Modifyboard {
 	width: 900px;
-	height: 1000px;
+	height: 100%;
 	border: 1px solid #ccc;
 	margin: 0 auto;
 }
@@ -105,7 +105,7 @@
 		<div class="user_Modifyboard">
 			<!-- 상세정보 내용 -->
 			
-			<h3> - 회원 상세정보 (유저 수정화면) - </h3>
+			<h3> - 회원 정보 - </h3>
 			  <form name="frm" method="post" action="userModifySave.jsp">
 			  
 			  	<input type="hidden" name="memno" value="<%=memno %>">
@@ -113,61 +113,56 @@
   <thead class="thead-light">
 					<tr>
 						<th scope="col">항목</th>
-						<th width=40%>현재 정보</th>
-						<th width=40%>수정사항 입력</th>
+						<th width=80%>현재 정보(수정 시 변경기재)</th>
+				
 					</tr>
 					
 					<tr>
 						<th>유저이름</th>
 						<td><%=username %></td>
-						<td><%=username %></td>
+				
 					</tr>
 					<tr>
 						<th>ID</th>
 						<td><%=userid %></td>
-						<td><%=userid %></td>
+					
 					</tr>
 					<tr>
 						<th>전화번호</th>
-						<td><%=tel %></td>
+						
 						<td><input type="text" style="width: 150px" name="tel"
 							value="<%=tel %>"></td>
 					</tr>
 					<tr>
 						<th>이메일</th>
-						<td><%=mail %></td>
+					
 						<td><input type="text" style="width: 150px" name="mail"
 							value="<%=mail %>"></td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
+						
 						<td><%=birth %></td>
-						<td><input type="text" style="width: 150px" name="birth" id="birth"
-							value="<%=birth %>"></td>
 					</tr>
 					<tr>
 						<th>성별</th>
 						<td><%=hangender %></td>
-						<td> <select style="width:150px;height:25px;"  name="gender" > 
-                  <option value="M" <% if(gender.equals("M")){out.print("selected");}%>>&nbsp; 남자 </option>
-                  <option value="F" <% if(gender.equals("F")){out.print("selected");}%>>&nbsp; 여자 </option>
-                  </select></td>
+						
 					</tr>
 					<tr>
 						<th>우편번호</th>
-						<td><%=post %></td>
+						
 						<td><input type="text" style="width: 150px" name="post"
 							value="<%=post %>"></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><%=addr %></td>
+						
 						<td><input type="text" style="width: 350px" name="addr"
 							value="<%=addr %>"></td>
 					</tr>
 					<tr>
 						<th>관심사</th>
-						<td><%=haninter %></td>
 						  <td class="mtd">
                   <select style="width:150px;height:25px;" name="inter" > 
                   <option value="0" <% if(inter.equals("0")){out.print("selected");}%>>&nbsp; 미선택  </option>  <!-- 참고기능  selected -->

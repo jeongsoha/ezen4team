@@ -53,7 +53,7 @@ font-size:12px;
 
 		</ul>
 	
-		<span  Style="float:right; line-height:50px">홍길동[관리자]님 안녕하세요. </span>
+		<span  Style="float:right; line-height:50px">[관리자] 님 안녕하세요. </span>
 		<img Style="float:right" src="../images/admin.PNG" width="50" height="50">
 		
 		</div>
