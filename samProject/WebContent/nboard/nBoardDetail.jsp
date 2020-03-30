@@ -78,7 +78,8 @@ String hit = rs.getString("hit");
 <table style="margin-left:0px;">
          <tr align="left">
                <td class="badge badge-dark" style="font-size:15px;">글쓴이</td>
-               <td width="120px" class="td1"><%=userid %></td>
+               <!-- 이름표현 없이 관리자 등장 -->
+               <td width="120px" class="td1">관리자</td>  
                <td class="badge badge-dark" style="font-size:15px;">작성일</td>
                <td width="190px" class="td1"><%=sdate %></td>
                <td class="badge badge-dark" style="font-size:15px;">조회수</td>

@@ -153,8 +153,8 @@ ul, ol {
        <tr>
           <th> 
              <select name="pub">
-                <option selected>--공개여부--</option>
-                   <option value="1">공개</option>
+               
+                   <option value="1" selected >공개</option>
                    <option value="2">비공개</option>
                 </select> &nbsp;&nbsp;
                 
