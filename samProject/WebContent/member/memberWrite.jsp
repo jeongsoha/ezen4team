@@ -26,7 +26,7 @@
    border-radius: 7px; //
    width:70px;  //
    height:50px;
-   float:right;
+   float:left;
    margin-left:10px;
    
 }
@@ -106,7 +106,49 @@ width:100%;
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script>
 
+	function fn_memberSubmit(){
+		//(notnull)데이터유효성체크
+		var f = document.frm;
+ 		if( f.userid.value=="" ){
+ 			alert("아이디를 입력해주세요.");
+ 			f.userid.focus();
+ 			return false;
+ 		}
+ 		if( f.pwd.value==""){
+ 			alert("비밀번호를 입력해주세요.");
+ 			f.pwd.focus(); //커서자동클릭
+ 			return false;
+ 		}
+ 		if( f.username.value==""){
+ 			alert("이름을 입력해주세요."); 
+ 			f.username.focus(); //커서자동클릭
+ 			return false;
+ 		}
+ 		if(f.birthday.value=="" ){
+ 			alert("생일을 선택해주세요.");
+ 			f.birthday.focus();s
+ 			return false;
+ 		}
+		f.submit();
+	}
+	
+	function fn_popup(){
+		var id=document.frm.userid.value;
+		if( id == "" ){
+ 			alert("아이디를 입력해주세요.");
+ 			document.frm.userid.focus();
+ 			return false;
+ 		}
+		var url="idcheck.jsp?userid="+id;
+		//window.open('웹주소','별칭','옵션');
+		window.open(url,'popup','width=400,height=150');
+	}
+	
+
+	
+</script>
 <body> 
 <%@ include file = "../include/header.jsp" %>
 
@@ -117,37 +159,31 @@ width:100%;
    <form name="frm" method="post" action="memberSave.jsp">
    
       <!--  표 위치를 가운데로 오도록 만듬 / 테이블 범위확인 -->
-      <table style="width:450px;" align="center" border="0" bgcolor="skyblue"> 
+      <table style="width:450px;" align="center" border="0" bgcolor="#ffffff" > 
          
                <tr>
-                  <th class="mtd">아이디 <input  class="button1" type="button" value="중복확인" onclick ="fn_popup()"> </th>
+                <td class="mtd"><input class="textBox1" type="text" name="userid"  placeholder="  아이디를 입력해주세요" >     </td>
+               
                </tr>
+               <br>
                <tr>
-                  <td class="mtd"><input class="textBox1" type="text" name="userid"  placeholder="  아이디를 입력해주세요"> 
-                  
-                  </td>
+               
+                     <th class="mtd" > <input  class="button1" type="button" value="중복확인"  onclick ="fn_popup();" > </th>
+              
                </tr>
-               <tr>
-                  <th class="mtd">비밀번호</th>
-               </tr>
+          
                <tr>
                   <td class="mtd"><input class="textBox1" type="password" name="pwd" placeholder="  비밀번호를 입력해주세요"> </td>
                </tr>
-               <tr>
-                  <th class="mtd">비밀번호 재확인</th>
-               </tr>
+                 <br>
                <tr>
                   <td class="mtd"><input class="textBox1" type="password" name="pwd2" placeholder="  비밀번호를 입력해주세요"> </td>
                </tr>
-               <tr>
-                  <th class="mtd">이름</th>
-               </tr>
+         
                <tr>
                   <td class="mtd"><input class="textBox1" type="text" name="username" placeholder="  이름을 입력해주세요"></td>
                </tr>
-               <tr>
-                  <th class="mtd">생년월일</th>
-               </tr>
+           
                <tr>
                   <td class="mtd">
                   <input style="width:200px;height:40px;" type="text" name="bir_year" placeholder="  생년">
@@ -155,9 +191,7 @@ width:100%;
                   <input style="width:80px;height:40px;" type="text" name="bir_day" placeholder="  일">
                   </td>
                </tr>
-               <tr>
-                  <th class="mtd">성별</th>
-               </tr>
+
                <tr>
                   <td class="mtd">
                   <select style="width:200px;height:40px;"  name="gender" > 
@@ -167,30 +201,26 @@ width:100%;
                   </select>
                   </td>
                </tr>
-         
-                              
-               <tr>
-                  <th class="mtd">이메일</th>
-                  </tr>
+          
                <tr><td class="mtd"><input class="textBox1"  type="email" name="mail" id="mailcheck" placeholder="  이메일을 입력해주세요"> </td>
                </tr>
 
                <tr>
-                  <th class="mtd">전화번호</th>
+           
                   </tr><tr><td class="mtd"><input class="textBox1" type="text" name="tel" placeholder="  전화번호를 입력해주세요"></td>
                </tr>
                
                  <tr>
-                  <th class="mtd">우편번호</th>
+        
                   </tr><tr><td class="mtd"><input style="width:200px;height:40px;" class="textBox1" type="text" name="post" placeholder="  우편번호 "></td>
                </tr>
                
                  <tr>
-                  <th class="mtd">주소</th>
+  
                   </tr><tr><td class="mtd"><input class="textBox1" type="text" name="addr" placeholder="  주소 입력"></td>
                </tr>
                <tr>
-                  <th class="mtd">관심사</th>
+                
                </tr>                           
                     <tr>
                   <td class="mtd">
@@ -202,13 +232,13 @@ width:100%;
                   </td>
                </tr>
 
-               <tr>
+     
                   <th class="mtd" >
-                  <input style="width:100%;height:40px;" type="submit" value="가입하기" onclick="memberSave.jsp"> 
-                  
+                  <input style="width:40%;height:40px;"  type="submit" value="가입하기" onclick="fn_memberSubmit(); return false;"> 
+                  <input style="width:40%;height:40px;"  type="button" value="재작성" > 
                   
                   </th>
-               </tr>
+      
             </table>
          </form>
 
