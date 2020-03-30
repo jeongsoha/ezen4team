@@ -178,7 +178,7 @@
 		<p align="center">
 	
 			<button type="submit">수정하기</button>
-			<button type="button" onclick="window.close();">창닫기(수정취소)</button>
+			<button type="button" onclick="history.go(-1);">수정취소(이전화면)</button>
 	</p>
 		</form>
 
