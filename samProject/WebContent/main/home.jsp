@@ -238,6 +238,16 @@ article img{width:100%}
 @media only screen and (min-width:850px){
   body{padding:0 80px}
 }
+
+
+.main_body {
+	float :left;
+	width: 1800px;
+	height: 100%;
+	border: 0px solid #ccc;
+	margin: 0 auto;
+}
+
 </style>
 
 <body> 
@@ -245,6 +255,7 @@ article img{width:100%}
 
 <%@ include file = "../include/header.jsp" %>
 
+<div class="main_body">
 <section>
 
 
@@ -324,11 +335,11 @@ article img{width:100%}
    %>
 </table>
       
-   </div>
+   </div> 
 
 <!-- -------------------333 -->
 
-   <div class="d d3" >
+   <div class="d d3" style="margin-left:20px;" >
       <table align="center" style="width:600px; height:395px;" class="s table table-striped table-dark">
          <thead>
                <tr align="center">
@@ -357,14 +368,15 @@ article img{width:100%}
 
 <!-- -------------------444 -->
 
-   <div class="d d4" style="margin-left:330px" >
-
-   </div>
+  
    
 <!-- -------------------- -->
-
-</div>
 </section>
+</div>
+
+	     
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+		
 
 <%@ include file = "../include/footer.jsp" %> 
    
