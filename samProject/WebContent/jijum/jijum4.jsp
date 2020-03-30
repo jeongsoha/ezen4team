@@ -154,13 +154,13 @@ int unit = 5;
       
          
          
-   </div>
+  
 
 
    <br>
    <br>
    
-    <div Style="width:300px; margin-left: 200px" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
+    <div Style="width:150px; margin-left: 100px" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
    
   <ul class="pagination pagination-sm">
              
@@ -174,7 +174,7 @@ int unit = 5;
 
 </div>     
 
-
+ </div>
    <br>
    <br>
    <br>
