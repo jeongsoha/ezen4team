@@ -159,13 +159,13 @@ text-decoration:none;
 <%@ include file = "../include/header.jsp" %>
 
 <section>
-
-
+	<br>
+	<h3 align="center"> YOLO 회원가입 </h3>
 
    <form name="frm" method="post" action="memberSave.jsp">
    
       <!--  표 위치를 가운데로 오도록 만듬 / 테이블 범위확인 -->
-      <table style="width:450px;" align="center" border="0 auto" bgcolor="#ffffff"  > 
+      <table style="width:450px;" align="center"  bgcolor="#ffffff"  > 
          
                <tr >
                 <td class="mtd"><input class="textBox1" type="text" name="userid"  placeholder="  아이디를 입력해주세요" >     </td>
@@ -231,7 +231,7 @@ text-decoration:none;
                     <tr>
                   <td class="mtd">
                   <select style="width:200px;height:40px;" name="inter" > 
-                  <option value="0">&nbsp; -- 선 택 --   <!-- 이상태로 넘어가면, 미선택 0 으로 세팅-->
+                  <option value="0">&nbsp; - 관심사 -   <!-- 이상태로 넘어가면, 미선택 0 으로 세팅-->
                   <option value="1">&nbsp; 자전거 <!-- 참고기능  selected -->
                   <option value="2">&nbsp; 킥보드 <!-- 참고기능  selected -->
                   </select>
@@ -252,6 +252,10 @@ text-decoration:none;
 
 
 </section>
+	     
+<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
+		
+
 
 <%@ include file = "../include/footer.jsp" %> 
    

@@ -82,7 +82,7 @@
 
 .user_Modifyboard {
 	width: 900px;
-	height: 100%;
+	height: 70%;
 	border: 1px solid #ccc;
 	margin: 0 auto;
 }
@@ -101,10 +101,10 @@
 <body>
 
 <%@ include file = "../include/header.jsp" %>
-
+	<div Style=clear:both;height:30px;></div><!--   본문 body 와 간격 30px 띄우기 -->
 		<div class="user_Modifyboard">
 			<!-- 상세정보 내용 -->
-			
+		
 			<h3> - 회원 정보 - </h3>
 			  <form name="frm" method="post" action="userModifySave.jsp">
 			  
