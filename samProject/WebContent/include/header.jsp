@@ -37,7 +37,7 @@
   
   <!-- 배너 좌측에서부터 150px 간격 -->
    <div style="float:left;">   
-      <img style="margin-left:-30px;margin-top:20px;width:90px;height:80px;" src="../images/logo2.PNG" onclick="location='../main/home.jsp'">
+      <img style="margin-left:-30px;margin-top:20px;width:120px;height:80px;" src="../images/logo2.PNG" onclick="location='../main/home.jsp'">
    </div>                                                           <!-- 헤더 로고 -->
    <br>
    <br>
@@ -48,7 +48,7 @@
       <li><a href="#" onclick="location='../jijum/jijum4.jsp'">대리점</a>
       <ul>
          
-           <li><a href="#">대리점찾기</a></li>
+           <li><a href="#" onclick="location='../jijum/jijum4.jsp'">대리점찾기</a></li>
            <li><a href="#">온라인구매</a></li>
            <li><a href="#">대량구매</a></li>
            

@@ -9,6 +9,11 @@ String tab = (String) request.getParameter("tab");
       tab = "";
    }
    
+ String viewpage = (String) request.getParameter("viewPage");
+   if (viewpage == null) {
+      viewpage = "";
+   }
+   
 int unit = 5;
       String viewPage = request.getParameter("viewPage");
       if (viewPage == null) {  // 첫 진입 null 이면 에러(수정)
@@ -132,7 +137,7 @@ int unit = 5;
          <tr style="border-top: 2px solid red; text-align: center; ">
 
             <td>
-            <a href="?tab=<%=tab%>&addrji=<%=addrji%>"> <h2><%=name%></h2></a></td>
+            <a href="?tab=<%=tab%>&addrji=<%=addrji%>&viewPage=<%=viewpage%>"> <h2><%=name%></h2></a></td>
                     <tr><td><h5><%=addr%></h5></td></tr>
             <td ><h5><%=tel%></h5></td>
             <tr></tr>
