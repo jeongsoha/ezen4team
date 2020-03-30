@@ -36,14 +36,14 @@
   <div class="header_container"> 
   
   <!-- 배너 좌측에서부터 150px 간격 -->
-   <div style="float:left;">   
+   <div style="float:left; border-radius: 12px;">   
       <img style="margin-left:-30px;margin-top:20px;width:120px;height:80px;" src="../images/logo2.PNG" onclick="location='../main/home.jsp'">
    </div>                                                           <!-- 헤더 로고 -->
    <br>
    <br>
     
    <div class="menubar">
-   <ul style=margin-top:10px>
+   <ul style=margin-top:10px; border-radius: 12px;>
       
       <li><a href="#" onclick="location='../jijum/jijum4.jsp'">대리점</a>
       <ul>

@@ -90,14 +90,20 @@ ul, ol {
     transition: .22s ease;
 }
 
-.mtd {
+.mtd:hover {
 height:30px;
+
 }
 
 .textBox1 {
 height:40px;
 width:100%;
 }
+.input type:hover{
+background: red;
+border:0px;
+color:red;
+text-decoration:none;
 
 
 </style>
@@ -143,7 +149,7 @@ width:100%;
  		}
 		var url="idcheck.jsp?userid="+id;
 		//window.open('웹주소','별칭','옵션');
-		window.open(url,'popup','width=400,height=150');
+		window.open(url,'popup','width=400,height=200');
 	}
 	
 
@@ -159,9 +165,9 @@ width:100%;
    <form name="frm" method="post" action="memberSave.jsp">
    
       <!--  표 위치를 가운데로 오도록 만듬 / 테이블 범위확인 -->
-      <table style="width:450px;" align="center" border="0" bgcolor="#ffffff" > 
+      <table style="width:450px;" align="center" border="0 auto" bgcolor="#ffffff"  > 
          
-               <tr>
+               <tr >
                 <td class="mtd"><input class="textBox1" type="text" name="userid"  placeholder="  아이디를 입력해주세요" >     </td>
                
                </tr>
@@ -234,8 +240,8 @@ width:100%;
 
      
                   <th class="mtd" >
-                  <input style="width:40%;height:40px;"  type="submit" value="가입하기" onclick="fn_memberSubmit(); return false;"> 
-                  <input style="width:40%;height:40px;"  type="button" value="재작성" > 
+                  <input style="width:40%;height:40px;" type="submit" value="가입하기" onclick="fn_memberSubmit(); return false;" > 
+                  <input style="width:40%;height:40px;"  type="reset" value="재작성" > 
                   
                   </th>
       

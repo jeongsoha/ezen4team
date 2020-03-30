@@ -34,7 +34,7 @@
  
     <script>
     
-    alert ("환영합니다. 회원가입 완료!");
+    alert ("환영합니다. 회원가입 완료! 로그인해주세요");
     
     location = "../main/home.jsp";
     </script>

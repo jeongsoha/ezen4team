@@ -123,12 +123,13 @@ font-size:20px;
 }
 .conten{
 font-size:15px;
-
+ 
 }
 .tabmenu{ 
   width:1000px; 
   margin: 0  auto; 
   position:relative;
+
    
 }
 .tabmenu ul li{
@@ -137,7 +138,7 @@ font-size:15px;
   float:left;  
   text-align:center; 
   background :#f9f9f9;
-  
+   border-radius: 12px;
 }
 .tabmenu ul li a{
   display:block;
@@ -175,6 +176,8 @@ font: 67.5% "맑은고딕";
 font-size:18px;                  /* 메뉴 글씨크기 */
 font-weight:bold;
 float :right;
+
+
 }
 
 .menubar ul{         
@@ -182,11 +185,13 @@ height:50px;
 list-style:none;
 margin:150;
 padding:0;
+
 }
 
 .menubar li{
 float:left;
 padding:0px;
+
 }
 
 .menubar li a{
@@ -232,10 +237,12 @@ float:none;
 margin:0px;
 padding:0px;
 width:200px;
+
 }
 
 .menubar li:hover li a{
 background:none;
+
 }
 
 .menubar li ul a{
@@ -246,6 +253,7 @@ font-style:normal;
 margin:0px;
 padding:0px 10px 0px 15px;
 text-align:left;
+
 }
 
 .menubar li ul a:hover, .menubar li ul li:hover a{
@@ -253,8 +261,10 @@ background: #eeeeee; /* 드랍다운 메뉴색전환  */
 border:0px;
 color:red;
 text-decoration:none;
+
 }
 
 .menubar p{
 clear:left;
+
 }
