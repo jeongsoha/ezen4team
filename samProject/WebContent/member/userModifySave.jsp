@@ -13,8 +13,6 @@
 	String tel = request.getParameter("tel");
 	String mail = request.getParameter("mail").trim();
 
-	String birth = request.getParameter("birth");
-	String gender = request.getParameter("gender"); 
 	String addr = request.getParameter("addr");
 	String post = request.getParameter("post");
 	String inter = request.getParameter("inter").trim();
@@ -24,8 +22,7 @@
 	       
 	 		sql +=" tel='"+tel+"', ";
 	 		sql +=" mail='"+mail+"', ";
-	 		sql +=" birth='"+birth+"', ";
-	 		sql +=" gender='"+gender+"', ";
+	 		
 	 		sql +=" addr='"+addr+"', ";
 	 		sql +=" post='"+post+"', ";
 	 		sql +=" inter='"+inter+"' ";

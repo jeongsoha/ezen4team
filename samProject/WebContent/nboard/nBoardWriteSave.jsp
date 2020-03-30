@@ -10,7 +10,7 @@
 String title = request.getParameter("title").trim(); 
 String content = request.getParameter("content").trim();
 String pub = request.getParameter("pub"); 
-String userid1 = (String) session.getAttribute("sessionUserId");
+String userid1 = (String) session.getAttribute("sessionUserid");
 
 String sql = "insert into pboard(bunq,title,content,pub,sdate,userid,gubun)";
 sql+= "values(bunq_seq.NEXTVAL , '"+title+"','"+content+"','"+pub+"',sysdate,'"+userid1+"','1')";

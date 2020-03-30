@@ -104,7 +104,7 @@ function fn_popup(num) {
 
 	// window.open('웹주소','별칭','옵션')  // 별칭은 중요도 낮다
 
-	window.open(url,'popup','width=900,height=800');
+	window.open(url,'popup','width=900,height=800, scrollbars = yes');
 
 }
 
