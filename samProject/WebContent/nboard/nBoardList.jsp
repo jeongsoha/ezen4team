@@ -7,7 +7,7 @@
 <%
 String admin = (String) session.getAttribute("adminConfirm");
 
-int unit = 10;
+int unit = 5;
 String viewPage = request.getParameter("viewPage");
 if( viewPage == null ){
 	viewPage = "1";
@@ -32,15 +32,15 @@ if("Y".equals(admin)) {
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
 			   + " from pboard where gubun='1' "
-			   + " order by bunq asc ) a order by bunq desc ) b "
-	         + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
+			   + " order by bunq asc ) a order by rn asc ) b "
+	         + " where rn >= "+startNo+"  and rn <= "+endNo+"  ";
 }else {
 	sql = " select b.* from ( "
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
 			   + " from pboard where pub='1' and gubun='1' "
-			   + " order by bunq asc ) a order by bunq desc ) b "
-       	  + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
+			   + " order by bunq asc ) a order by rn asc ) b "
+       	  + " where rn >= "+startNo+"  and rn <= "+endNo+"  ";
 }
 ResultSet rs = stmt.executeQuery(sql);
 

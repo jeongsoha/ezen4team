@@ -26,7 +26,7 @@ String sql = " select b.* from ( "
 	       + " 	select rownum rn, a.* from( "
 		   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
 		   + " from pboard where gubun='2' and pub='1' "
-		   + " order by bunq asc ) a order by bunq desc  ) b "
+		   + " order by bunq desc ) a  ) b "
 		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
 		  
 ResultSet rs = stmt.executeQuery(sql);

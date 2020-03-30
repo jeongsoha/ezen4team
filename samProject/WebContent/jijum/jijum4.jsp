@@ -11,7 +11,7 @@ String tab = (String) request.getParameter("tab");
    
  String viewpage = (String) request.getParameter("viewPage");
    if (viewpage == null) {
-      viewpage = "";
+      viewpage = "1";
    }
    
 int unit = 5;
@@ -160,7 +160,7 @@ int unit = 5;
    <br>
    <br>
    
-    <div Style="width:200px; margin-left: 200px" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
+    <div Style="width:300px; margin-left: 200px" > <!--  페이지 버튼 가운데 정렬을 위한 div -->
    
   <ul class="pagination pagination-sm">
              
