@@ -36,104 +36,6 @@ String admin = (String) session.getAttribute("adminConfirm");
 
 <style>
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
-.slideshow-container {
-   clear:both;
-  max-width: 1920px;
-  max-height: 600px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 10s;
-  animation-name: fade;
-  animation-duration: 10s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
 
 /* --------- */
 /* #5483b1 */
@@ -266,38 +168,77 @@ ul, ol {
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script>
 
-/* ------js------- */
-var slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) {
-   showSlides(slideIndex += n);
+<style>
+html,body,div,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tr,th,td,article,aside,canvas,details,embed,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+body{line-height:1}
+ol,ul{list-style:none}
+table{border-collapse:collapse;border-spacing:0}
+caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}
+q,blockquote{quotes:none}
+q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}
+a img{border:none}
+article{display:block}
+body{background:#f0523f;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-weight:bold;font-size:16px;margin:12px 0}
+span{margin:35px 0 5px;font-size:26px;font-weight:normal;color:#fff}
+#slider{text-align:center}
+h2{margin:40px 0 25px;border-bottom:1px solid #bbb;padding:0 0 10px}
+p{margin:20px 0 16px}
+strong{font-weight:bold}
+label,a{color:brown;cursor:pointer;text-decoration:none;font-style:italic}
+label:hover,a:hover{color:#ddd!important}
+*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+label,#active,img{-moz-user-select:none;-webkit-user-select:none}
+.catch{display:block;height:0;overflow:hidden}
+#slider{margin:0 auto}
+input{display:none}
+#slide1:checked ~ #slides .inner{margin-left:0}
+#slide2:checked ~ #slides .inner{margin-left:-100%}
+#slide3:checked ~ #slides .inner{margin-left:-200%}
+#slide4:checked ~ #slides .inner{margin-left:-300%}
+#slide5:checked ~ #slides .inner{margin-left:-400%}
+#container{width:100%;overflow:hidden}
+article img{width:100%}
+#slides .inner{width:500%;line-height:0}
+#slides article{width:20%;float:left}
+#commands{margin:-25% 0 0 0;width:100%;height:50px}
+#commands label{display:none;width:80px;height:80px;opacity:0.5}
+#commands label:hover{opacity:0.8}
+#active{position:relative;z-index:5;margin:16% 0 0;text-align:center}
+#active label{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;display:inline-block;width:10px;height:10px;background:#bbb}
+#active label:hover{background:#333;border-color:#777!important}
+#slide1:checked ~ #commands label:nth-child(2),#slide2:checked ~ #commands label:nth-child(3),#slide3:checked ~ #commands label:nth-child(4),#slide4:checked ~ #commands label:nth-child(5),#slide5:checked ~ #commands label:nth-child(1){background:url('https://0.s3.envato.com/files/84450220/img/next.png') no-repeat;float:right;margin:0 12px 0 0;display:block}
+#slide1:checked ~ #commands label:nth-child(5),#slide2:checked ~ #commands label:nth-child(1),#slide3:checked ~ #commands label:nth-child(2),#slide4:checked ~ #commands label:nth-child(3),#slide5:checked ~ #commands label:nth-child(4){background:url('https://0.s3.envato.com/files/84450220/img/previous.png') no-repeat;float:left;margin:0 0 0 -6px;display:block}
+#slide1:checked ~ #active label:nth-child(1),#slide2:checked ~ #active label:nth-child(2),#slide3:checked ~ #active label:nth-child(3),#slide4:checked ~ #active label:nth-child(4),#slide5:checked ~ #active label:nth-child(5){background:#000;opacity:0.6;border-color:#fff!important;border:2px solid #fff}
+.caption{line-height:20px;margin:0 0 -150%;position:absolute;padding:320px 12px;opacity:0;color:#fff;text-transform:none;font-family:'Open Sans',Arial,Helvetica,sans-serif;text-align:left;font-size:18px}
+.caption bar{display:inline-block;padding:10px;background:#000;border-radius:3px 3px 3px 3px;-moz-border-radius:3px 3px 3px 3px;-webkit-border-radius:3px 3px 3px 3px;opacity:0.7;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70)}
+#slides{position:relative;padding:2px;border:1px solid #ddd;margin:45px 0 0;background:#FFF;background:-webkit-linear-gradient(#FFF,#FFF 20%,#EEE 80%,#DDD);background:-moz-linear-gradient(#FFF,#FFF 20%,#EEE 80%,#DDD);background:-ms-linear-gradient(#FFF,#FFF 20%,#EEE 80%,#DDD);background:-o-linear-gradient(#FFF,#FFF 20%,#EEE 80%,#DDD);background:linear-gradient(#FFF,#FFF 20%,#EEE 80%,#DDD);-webkit-border-radius:2px 2px 2px 2px;-moz-border-radius:2px 2px 2px 2px;border-radius:2px 2px 2px 2px;-webkit-box-shadow:0 0 3px rgba(0,0,0,0.2);-moz-box-shadow:0 0 3px rgba(0,0,0,0.2);box-shadow:0 0 3px rgba(0,0,0,0.2)}
+#slides .inner{-webkit-transform:translateZ(0);-webkit-transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);-moz-transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);-ms-transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);-o-transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);-webkit-transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000);-moz-transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000);-ms-transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000);-o-transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000);transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000)}
+#slider{-webkit-transform:translateZ(0);-webkit-transition:all 0.5s ease-out;-moz-transition:all 0.5s ease-out;-o-transition:all 0.5s ease-out;transition:all 0.5s ease-out}
+#commands label{-webkit-transform:translateZ(0);-webkit-transition:opacity 0.2s ease-out;-moz-transition:opacity 0.2s ease-out;-o-transition:opacity 0.2s ease-out;transition:opacity 0.2s ease-out}
+#slide1:checked ~ #slides article:nth-child(1) .caption,#slide2:checked ~ #slides article:nth-child(2) .caption,#slide3:checked ~ #slides article:nth-child(3) .caption,#slide4:checked ~ #slides article:nth-child(4) .caption,#slide5:checked ~ #slides article:nth-child(5) .caption{opacity:1;-webkit-transition:all 1s ease-out 0.6s;-moz-transition:all 1s ease-out 0.6s;-o-transition:all 1s ease-out 0.6s;transition:all 1s ease-out 0.6s}
+#commands,#commands label,#slides,#active,#active label{-webkit-transform:translateZ(0);-webkit-transition:all 0.5s ease-out;-moz-transition:all 0.5s ease-out;-o-transition:all 0.5s ease-out;transition:all 0.5s ease-out}
+#slider{max-width:960px}
+@media only screen and (max-width:850px) and (min-width:450px){
+  #slider #commands{margin:-25% 0 0 5%;width:90%;height:50px}
+  #slider #commands label{-moz-transform:scale(0.9);-webkit-transform:scale(0.9);-o-transform:scale(0.9);-ms-transform:scale(0.9);transform:scale(0.9)}
+  #slider #slides .caption{padding:280px 12px}
+  #slider #slides{padding:2px 0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+  #slider #active{margin:15% 0 0}
 }
-
-function currentSlide(n) {
-   showSlides(slideIndex = n);
+@media only screen and (max-width:450px){
+  #slider #commands{margin:-28% 0 0 1%;width:100%;height:70px}
+  #slider #active{margin:12% 0 0}
+  #slider #slides{padding:2px 0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+  #slider #slides .caption{opacity:0!important}
+  #slider #commands label{-moz-transform:scale(0.7);-webkit-transform:scale(0.7);-o-transform:scale(0.7);-ms-transform:scale(0.7);transform:scale(0.7)}
 }
-
-function showSlides(n) {
-   var i;
-   var slides = document.getElementsByClassName("mySlides");
-   var dots = document.getElementsByClassName("dot");
-   if(n > slides.length) {slideIndex=1}
-   if(n < 1){slideIndex = slides.length}
-   for(i=0;i<slides.length; i++){
-      slides[i].style.display = "none";
-   }
-   for(i=0;i<dots.length; i++){
-      dots[i].className = dots[i].className.replace(" active", "");
-   }
-   slides[slideIndex-1].style.display = "block";
-   dots[slideIndex-1].className += " active";
-
+@media only screen and (min-width:850px){
+  body{padding:0 80px}
 }
-</script>
-
+</style>
 
 <body> 
 
@@ -307,47 +248,57 @@ function showSlides(n) {
 <section>
 
 
-<!-- -------------------111 -->
-<div class="d d1 slideshow-container">
+<article id="slider">
+<div>
 
-
-<div class="mySlides fade">
-   <div class="numbertext"> 1 / 3 </div>
-   <img src="../images/pic1.png" style="width:1920px; height:600px;">
-   <div class="text">Caption Text</div>
 </div>
-
-<div class="mySlides fade">
-   <div class="numbertext"> 2 / 3 </div>
-   <img src="../images/pic2.png" style=" width:1920px; height:600px;">
-   <div class="text">Caption Two</div>
+<input checked type='radio' name='slider' id='slide1'/>
+<input type='radio' name='slider' id='slide2'/>
+<input type='radio' name='slider' id='slide3'/>
+<input type='radio' name='slider' id='slide4'/>
+<input type='radio' name='slider' id='slide5'/>
+<div id="slides">
+	<div id="container">
+		<div class="inner">
+			<article>
+			<img src="../images/pic1.png"  width=1200px height=400px />
+			</article>
+			<article>
+			<div class='caption'>
+				<bar>윤철규가 했음</bar>
+			</div>
+			<img src="../images/pic2.png"/>
+			</article>
+			<article>
+			<div class='caption'>
+				<bar>윤철규가 했음 </bar>
+			</div>
+			<img src="../images/pic3.png"/>
+			</article>
+			
+			
+		</div>
+	</div>
 </div>
+<div id="commands">
+	<label for='slide1'></label>
+	<label for='slide2'></label>
+	<label for='slide3'></label>
 
-<div class="mySlides fade">
-   <div class="numbertext"> 3 / 3 </div>
-   <img src = "../images/pic3.png" style=" width:1920px; height:600px;">
-   <div class="text">Caption Three</div>
 </div>
+<div id="active">
+	<label for='slide1'></label>
+	<label for='slide2'></label>
+	<label for='slide3'></label>
 
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(-1)">&#10095;</a>
-
-
-<br>
-
-<div style="text-align:center">
-   <span class="dot" onclick="currentSlide(1)"></span>
-   <span class="dot" onclick="currentSlide(2)"></span>
-   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
-</div>
+</article>
 
-
-<div class="detail">
+<br><br>
    
 <!-- -------------------222 -->
 
-<div class="d d2">
+<div class="d d2" style="margin-left:330px" >
 <table align="center" style="width:600px; height:395px;" class="s table table-striped">
    <thead>
       <tr align="center">
@@ -373,13 +324,11 @@ function showSlides(n) {
    %>
 </table>
       
-      
-   
    </div>
 
 <!-- -------------------333 -->
 
-   <div class="d d3">
+   <div class="d d3" >
       <table align="center" style="width:600px; height:395px;" class="s table table-striped table-dark">
          <thead>
                <tr align="center">
@@ -408,7 +357,7 @@ function showSlides(n) {
 
 <!-- -------------------444 -->
 
-   <div class="d d4" >
+   <div class="d d4" style="margin-left:330px" >
 
    </div>
    
