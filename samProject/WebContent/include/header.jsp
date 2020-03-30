@@ -37,7 +37,7 @@
   
   <!-- 배너 좌측에서부터 150px 간격 -->
    <div style="float:left;">   
-      <img style="margin-left:-30px;margin-top:10px;width:90px;height:90px;" src="../images/logo2.PNG" onclick="location='../main/home.jsp'">
+      <img style="margin-left:-30px;margin-top:20px;width:90px;height:80px;" src="../images/logo2.PNG" onclick="location='../main/home.jsp'">
    </div>                                                           <!-- 헤더 로고 -->
    <br>
    <br>
