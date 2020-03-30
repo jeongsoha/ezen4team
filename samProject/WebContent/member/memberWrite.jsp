@@ -151,7 +151,7 @@ text-decoration:none;
 		//window.open('웹주소','별칭','옵션');
 		window.open(url,'popup','width=400,height=200');
 	}
-	
+
 
 	
 </script>

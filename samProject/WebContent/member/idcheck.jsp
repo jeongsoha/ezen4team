@@ -32,8 +32,8 @@
 
 <style>
 	.div1{
-		width:98%;
-		height:98%;
+		width:95%;
+		height:95%;
 		font-size:16px;
 		color:#777777;
 		font-weight:bold;

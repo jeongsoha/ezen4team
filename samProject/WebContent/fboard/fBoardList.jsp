@@ -22,12 +22,12 @@ int totalPage = (int)Math.ceil((double)total/unit);
 int startNo = ( Integer.parseInt(viewPage) - 1 ) * unit +1;
 int endNo = startNo + unit-1;
 
-String sql = " select b.* from ( "
+String sql = " select c.* from (select b.*, rownum rn2 from ( "
 	       + " 	select rownum rn, a.* from( "
 		   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit " 
 		   + " from pboard where gubun='2' and pub='1' "
-		   + " order by bunq desc ) a  ) b "
-		   + " where rn >= "+startNo+"  and rn <= "+endNo+" ";
+		   + " order by bunq asc ) a order by rn desc ) b ) c "
+		   + " where rn2 >= "+startNo+"  and rn2 <= "+endNo+" ";
 		  
 ResultSet rs = stmt.executeQuery(sql);
 				   

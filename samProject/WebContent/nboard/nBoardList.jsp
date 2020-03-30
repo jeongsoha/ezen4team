@@ -28,19 +28,19 @@ int endNo = startNo + unit-1;
 
 String sql = "";
 if("Y".equals(admin)) {
-	sql = " select b.* from ( "
+	sql = " select c.* from (select b.*, rownum rn2 from ( "
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
 			   + " from pboard where gubun='1' "
-			   + " order by bunq asc ) a order by rn asc ) b "
-	         + " where rn >= "+startNo+"  and rn <= "+endNo+"  ";
+			   + " order by bunq asc ) a order by rn desc ) b ) c"
+	         + " where rn2 >= "+startNo+"  and rn2 <= "+endNo+"  ";
 }else {
-	sql = " select b.* from ( "
+	sql = " select c.* from (select b.* , rownum rn2 from ( "
 		       + " 	select rownum rn, a.* from( "
 			   + " select bunq,title,userid,to_char(sysdate,'YYYY-MM-DD') sdate ,hit,pub" 
 			   + " from pboard where pub='1' and gubun='1' "
-			   + " order by bunq asc ) a order by rn asc ) b "
-       	  + " where rn >= "+startNo+"  and rn <= "+endNo+"  ";
+			   + " order by bunq asc ) a order by rn desc ) b) c "
+       	  + " where rn2 >= "+startNo+"  and rn2 <= "+endNo+"  ";
 }
 ResultSet rs = stmt.executeQuery(sql);
 
