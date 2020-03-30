@@ -17,7 +17,7 @@
 %>
 <%
 	String sql ="select count(*) cnt from pmember where userid='"+userid+"'";
-	Statement stmt= conn.createStatement();
+
 	ResultSet rs = stmt.executeQuery(sql);
 	rs.next();
 	int cnt =  rs.getInt("cnt");
