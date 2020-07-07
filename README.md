@@ -1,2 +1,2 @@
 # teamproject04
-4 team
+단순 jsp만 사용한 쇼핑몰
